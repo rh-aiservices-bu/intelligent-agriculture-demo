@@ -200,6 +200,24 @@
         "name": "../../../../crop_demo/assets/corn-ill.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/drone-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/drone-1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/drone-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/drone-2.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -235,7 +253,32 @@
         "windowMask": false
       },
       "objectsGroups": [],
-      "variables": [],
+      "variables": [
+        {
+          "folded": true,
+          "name": "_dronePositionNumber",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "_dronePositionLegs",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "_droneDestinationX",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "folded": true,
+          "name": "_droneDestinationY",
+          "type": "number",
+          "value": 0
+        }
+      ],
       "instances": [
         {
           "angle": 0,
@@ -373,6 +416,21 @@
           "x": 512,
           "y": 372,
           "zOrder": 12,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Drone",
+          "persistentUuid": "385dbad3-cfc1-4851-8a82-ac6dbd11a81f",
+          "width": 0,
+          "x": 49,
+          "y": 49,
+          "zOrder": 13,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -987,9 +1045,314 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Drone",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "FixedPathPoints",
+              "type": "array",
+              "children": [
+                {
+                  "type": "structure",
+                  "children": [
+                    {
+                      "folded": true,
+                      "name": "X",
+                      "type": "number",
+                      "value": 1000
+                    },
+                    {
+                      "folded": true,
+                      "name": "Y",
+                      "type": "number",
+                      "value": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "structure",
+                  "children": [
+                    {
+                      "folded": true,
+                      "name": "X",
+                      "type": "number",
+                      "value": 0
+                    },
+                    {
+                      "folded": true,
+                      "name": "Y",
+                      "type": "number",
+                      "value": 100
+                    }
+                  ]
+                },
+                {
+                  "type": "structure",
+                  "children": [
+                    {
+                      "folded": true,
+                      "name": "X",
+                      "type": "number",
+                      "value": -1000
+                    },
+                    {
+                      "folded": true,
+                      "name": "Y",
+                      "type": "number",
+                      "value": 0
+                    }
+                  ]
+                },
+                {
+                  "type": "structure",
+                  "children": [
+                    {
+                      "folded": true,
+                      "name": "X",
+                      "type": "number",
+                      "value": 0
+                    },
+                    {
+                      "folded": true,
+                      "name": "Y",
+                      "type": "number",
+                      "value": 100
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Tween",
+              "type": "Tween::TweenBehavior"
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.125,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/drone-1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 30,
+                        "y": 16
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/drone-2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 30,
+                        "y": 16
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Drone Path initialization",
+          "comment2": ""
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Once"
+              },
+              "parameters": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_dronePositionNumber",
+                "=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_dronePositionLegs",
+                "=",
+                "Drone.VariableChildCount(FixedPathPoints)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_droneDestinationX",
+                "=",
+                "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_droneDestinationY",
+                "=",
+                "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::AddObjectPositionTween"
+              },
+              "parameters": [
+                "Drone",
+                "Tween",
+                "\"FixedPathLeg\"",
+                "Variable(_droneDestinationX)",
+                "Variable(_droneDestinationY)",
+                "\"linear\"",
+                "1000",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Drone Path increment",
+          "comment2": ""
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "Tween::HasFinished"
+              },
+              "parameters": [
+                "Drone",
+                "Tween",
+                "\"FixedPathLeg\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Tween::RemoveTween"
+              },
+              "parameters": [
+                "Drone",
+                "Tween",
+                "\"FixedPathLeg\""
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_dronePositionNumber",
+                "=",
+                "mod(Variable(_dronePositionNumber)+1,Variable(_dronePositionLegs))"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_droneDestinationX",
+                "=",
+                "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
+              ]
+            },
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "_droneDestinationY",
+                "=",
+                "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
+              ]
+            },
+            {
+              "type": {
+                "value": "Tween::AddObjectPositionTween"
+              },
+              "parameters": [
+                "Drone",
+                "Tween",
+                "\"FixedPathLeg\"",
+                "Variable(_droneDestinationX)",
+                "Variable(_droneDestinationY)",
+                "\"linear\"",
+                "1000",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
       "layers": [
         {
           "ambientLightColorB": 32,
@@ -1047,7 +1410,12 @@
           "effects": []
         }
       ],
-      "behaviorsSharedData": []
+      "behaviorsSharedData": [
+        {
+          "name": "Tween",
+          "type": "Tween::TweenBehavior"
+        }
+      ]
     }
   ],
   "externalEvents": [],

@@ -1,0 +1,5 @@
+License: https://creativecommons.org/licenses/by-sa/4.0/deed.en
+Ref: https://commons.wikimedia.org/wiki/File:Drone.svg
+Source:	Own work
+Author:	Jacek Rużyczka
+Original file modified to add movement and colors
