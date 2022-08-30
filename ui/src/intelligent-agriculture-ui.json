@@ -191,6 +191,15 @@
         "name": "assets/tractor_green_2.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../../../crop_demo/assets/corn-ill.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../../../crop_demo/assets/corn-ill.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -222,7 +231,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.3745999999999997,
+        "zoomFactor": 0.5335999999999999,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -233,13 +242,18 @@
           "customSize": false,
           "height": 0,
           "layer": "Crops",
-          "name": "WheatHealthy",
+          "name": "Wheat",
           "persistentUuid": "44d0a987-fe41-401e-87c1-133757ea1065",
           "width": 0,
-          "x": 49,
-          "y": 49,
+          "x": 205,
+          "y": 250,
           "zOrder": 4,
-          "numberProperties": [],
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 0
+            }
+          ],
           "stringProperties": [],
           "initialVariables": []
         },
@@ -248,12 +262,32 @@
           "customSize": false,
           "height": 0,
           "layer": "",
-          "name": "WheatHealthy",
+          "name": "Wheat",
           "persistentUuid": "433e12b5-f7a6-4c8b-8c8b-d2f02625008d",
           "width": 0,
-          "x": 149,
-          "y": 49,
+          "x": 256,
+          "y": 624,
           "zOrder": 5,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 2
+            }
+          ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "15bdee62-4721-42db-80f9-cc554c2328be",
+          "width": 0,
+          "x": 731,
+          "y": 818,
+          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -263,12 +297,82 @@
           "customSize": false,
           "height": 0,
           "layer": "",
-          "name": "WheatHealthy",
-          "persistentUuid": "15bdee62-4721-42db-80f9-cc554c2328be",
+          "name": "TractorYellow",
+          "persistentUuid": "b96ca631-89ea-41cf-818b-c7611a8ed2b9",
           "width": 0,
-          "x": 249,
-          "y": 48,
-          "zOrder": 6,
+          "x": 1295,
+          "y": 569,
+          "zOrder": 8,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Corn",
+          "persistentUuid": "cdc07edf-cf89-4e6d-a2ed-6c6e8845bd10",
+          "width": 0,
+          "x": 592,
+          "y": 126,
+          "zOrder": 9,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 2
+            }
+          ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Potato",
+          "persistentUuid": "751c37ae-22cb-468f-98d1-f2d8c925d824",
+          "width": 0,
+          "x": 1066,
+          "y": 211,
+          "zOrder": 10,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 1
+            }
+          ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Potato",
+          "persistentUuid": "d39bf2a9-fa98-40d5-80c4-91487ed821e0",
+          "width": 0,
+          "x": 1385,
+          "y": 203,
+          "zOrder": 11,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Corn",
+          "persistentUuid": "837a05ec-38a2-40c8-9aa5-362ce22039f6",
+          "width": 0,
+          "x": 512,
+          "y": 372,
+          "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -277,7 +381,7 @@
       "objects": [
         {
           "assetStoreId": "",
-          "name": "WheatHealthy",
+          "name": "Wheat",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
@@ -286,7 +390,7 @@
           "behaviors": [],
           "animations": [
             {
-              "name": "",
+              "name": "Healthy",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -303,31 +407,19 @@
                         "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "WheatIll",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
+            },
             {
-              "name": "",
+              "name": "Ill",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -340,35 +432,23 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "WheatIllMarked",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
+            },
             {
-              "name": "",
+              "name": "IllMarked",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -381,14 +461,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
@@ -400,7 +480,7 @@
         },
         {
           "assetStoreId": "",
-          "name": "CornHealthy",
+          "name": "Corn",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
@@ -409,7 +489,7 @@
           "behaviors": [],
           "animations": [
             {
-              "name": "",
+              "name": "Healthy",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -426,31 +506,19 @@
                         "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "CornIll",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
+            },
             {
-              "name": "",
+              "name": "Ill",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -463,35 +531,23 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "CornIllMarked",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
+            },
             {
-              "name": "",
+              "name": "IllMarked",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -504,14 +560,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
@@ -523,7 +579,7 @@
         },
         {
           "assetStoreId": "",
-          "name": "PotatoHealthy",
+          "name": "Potato",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
@@ -532,7 +588,7 @@
           "behaviors": [],
           "animations": [
             {
-              "name": "",
+              "name": "Healthy",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -549,31 +605,19 @@
                         "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "PotatoIll",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
+            },
             {
-              "name": "",
+              "name": "Ill",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -586,35 +630,23 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
                   ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "assetStoreId": "",
-          "name": "PotatoIllMarked",
-          "tags": "",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
+            },
             {
-              "name": "",
+              "name": "IllMarked",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -627,14 +659,14 @@
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 49,
+                        "y": 49
                       },
                       "customCollisionMask": []
                     }
@@ -663,38 +695,292 @@
                   "timeBetweenFrames": 0.125,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/tractor_yellow_1.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 46.5,
+                        "y": 38
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 46.5,
+                        "y": 38
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 30
+                          },
+                          {
+                            "x": 29,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 76
+                          },
+                          {
+                            "x": 0,
+                            "y": 76
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/tractor_yellow_2.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
-                        "x": 0,
-                        "y": 0
+                        "x": 46.5,
+                        "y": 38
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
-                        "x": 0,
-                        "y": 0
+                        "x": 46.5,
+                        "y": 38
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 30
+                          },
+                          {
+                            "x": 29,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 76
+                          },
+                          {
+                            "x": 0,
+                            "y": 76
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "TractorGreen",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.125,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "assets/tractor_green_1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 30
+                          },
+                          {
+                            "x": 29,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 76
+                          },
+                          {
+                            "x": 0,
+                            "y": 76
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "assets/tractor_green_2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 30
+                          },
+                          {
+                            "x": 29,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 76
+                          },
+                          {
+                            "x": 0,
+                            "y": 76
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "TractorOrange",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.125,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "assets/tractor_orange_1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 30
+                          },
+                          {
+                            "x": 29,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 76
+                          },
+                          {
+                            "x": 0,
+                            "y": 76
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "assets/tractor_orange_2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 46.5,
+                        "y": 38
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 30
+                          },
+                          {
+                            "x": 29,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 0
+                          },
+                          {
+                            "x": 93,
+                            "y": 76
+                          },
+                          {
+                            "x": 0,
+                            "y": 76
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
