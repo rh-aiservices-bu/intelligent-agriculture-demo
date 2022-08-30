@@ -282,7 +282,7 @@
           "folded": true,
           "name": "_droneSpeed",
           "type": "number",
-          "value": 0.25
+          "value": 2
         },
         {
           "folded": true,
@@ -446,6 +446,36 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "7a1f3b24-1f7e-449c-83c4-a5d2a52ad01b",
+          "width": 0,
+          "x": 818,
+          "y": 422,
+          "zOrder": 14,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "480c36fd-3d1b-42ea-a3fb-9a462d3fc357",
+          "width": 0,
+          "x": 1107,
+          "y": 705,
+          "zOrder": 15,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -468,7 +498,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/wheat-healthy.png",
                       "points": [],
                       "originPoint": {
@@ -482,7 +512,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 30,
+                            "y": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 70
+                          },
+                          {
+                            "x": 30,
+                            "y": 70
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -497,7 +546,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/wheat-ill.png",
                       "points": [],
                       "originPoint": {
@@ -511,7 +560,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 30,
+                            "y": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 70
+                          },
+                          {
+                            "x": 30,
+                            "y": 70
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -526,7 +594,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/wheat-ill-marked.png",
                       "points": [],
                       "originPoint": {
@@ -540,7 +608,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 30,
+                            "y": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 30
+                          },
+                          {
+                            "x": 70,
+                            "y": 70
+                          },
+                          {
+                            "x": 30,
+                            "y": 70
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -1157,7 +1244,7 @@
                   "timeBetweenFrames": 0.125,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/drone-1.png",
                       "points": [],
                       "originPoint": {
@@ -1171,10 +1258,29 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 11.132075309753418,
+                            "y": 6.694182395935059
+                          },
+                          {
+                            "x": 48.61635208129883,
+                            "y": 6.191037654876709
+                          },
+                          {
+                            "x": 43.83647918701172,
+                            "y": 27.57468605041504
+                          },
+                          {
+                            "x": 15.660377502441406,
+                            "y": 27.32311248779297
+                          }
+                        ]
+                      ]
                     },
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/drone-2.png",
                       "points": [],
                       "originPoint": {
@@ -1188,7 +1294,26 @@
                         "x": 0,
                         "y": 0
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 11.132075309753418,
+                            "y": 6.694182395935059
+                          },
+                          {
+                            "x": 48.61635208129883,
+                            "y": 6.191037654876709
+                          },
+                          {
+                            "x": 43.83647918701172,
+                            "y": 27.57468605041504
+                          },
+                          {
+                            "x": 15.660377502441406,
+                            "y": 27.32311248779297
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -1203,7 +1328,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "name": "Drone Control",
+          "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
@@ -1395,7 +1520,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "sqrt(pow(Variable(_droneDestinationX)-Drone.X(),2) + pow(Variable(_droneDestinationY)-Drone.Y(),2)) / Variable(_droneSpeed)",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_droneSpeed)",
                     ""
                   ]
                 }
@@ -1488,6 +1613,134 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Drone Event",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Wheat",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinCommonInstructions::Once"
+                  },
+                  "parameters": []
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::PauseTween"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ResetObjectTimer"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "\"Survey\""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "disabled": true,
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                      },
+                      "parameters": [
+                        "Random(5)",
+                        "=",
+                        "5"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ChangeAnimation"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "=",
+                        "2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CompareObjectTimer"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "\"Survey\"",
+                    ">=",
+                    "2"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::ResumeTween"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "RemoveObjectTimer"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "\"Survey\""
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ],
       "layers": [
