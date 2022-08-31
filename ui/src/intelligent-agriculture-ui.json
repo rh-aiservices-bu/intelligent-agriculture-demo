@@ -289,6 +289,12 @@
           "name": "_droneRestart",
           "type": "boolean",
           "value": false
+        },
+        {
+          "folded": true,
+          "name": "_cropStatus",
+          "type": "string",
+          "value": ""
         }
       ],
       "instances": [
@@ -1673,10 +1679,36 @@
                   "events": [
                     {
                       "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [],
-                      "actions": []
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "AnimationName"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "\"Ill\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "await": true,
+                            "value": "SendAsyncRequest"
+                          },
+                          "parameters": [
+                            "\"http://localhost:5000/classify\"",
+                            "\"{\n  \\\"coordinates\\\": [\n    \\\"12.0\\\",\n    \\\"3.4\\\"\n  ],\n  \\\"ill\\\": true\n}\"",
+                            "\"POST\"",
+                            "\"application/json\"",
+                            "_cropStatus",
+                            ""
+                          ]
+                        }
+                      ]
                     },
                     {
+                      "disabled": true,
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
                         {
