@@ -436,7 +436,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Drones",
           "name": "Drone",
           "persistentUuid": "385dbad3-cfc1-4851-8a82-ac6dbd11a81f",
           "width": 0,
@@ -476,6 +476,26 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "e7b4dbff-8b32-4caa-a8ec-b7b547701df0",
+          "width": 0,
+          "x": 717,
+          "y": 624,
+          "zOrder": 16,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 1
+            }
+          ],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -498,7 +518,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": true,
+                      "hasCustomCollisionMask": false,
                       "image": "assets/wheat-healthy.png",
                       "points": [],
                       "originPoint": {
@@ -512,26 +532,7 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 30,
-                            "y": 30
-                          },
-                          {
-                            "x": 70,
-                            "y": 30
-                          },
-                          {
-                            "x": 70,
-                            "y": 70
-                          },
-                          {
-                            "x": 30,
-                            "y": 70
-                          }
-                        ]
-                      ]
+                      "customCollisionMask": []
                     }
                   ]
                 }
@@ -546,7 +547,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": true,
+                      "hasCustomCollisionMask": false,
                       "image": "assets/wheat-ill.png",
                       "points": [],
                       "originPoint": {
@@ -560,26 +561,7 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 30,
-                            "y": 30
-                          },
-                          {
-                            "x": 70,
-                            "y": 30
-                          },
-                          {
-                            "x": 70,
-                            "y": 70
-                          },
-                          {
-                            "x": 30,
-                            "y": 70
-                          }
-                        ]
-                      ]
+                      "customCollisionMask": []
                     }
                   ]
                 }
@@ -594,7 +576,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": true,
+                      "hasCustomCollisionMask": false,
                       "image": "assets/wheat-ill-marked.png",
                       "points": [],
                       "originPoint": {
@@ -608,26 +590,7 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 30,
-                            "y": 30
-                          },
-                          {
-                            "x": 70,
-                            "y": 30
-                          },
-                          {
-                            "x": 70,
-                            "y": 70
-                          },
-                          {
-                            "x": 30,
-                            "y": 70
-                          }
-                        ]
-                      ]
+                      "customCollisionMask": []
                     }
                   ]
                 }
@@ -1261,20 +1224,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 11.132075309753418,
-                            "y": 6.694182395935059
+                            "x": 20,
+                            "y": 13
                           },
                           {
-                            "x": 48.61635208129883,
-                            "y": 6.191037654876709
+                            "x": 39,
+                            "y": 13
                           },
                           {
-                            "x": 43.83647918701172,
-                            "y": 27.57468605041504
+                            "x": 35,
+                            "y": 22
                           },
                           {
-                            "x": 15.660377502441406,
-                            "y": 27.32311248779297
+                            "x": 24,
+                            "y": 22
                           }
                         ]
                       ]
@@ -1297,20 +1260,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 11.132075309753418,
-                            "y": 6.694182395935059
+                            "x": 20,
+                            "y": 13
                           },
                           {
-                            "x": 48.61635208129883,
-                            "y": 6.191037654876709
+                            "x": 39,
+                            "y": 13
                           },
                           {
-                            "x": 43.83647918701172,
-                            "y": 27.57468605041504
+                            "x": 35,
+                            "y": 22
                           },
                           {
-                            "x": 15.660377502441406,
-                            "y": 27.32311248779297
+                            "x": 24,
+                            "y": 22
                           }
                         ]
                       ]
@@ -1328,6 +1291,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -1619,120 +1583,165 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "name": "Drone Event",
+          "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CollisionNP"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "Wheat",
-                    "",
-                    "",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Tween::PauseTween"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "Tween",
-                    "\"FixedPathLeg\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ResetObjectTimer"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "\"Survey\""
-                  ]
-                }
-              ],
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Wheat Collision",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
               "events": [
                 {
-                  "disabled": true,
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Collision with Wheat that is not already marked",
+                  "comment2": ""
+                },
+                {
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
                       "type": {
-                        "value": "BuiltinCommonInstructions::CompareNumbers"
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "value": "CollisionNP"
+                          },
+                          "parameters": [
+                            "Drone",
+                            "Wheat",
+                            "",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "inverted": true,
+                            "value": "AnimationName"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "\"IllMarked\""
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Tween::PauseTween"
                       },
                       "parameters": [
-                        "Random(5)",
-                        "=",
-                        "5"
+                        "Drone",
+                        "Tween",
+                        "\"FixedPathLeg\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Drone",
+                        "\"Survey\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": []
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "AnimationName"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "\"Ill\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetAnimationName"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "\"IllMarked\""
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CompareObjectTimer"
+                      },
+                      "parameters": [
+                        "Drone",
+                        "\"Survey\"",
+                        ">=",
+                        "1"
                       ]
                     }
                   ],
                   "actions": [
                     {
                       "type": {
-                        "value": "ChangeAnimation"
+                        "value": "Tween::ResumeTween"
                       },
                       "parameters": [
-                        "Wheat",
-                        "=",
-                        "2"
+                        "Drone",
+                        "Tween",
+                        "\"FixedPathLeg\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "RemoveObjectTimer"
+                      },
+                      "parameters": [
+                        "Drone",
+                        "\"Survey\""
                       ]
                     }
                   ]
                 }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "CompareObjectTimer"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "\"Survey\"",
-                    ">=",
-                    "2"
-                  ]
-                }
               ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "Tween::ResumeTween"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "Tween",
-                    "\"FixedPathLeg\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "RemoveObjectTimer"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "\"Survey\""
-                  ]
-                }
-              ]
+              "parameters": []
             }
           ],
           "parameters": []
