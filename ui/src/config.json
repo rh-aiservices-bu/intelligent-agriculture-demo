@@ -1,0 +1,4 @@
+{
+    "classificationURL": "http://localhost:5000/classify",
+    "droneSpeed": "2"
+}

@@ -23,6 +23,7 @@ app.add_middleware(
 # Input data class
 class TileEntry(BaseModel):
     coordinates: Tuple[float,float] = None
+    kind: str = ""
     ill: bool = False
 
 # Output data class

@@ -23,7 +23,7 @@
     "author": "",
     "windowWidth": 1920,
     "windowHeight": 1080,
-    "latestCompilationDirectory": "",
+    "latestCompilationDirectory": "/home/gmoutier/Dev/repos/intelligent-agriculture-demo/build",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -57,6 +57,14 @@
   },
   "resources": {
     "resources": [
+      {
+        "disablePreload": false,
+        "file": "config.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "config",
+        "userAdded": true
+      },
       {
         "alwaysLoaded": false,
         "file": "assets/wheat-healthy.png",
@@ -194,15 +202,6 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "../../../../crop_demo/assets/corn-ill.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "../../../../crop_demo/assets/corn-ill.png",
-        "smoothed": true,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
         "file": "assets/drone-1.png",
         "kind": "image",
         "metadata": "",
@@ -255,6 +254,27 @@
       "objectsGroups": [],
       "variables": [
         {
+          "name": "_configurationJSON",
+          "type": "string",
+          "value": "\"\""
+        },
+        {
+          "name": "_configuration",
+          "type": "structure",
+          "children": [
+            {
+              "name": "classificationURL",
+              "type": "string",
+              "value": "\"\""
+            },
+            {
+              "name": "droneSpeed",
+              "type": "string",
+              "value": "\"\""
+            }
+          ]
+        },
+        {
           "folded": true,
           "name": "_dronePositionNumber",
           "type": "number",
@@ -280,21 +300,33 @@
         },
         {
           "folded": true,
-          "name": "_droneSpeed",
-          "type": "number",
-          "value": 2
-        },
-        {
-          "folded": true,
           "name": "_droneRestart",
           "type": "boolean",
           "value": false
         },
         {
           "folded": true,
-          "name": "_cropStatus",
+          "name": "_classificationResultJSon",
           "type": "string",
-          "value": ""
+          "value": "\"\""
+        },
+        {
+          "folded": true,
+          "name": "_classificationResult",
+          "type": "structure",
+          "children": [
+            {
+              "name": "status",
+              "type": "string",
+              "value": "\"\""
+            }
+          ]
+        },
+        {
+          "folded": true,
+          "name": "_errorMessage",
+          "type": "string",
+          "value": "\"\""
         }
       ],
       "instances": [
@@ -500,6 +532,41 @@
               "value": 1
             }
           ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "cd3512f4-210b-4b41-9dfa-d5c7823964bb",
+          "width": 0,
+          "x": 344,
+          "y": 55,
+          "zOrder": 17,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 1
+            }
+          ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Var",
+          "persistentUuid": "0bc00a9c-d2a2-4a70-a1e0-a658f9740483",
+          "width": 0,
+          "x": 69,
+          "y": 996,
+          "zOrder": 18,
+          "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
         }
@@ -1289,6 +1356,38 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "NewSprite",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": []
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "Var",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Var: ",
+          "font": "",
+          "characterSize": 40,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
         }
       ],
       "events": [
@@ -1297,7 +1396,56 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
+          "name": "Initialization",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "DepartScene"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "await": true,
+                    "value": "SendAsyncRequest"
+                  },
+                  "parameters": [
+                    "\"config.json\"",
+                    "\"\"",
+                    "\"GET\"",
+                    "\"application/json\"",
+                    "_configurationJSON",
+                    "_errorMessage"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "JSONToVariableStructure"
+                  },
+                  "parameters": [
+                    "VariableString(_configurationJSON)",
+                    "_configuration"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
           "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -1377,7 +1525,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "sqrt(pow(Variable(_droneDestinationX)-Drone.X(),2) + pow(Variable(_droneDestinationY)-Drone.Y(),2)) / Variable(_droneSpeed)",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / ToNumber(VariableString(_configuration.droneSpeed))",
                     ""
                   ]
                 }
@@ -1490,7 +1638,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_droneSpeed)",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / ToNumber(VariableString(_configuration.droneSpeed))",
                     ""
                   ]
                 }
@@ -1575,7 +1723,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "sqrt(pow(Variable(_droneDestinationX)-Drone.X(),2) + pow(Variable(_droneDestinationY)-Drone.Y(),2)) / Variable(_droneSpeed)",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / ToNumber(VariableString(_configuration.droneSpeed))",
                     ""
                   ]
                 }
@@ -1697,27 +1845,36 @@
                             "value": "SendAsyncRequest"
                           },
                           "parameters": [
-                            "\"http://localhost:5000/classify\"",
-                            "\"{\n  \\\"coordinates\\\": [\n    \\\"12.0\\\",\n    \\\"3.4\\\"\n  ],\n  \\\"ill\\\": true\n}\"",
+                            "VariableString(_configuration.classificationURL)",
+                            "\"{\n  \\\"coordinates\\\": [\\\"\" + ToString(Wheat.X()) + \"\\\",\n  \\\"\" + ToString(Wheat.Y()) + \"\\\"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"ill\\\": true\n}\"",
                             "\"POST\"",
                             "\"application/json\"",
-                            "_cropStatus",
+                            "_classificationResultJSon",
                             ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "JSONToVariableStructure"
+                          },
+                          "parameters": [
+                            "VariableString(_classificationResultJSon)",
+                            "_classificationResult"
                           ]
                         }
                       ]
                     },
                     {
-                      "disabled": true,
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [
                         {
                           "type": {
-                            "value": "AnimationName"
+                            "value": "VarSceneTxt"
                           },
                           "parameters": [
-                            "Wheat",
-                            "\"Ill\""
+                            "_classificationResult.status",
+                            "=",
+                            "\"ill\""
                           ]
                         }
                       ],
@@ -1729,6 +1886,16 @@
                           "parameters": [
                             "Wheat",
                             "\"IllMarked\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarSceneTxt"
+                          },
+                          "parameters": [
+                            "_cropStatus",
+                            "=",
+                            "\"\""
                           ]
                         }
                       ]
@@ -1777,11 +1944,6 @@
             }
           ],
           "parameters": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [],
-          "actions": []
         }
       ],
       "layers": [
