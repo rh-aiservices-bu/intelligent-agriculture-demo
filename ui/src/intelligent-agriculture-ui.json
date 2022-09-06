@@ -647,7 +647,16 @@
         "zoomFactor": 0.5123999999999999,
         "windowMask": false
       },
-      "objectsGroups": [],
+      "objectsGroups": [
+        {
+          "name": "WheatGroup",
+          "objects": [
+            {
+              "name": "Wheat"
+            }
+          ]
+        }
+      ],
       "variables": [
         {
           "name": "_configurationJSON",
@@ -667,8 +676,19 @@
               "name": "droneSpeed",
               "type": "string",
               "value": "\"\""
+            },
+            {
+              "name": "illCropInitialPercentage",
+              "type": "number",
+              "value": 0
             }
           ]
+        },
+        {
+          "folded": true,
+          "name": "_randomResult",
+          "type": "number",
+          "value": 0
         },
         {
           "folded": true,
@@ -1169,8 +1189,8 @@
             {
               "folded": true,
               "name": "picture",
-              "type": "string",
-              "value": "\"\""
+              "type": "number",
+              "value": 0
             },
             {
               "folded": true,
@@ -2852,28 +2872,191 @@
                   ]
                 }
               ],
-              "actions": [
+              "actions": [],
+              "events": [
                 {
-                  "type": {
-                    "await": true,
-                    "value": "SendAsyncRequest"
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
                   },
-                  "parameters": [
-                    "\"config.json\"",
-                    "\"\"",
-                    "\"GET\"",
-                    "\"application/json\"",
-                    "_configurationJSON",
-                    "_errorMessage"
-                  ]
+                  "comment": "Load Configuration",
+                  "comment2": ""
                 },
                 {
-                  "type": {
-                    "value": "JSONToVariableStructure"
-                  },
-                  "parameters": [
-                    "VariableString(_configurationJSON)",
-                    "_configuration"
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "await": true,
+                        "value": "SendAsyncRequest"
+                      },
+                      "parameters": [
+                        "\"config.json\"",
+                        "\"\"",
+                        "\"GET\"",
+                        "\"application/json\"",
+                        "_configurationJSON",
+                        "_errorMessage"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "JSONToVariableStructure"
+                      },
+                      "parameters": [
+                        "VariableString(_configurationJSON)",
+                        "_configuration"
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Initialize crops",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::ForEach",
+                      "object": "Wheat",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "_randomResult",
+                            "=",
+                            "RandomInRange(1,100)"
+                          ]
+                        }
+                      ],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarScene"
+                              },
+                              "parameters": [
+                                "_randomResult",
+                                "<=",
+                                "ToNumber(VariableString(_configuration.illCropInitialPercentage))"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "=",
+                                "0"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "status",
+                                "=",
+                                "\"healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarObjet"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "picture",
+                                "=",
+                                "RandomInRange(0,24)"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarScene"
+                              },
+                              "parameters": [
+                                "_randomResult",
+                                ">",
+                                "ToNumber(VariableString(_configuration.illCropInitialPercentage))"
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "=",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "status",
+                                "=",
+                                "\"ill\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "Choose::RandomString(\"brown_rust,yellow_rust\")"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarObjet"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "picture",
+                                "=",
+                                "RandomInRange(0,9)"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
@@ -3178,6 +3361,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3187,7 +3371,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -3386,6 +3569,138 @@
             }
           ],
           "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Click Events",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SourisSurObjet"
+                  },
+                  "parameters": [
+                    "Wheat",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MouseButtonReleased"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "status",
+                        "=",
+                        "\"healthy\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ChangeAnimation"
+                      },
+                      "parameters": [
+                        "CropPicture",
+                        "=",
+                        "1"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeSprite"
+                      },
+                      "parameters": [
+                        "CropPicture",
+                        "=",
+                        "Wheat.Variable(picture)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PauseAnimation"
+                      },
+                      "parameters": [
+                        "CropPicture"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "status",
+                        "=",
+                        "\"ill\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ChangeAnimation"
+                      },
+                      "parameters": [
+                        "CropPicture",
+                        "=",
+                        "2"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeSprite"
+                      },
+                      "parameters": [
+                        "CropPicture",
+                        "=",
+                        "Wheat.Variable(picture)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PauseAnimation"
+                      },
+                      "parameters": [
+                        "CropPicture"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
         }
       ],
       "layers": [
@@ -3465,7 +3780,98 @@
     }
   ],
   "externalEvents": [],
-  "eventsFunctionsExtensions": [],
+  "eventsFunctionsExtensions": [
+    {
+      "author": "Ulises Freitas <ulises.freitas@gmail.com>",
+      "category": "",
+      "description": "In an expression, use `Choose::RandomString` or `Choose::RandomNumber` and set the values you want to randomize separated by commas.",
+      "extensionNamespace": "",
+      "fullName": "Choose a random value",
+      "helpPath": "",
+      "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLWRpY2UtbXVsdGlwbGUiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTkuNzgsM0gxMS4yMkMxMC41NSwzIDEwLDMuNTUgMTAsNC4yMlY4SDE2VjE0SDE5Ljc4QzIwLjQ1LDE0IDIxLDEzLjQ1IDIxLDEyLjc4VjQuMjJDMjEsMy41NSAyMC40NSwzIDE5Ljc4LDNNMTIuNDQsNi42N0MxMS43Niw2LjY3IDExLjIxLDYuMTIgMTEuMjEsNS40NEMxMS4yMSw0Ljc2IDExLjc2LDQuMjEgMTIuNDQsNC4yMUExLjIzLDEuMjMgMCAwLDEgMTMuNjcsNS40NEMxMy42Nyw2LjEyIDEzLjEyLDYuNjcgMTIuNDQsNi42N00xOC41NiwxMi43OEMxNy44OCwxMi43OSAxNy4zMywxMi4yNCAxNy4zMiwxMS41NkMxNy4zMSwxMC44OCAxNy44NiwxMC4zMyAxOC41NCwxMC4zMkMxOS4yMiwxMC4zMSAxOS43NywxMC44NiAxOS43OCwxMS41NkMxOS43NywxMi4yMyAxOS4yMywxMi43NyAxOC41NiwxMi43OE0xOC41Niw2LjY3QzE3Ljg4LDYuNjggMTcuMzMsNi4xMyAxNy4zMiw1LjQ1QzE3LjMxLDQuNzcgMTcuODYsNC4yMiAxOC41NCw0LjIxQzE5LjIyLDQuMiAxOS43Nyw0Ljc1IDE5Ljc4LDUuNDRDMTkuNzgsNi4xMiAxOS4yNCw2LjY2IDE4LjU2LDYuNjdNNC4yMiwxMEgxMi43OEExLjIyLDEuMjIgMCAwLDEgMTQsMTEuMjJWMTkuNzhDMTQsMjAuNDUgMTMuNDUsMjEgMTIuNzgsMjFINC4yMkMzLjU1LDIxIDMsMjAuNDUgMywxOS43OFYxMS4yMkMzLDEwLjU1IDMuNTUsMTAgNC4yMiwxME04LjUsMTQuMjhDNy44MywxNC4yOCA3LjI4LDE0LjgzIDcuMjgsMTUuNUM3LjI4LDE2LjE3IDcuODMsMTYuNzIgOC41LDE2LjcyQzkuMTcsMTYuNzIgOS43MiwxNi4xNyA5LjcyLDE1LjVBMS4yMiwxLjIyIDAgMCwwIDguNSwxNC4yOE01LjQ0LDExLjIyQzQuNzcsMTEuMjIgNC4yMiwxMS43NyA0LjIyLDEyLjQ0QTEuMjIsMS4yMiAwIDAsMCA1LjQ0LDEzLjY2QzYuMTEsMTMuNjYgNi42NiwxMy4xMSA2LjY2LDEyLjQ0VjEyLjQ0QzYuNjYsMTEuNzcgNi4xMSwxMS4yMiA1LjQ0LDExLjIyTTExLjU1LDE3LjMzQzEwLjg4LDE3LjMzIDEwLjMzLDE3Ljg4IDEwLjMzLDE4LjU1QzEwLjMzLDE5LjIyIDEwLjg4LDE5Ljc3IDExLjU1LDE5Ljc3QTEuMjIsMS4yMiAwIDAsMCAxMi43NywxOC41NUgxMi43N0MxMi43NywxNy44OCAxMi4yMywxNy4zNCAxMS41NiwxNy4zM0gxMS41NVoiIC8+PC9zdmc+",
+      "name": "Choose",
+      "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/dice-multiple.svg",
+      "shortDescription": "Choose a random value in a list of strings or numbers.",
+      "version": "1.0.0",
+      "origin": {
+        "identifier": "Choose",
+        "name": "gdevelop-extension-store"
+      },
+      "tags": [
+        "choose",
+        "random"
+      ],
+      "authorIds": [
+        "ZShmW1xkW7WWl9AkB78VITJMiTw1"
+      ],
+      "dependencies": [],
+      "eventsFunctions": [
+        {
+          "description": "Choose randomly between comma-separated strings.",
+          "fullName": "Choose randomly between comma-separated strings",
+          "functionType": "StringExpression",
+          "group": "",
+          "name": "RandomString",
+          "private": false,
+          "sentence": "Choose between these values: _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "/** @type {string[]} */\nconst choices = eventsFunctionContext.getArgument(\"ChoicesString\").split(',');\neventsFunctionContext.returnValue = choices[Math.floor(Math.random() * choices.length)];\n",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": true
+            }
+          ],
+          "parameters": [
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "The string containing all options to choose randomly from, separated by commas",
+              "longDescription": "Example: \"option1,option2,option3\"",
+              "name": "ChoicesString",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        },
+        {
+          "description": "Choose a number randomly between comma-separated numbers.",
+          "fullName": "Choose a number randomly between comma-separated numbers",
+          "functionType": "Expression",
+          "group": "",
+          "name": "RandomNumber",
+          "private": false,
+          "sentence": "Choose between these values: _PARAM1_",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::JsCode",
+              "inlineCode": "/** @type {string[]} */\nconst choices = eventsFunctionContext.getArgument(\"NumbersChoiceString\").split(',');\neventsFunctionContext.returnValue = parseFloat(choices[Math.floor(Math.random() * choices.length)]);\n",
+              "parameterObjects": "",
+              "useStrict": true,
+              "eventsSheetExpanded": true
+            }
+          ],
+          "parameters": [
+            {
+              "codeOnly": false,
+              "defaultValue": "",
+              "description": "The string containing all numbers to choose randomly from, separated by commas",
+              "longDescription": "Example: \"10,20,30\"",
+              "name": "NumbersChoiceString",
+              "optional": false,
+              "supplementaryInformation": "",
+              "type": "string"
+            }
+          ],
+          "objectGroups": []
+        }
+      ],
+      "eventsBasedBehaviors": []
+    }
+  ],
   "externalLayouts": [],
   "externalSourceFiles": []
 }

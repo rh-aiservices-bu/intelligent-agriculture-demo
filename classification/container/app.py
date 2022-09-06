@@ -41,7 +41,7 @@ def calculatePath(start_coordinates, goal_coordinates):
 async def root():
     return {"message": "Status:OK"}
 
-# Pathfinder API
+# Classification API
 @app.post("/classify", response_model = TileStatus)
 async def classify(entry: TileEntry):
     response = TileStatus()
