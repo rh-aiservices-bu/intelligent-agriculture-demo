@@ -1099,6 +1099,21 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "ClickInfo",
+          "persistentUuid": "b26232d2-0eff-4f5f-8134-112fa4064128",
+          "width": 0,
+          "x": 1680,
+          "y": 631,
+          "zOrder": 28,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1748,7 +1763,7 @@
                       "folded": true,
                       "name": "X",
                       "type": "number",
-                      "value": 1820
+                      "value": 1600
                     },
                     {
                       "folded": true,
@@ -1782,7 +1797,7 @@
                       "folded": true,
                       "name": "X",
                       "type": "number",
-                      "value": -1820
+                      "value": -1600
                     },
                     {
                       "folded": true,
@@ -2776,6 +2791,27 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "bold": false,
+          "italic": false,
+          "name": "ClickInfo",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "string": "Click on tile\nfor info",
+          "font": "",
+          "characterSize": 30,
+          "color": {
+            "b": 0,
+            "g": 0,
+            "r": 0
+          }
         }
       ],
       "events": [
@@ -2978,7 +3014,7 @@
                                 "Wheat",
                                 "frame",
                                 "=",
-                                "RandomInRange(0,9)"
+                                "RandomInRange(0,8)"
                               ]
                             }
                           ]
@@ -3383,11 +3419,13 @@
                       "conditions": [
                         {
                           "type": {
-                            "value": "AnimationName"
+                            "value": "VarObjetTxt"
                           },
                           "parameters": [
                             "Wheat",
-                            "\"Ill\""
+                            "status",
+                            "=",
+                            "\"ill\""
                           ]
                         }
                       ],
@@ -3399,7 +3437,7 @@
                           },
                           "parameters": [
                             "VariableString(_configuration.classificationURL)",
-                            "\"{\n  \\\"coordinates\\\": [\\\"\" + ToString(Wheat.X()) + \"\\\",\n  \\\"\" + ToString(Wheat.Y()) + \"\\\"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"ill\\\": true\n}\"",
+                            "\"{\n  \\\"coordinates\\\": [\\\"\" + ToString(Wheat.X()) + \"\\\",\n  \\\"\" + ToString(Wheat.Y()) + \"\\\"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"status\\\": \\\"\" + Wheat.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Wheat.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Wheat.VariableString(frame) + \"\\\"\n}\"",
                             "\"POST\"",
                             "\"application/json\"",
                             "_classificationResultJSon",
@@ -3503,7 +3541,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "name": "Click Events",
+          "name": "ClickInfo Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
