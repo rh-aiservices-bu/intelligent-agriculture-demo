@@ -2987,7 +2987,7 @@
                               },
                               "parameters": [
                                 "Wheat",
-                                "picture",
+                                "frame",
                                 "=",
                                 "RandomInRange(0,24)"
                               ]
@@ -3047,7 +3047,7 @@
                               },
                               "parameters": [
                                 "Wheat",
-                                "picture",
+                                "frame",
                                 "=",
                                 "RandomInRange(0,9)"
                               ]
@@ -3663,6 +3663,17 @@
                         "=",
                         "\"ill\""
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "disease",
+                        "=",
+                        "\"wheat_brown_rust\""
+                      ]
                     }
                   ],
                   "actions": [
@@ -3674,6 +3685,63 @@
                         "CropPicture",
                         "=",
                         "2"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeSprite"
+                      },
+                      "parameters": [
+                        "CropPicture",
+                        "=",
+                        "Wheat.Variable(frame)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PauseAnimation"
+                      },
+                      "parameters": [
+                        "CropPicture"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "status",
+                        "=",
+                        "\"ill\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "disease",
+                        "=",
+                        "\"wheat_yellow_rust\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ChangeAnimation"
+                      },
+                      "parameters": [
+                        "CropPicture",
+                        "=",
+                        "3"
                       ]
                     },
                     {
