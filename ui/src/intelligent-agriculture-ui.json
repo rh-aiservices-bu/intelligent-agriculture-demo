@@ -644,7 +644,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5123999999999999,
+        "zoomFactor": 0.5972000000000002,
         "windowMask": false
       },
       "objectsGroups": [
@@ -754,8 +754,8 @@
           "name": "Wheat",
           "persistentUuid": "44d0a987-fe41-401e-87c1-133757ea1065",
           "width": 0,
-          "x": 205,
-          "y": 250,
+          "x": 185,
+          "y": 335,
           "zOrder": 4,
           "numberProperties": [
             {
@@ -763,54 +763,6 @@
               "value": 0
             }
           ],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Crops",
-          "name": "Wheat",
-          "persistentUuid": "433e12b5-f7a6-4c8b-8c8b-d2f02625008d",
-          "width": 0,
-          "x": 256,
-          "y": 624,
-          "zOrder": 5,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 2
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "folded": true,
-              "name": "disease",
-              "type": "string",
-              "value": "\"\""
-            },
-            {
-              "folded": true,
-              "name": "status",
-              "type": "string",
-              "value": "\"illmarked\""
-            }
-          ]
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "Wheat",
-          "persistentUuid": "15bdee62-4721-42db-80f9-cc554c2328be",
-          "width": 0,
-          "x": 731,
-          "y": 818,
-          "zOrder": 6,
-          "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
         },
@@ -922,45 +874,10 @@
           "name": "Wheat",
           "persistentUuid": "7a1f3b24-1f7e-449c-83c4-a5d2a52ad01b",
           "width": 0,
-          "x": 818,
-          "y": 422,
+          "x": 1052,
+          "y": 464,
           "zOrder": 14,
           "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "Wheat",
-          "persistentUuid": "480c36fd-3d1b-42ea-a3fb-9a462d3fc357",
-          "width": 0,
-          "x": 1107,
-          "y": 705,
-          "zOrder": 15,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "Wheat",
-          "persistentUuid": "e7b4dbff-8b32-4caa-a8ec-b7b547701df0",
-          "width": 0,
-          "x": 717,
-          "y": 624,
-          "zOrder": 16,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 1
-            }
-          ],
           "stringProperties": [],
           "initialVariables": []
         },
@@ -972,13 +889,13 @@
           "name": "Wheat",
           "persistentUuid": "cd3512f4-210b-4b41-9dfa-d5c7823964bb",
           "width": 0,
-          "x": 344,
-          "y": 55,
+          "x": 359,
+          "y": 124,
           "zOrder": 17,
           "numberProperties": [
             {
               "name": "animation",
-              "value": 1
+              "value": 0
             }
           ],
           "stringProperties": [],
@@ -999,7 +916,7 @@
               "folded": true,
               "name": "status",
               "type": "string",
-              "value": "\"ill\""
+              "value": "\"healthy\""
             }
           ]
         },
@@ -1014,21 +931,6 @@
           "x": 69,
           "y": 996,
           "zOrder": 18,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Crops",
-          "name": "Wheat",
-          "persistentUuid": "fe1a6e9a-00ae-40ce-ab1d-ffc78f4008ed",
-          "width": 0,
-          "x": 731,
-          "y": 818,
-          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -1067,75 +969,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "Crops",
-          "name": "Wheat",
-          "persistentUuid": "4f1a30ed-6611-4884-89fd-316214ac2eda",
-          "width": 0,
-          "x": 818,
-          "y": 422,
-          "zOrder": 14,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Crops",
-          "name": "Wheat",
-          "persistentUuid": "04903de2-df79-49cf-a05f-f9393c897cd9",
-          "width": 0,
-          "x": 1107,
-          "y": 705,
-          "zOrder": 15,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "Crops",
-          "name": "Wheat",
-          "persistentUuid": "070e258c-c7a1-44f1-bab4-27c49e9ca034",
-          "width": 0,
-          "x": 717,
-          "y": 624,
-          "zOrder": 16,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 1
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "folded": true,
-              "name": "status",
-              "type": "string",
-              "value": "\"ill\""
-            },
-            {
-              "folded": true,
-              "name": "disease",
-              "type": "string",
-              "value": "\"\""
-            }
-          ]
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
           "layer": "",
           "name": "CropInfoStatus",
           "persistentUuid": "12879811-2996-4a5d-9d2b-8dfaa9435d98",
           "width": 0,
-          "x": 1652,
-          "y": 783,
+          "x": 1680,
+          "y": 900,
           "zOrder": 19,
           "numberProperties": [],
           "stringProperties": [],
@@ -1149,8 +988,8 @@
           "name": "CropInfoDisease",
           "persistentUuid": "032c537c-991d-41b9-9482-deca655691ce",
           "width": 0,
-          "x": 1683,
-          "y": 834,
+          "x": 1680,
+          "y": 980,
           "zOrder": 20,
           "numberProperties": [],
           "stringProperties": [],
@@ -1164,9 +1003,99 @@
           "name": "CropPicture",
           "persistentUuid": "5832587b-7d06-4d01-9f98-4b15b65fd0c7",
           "width": 0,
-          "x": 1663,
-          "y": 868,
+          "x": 1680,
+          "y": 700,
           "zOrder": 21,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "85163887-4948-4257-8210-733840f4e316",
+          "width": 0,
+          "x": 323,
+          "y": 552,
+          "zOrder": 22,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "b899544c-f4bd-4cb5-a2d7-c7c0eb5c5a5c",
+          "width": 0,
+          "x": 832,
+          "y": 530,
+          "zOrder": 23,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "da450ab7-9d9c-4e73-827d-9d8a64e83aac",
+          "width": 0,
+          "x": 211,
+          "y": 770,
+          "zOrder": 24,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "e9025595-ece5-45ef-95e5-6b9a6fe2f956",
+          "width": 0,
+          "x": 583,
+          "y": 733,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "c4bd4a77-cf32-4e86-9899-08957c4e2436",
+          "width": 0,
+          "x": 940,
+          "y": 781,
+          "zOrder": 26,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "40b0e24c-e3be-45bf-bdad-64292e624357",
+          "width": 0,
+          "x": 1189,
+          "y": 749,
+          "zOrder": 27,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -2010,7 +1939,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Nothing selected",
+          "string": "Status: ",
           "font": "",
           "characterSize": 30,
           "color": {
@@ -2031,7 +1960,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "InfoDisease",
+          "string": "Disease: ",
           "font": "",
           "characterSize": 30,
           "color": {
@@ -3602,7 +3531,18 @@
                   ]
                 }
               ],
-              "actions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "TextObject::String"
+                  },
+                  "parameters": [
+                    "CropInfoStatus",
+                    "=",
+                    "\"Status:\" + NewLine() +  Wheat.VariableString(status)"
+                  ]
+                }
+              ],
               "events": [
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -3647,62 +3587,15 @@
                       "parameters": [
                         "CropPicture"
                       ]
-                    }
-                  ]
-                },
-                {
-                  "type": "BuiltinCommonInstructions::Standard",
-                  "conditions": [
-                    {
-                      "type": {
-                        "value": "VarObjetTxt"
-                      },
-                      "parameters": [
-                        "Wheat",
-                        "status",
-                        "=",
-                        "\"ill\""
-                      ]
                     },
                     {
                       "type": {
-                        "value": "VarObjetTxt"
+                        "value": "TextObject::String"
                       },
                       "parameters": [
-                        "Wheat",
-                        "disease",
+                        "CropInfoDisease",
                         "=",
-                        "\"wheat_brown_rust\""
-                      ]
-                    }
-                  ],
-                  "actions": [
-                    {
-                      "type": {
-                        "value": "ChangeAnimation"
-                      },
-                      "parameters": [
-                        "CropPicture",
-                        "=",
-                        "2"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "ChangeSprite"
-                      },
-                      "parameters": [
-                        "CropPicture",
-                        "=",
-                        "Wheat.Variable(frame)"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PauseAnimation"
-                      },
-                      "parameters": [
-                        "CropPicture"
+                        "\"Disease:\" + NewLine() +  \"none\""
                       ]
                     }
                   ]
@@ -3720,46 +3613,120 @@
                         "=",
                         "\"ill\""
                       ]
-                    },
-                    {
-                      "type": {
-                        "value": "VarObjetTxt"
-                      },
-                      "parameters": [
-                        "Wheat",
-                        "disease",
-                        "=",
-                        "\"wheat_yellow_rust\""
-                      ]
                     }
                   ],
-                  "actions": [
+                  "actions": [],
+                  "events": [
                     {
-                      "type": {
-                        "value": "ChangeAnimation"
-                      },
-                      "parameters": [
-                        "CropPicture",
-                        "=",
-                        "3"
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "disease",
+                            "=",
+                            "\"wheat_brown_rust\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ChangeAnimation"
+                          },
+                          "parameters": [
+                            "CropPicture",
+                            "=",
+                            "2"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ChangeSprite"
+                          },
+                          "parameters": [
+                            "CropPicture",
+                            "=",
+                            "Wheat.Variable(frame)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PauseAnimation"
+                          },
+                          "parameters": [
+                            "CropPicture"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "CropInfoDisease",
+                            "=",
+                            "\"Disease:\" + NewLine() +  \"wheat_brown_rust\""
+                          ]
+                        }
                       ]
                     },
                     {
-                      "type": {
-                        "value": "ChangeSprite"
-                      },
-                      "parameters": [
-                        "CropPicture",
-                        "=",
-                        "Wheat.Variable(frame)"
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "PauseAnimation"
-                      },
-                      "parameters": [
-                        "CropPicture"
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "disease",
+                            "=",
+                            "\"wheat_yellow_rust\""
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ChangeAnimation"
+                          },
+                          "parameters": [
+                            "CropPicture",
+                            "=",
+                            "3"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ChangeSprite"
+                          },
+                          "parameters": [
+                            "CropPicture",
+                            "=",
+                            "Wheat.Variable(frame)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PauseAnimation"
+                          },
+                          "parameters": [
+                            "CropPicture"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "CropInfoDisease",
+                            "=",
+                            "\"Disease:\" + NewLine() +  \"wheat_yellow_rust\""
+                          ]
+                        }
                       ]
                     }
                   ]

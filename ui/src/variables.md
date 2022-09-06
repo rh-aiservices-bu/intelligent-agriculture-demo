@@ -25,4 +25,8 @@ For all crops types:
 
 * status, String: Status of crop in {"healthy", "ill"}
 * disease, String: Type of disease in {"wheat_yellow_rust", "wheat_brown_rust", "corn_common_rust", "corn_gray_leaf_spot", "corn_northern_leaf_blight", "potato_early_blight", "potato_late_blight"}
-* frame, Number: frame number in animation for object CropPicture
+* frame, Number: frame number in CropPicture object animations
+  * Animation #0: 0 (black image)
+  * Animation #1: 0-24 (wheat_healthy)
+  * Animation #2: 0-24 (wheat_brown_rust)
+  * Animation #3: 0-24 (wheat_yellow_rust)
