@@ -1,5 +1,5 @@
 {
     "classificationURL": "http://localhost:5000/classify",
     "droneSpeed": "2",
-    "illCropInitialPercentage": "80"
+    "wealthyCropInitialPercentage": "50"
 }

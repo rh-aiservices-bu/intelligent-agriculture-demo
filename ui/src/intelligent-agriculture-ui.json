@@ -678,7 +678,7 @@
               "value": "\"\""
             },
             {
-              "name": "illCropInitialPercentage",
+              "name": "wealthyCropInitialPercentage",
               "type": "number",
               "value": 0
             }
@@ -1188,7 +1188,7 @@
             },
             {
               "folded": true,
-              "name": "picture",
+              "name": "frame",
               "type": "number",
               "value": 0
             },
@@ -2855,7 +2855,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -2956,7 +2955,7 @@
                               "parameters": [
                                 "_randomResult",
                                 "<=",
-                                "ToNumber(VariableString(_configuration.illCropInitialPercentage))"
+                                "ToNumber(VariableString(_configuration.wealthyCropInitialPercentage))"
                               ]
                             }
                           ],
@@ -3005,7 +3004,7 @@
                               "parameters": [
                                 "_randomResult",
                                 ">",
-                                "ToNumber(VariableString(_configuration.illCropInitialPercentage))"
+                                "ToNumber(VariableString(_configuration.wealthyCropInitialPercentage))"
                               ]
                             }
                           ],
@@ -3039,7 +3038,7 @@
                                 "Wheat",
                                 "disease",
                                 "=",
-                                "Choose::RandomString(\"brown_rust,yellow_rust\")"
+                                "Choose::RandomString(\"wheat_brown_rust,wheat_yellow_rust\")"
                               ]
                             },
                             {
@@ -3638,7 +3637,7 @@
                       "parameters": [
                         "CropPicture",
                         "=",
-                        "Wheat.Variable(picture)"
+                        "Wheat.Variable(frame)"
                       ]
                     },
                     {
@@ -3684,7 +3683,7 @@
                       "parameters": [
                         "CropPicture",
                         "=",
-                        "Wheat.Variable(picture)"
+                        "Wheat.Variable(frame)"
                       ]
                     },
                     {
