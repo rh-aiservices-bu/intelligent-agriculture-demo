@@ -16,8 +16,8 @@
 * _classificationResultJSon, String: JSON string returned when calling the classification service
 * _classificationResult, Structure: Classification object result
   * status, String: Status of crop in {"healthy", "ill"}
-  * model-prediction, String: Type of disease in {"wheat_yellow_rust", "wheat_brown_rust", "corn_common_rust", "corn_gray_leaf_spot", "corn_northern_leaf_blight", "potato_early_blight", "potato_late_blight"}
-  * model-prediction-confidence-score, String: Score of the prediction in percentage
+  * model_prediction, String: Type of disease in {"wheat_yellow_rust", "wheat_brown_rust", "corn_common_rust", "corn_gray_leaf_spot", "corn_northern_leaf_blight", "potato_early_blight", "potato_late_blight"}
+  * model_prediction_confidence_score, String: Score of the prediction in percentage
 * _errorMessage, String: Text to be displayed for errors
 
 ## Object Variables

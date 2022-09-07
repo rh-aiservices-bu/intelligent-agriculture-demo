@@ -731,13 +731,13 @@
           "type": "structure",
           "children": [
             {
-              "name": "model-prediction",
+              "name": "model_prediction",
               "type": "string",
               "value": "\"\""
             },
             {
               "folded": true,
-              "name": "model-prediction-confidence-score",
+              "name": "model_prediction_confidence_score",
               "type": "string",
               "value": "\"\""
             },
@@ -4419,23 +4419,22 @@
                             "_classificationResultJSon",
                             ""
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "JSONToVariableStructure"
+                          },
+                          "parameters": [
+                            "VariableString(_classificationResultJSon)",
+                            "_classificationResult"
+                          ]
                         }
                       ],
                       "events": [
                         {
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "JSONToVariableStructure"
-                              },
-                              "parameters": [
-                                "VariableString(_classificationResultJSon)",
-                                "_classificationResult"
-                              ]
-                            }
-                          ]
+                          "actions": []
                         },
                         {
                           "type": "BuiltinCommonInstructions::Standard",
@@ -4463,23 +4462,12 @@
                             },
                             {
                               "type": {
-                                "value": "ModVarObjetTxt"
-                              },
-                              "parameters": [
-                                "Wheat",
-                                "disease",
-                                "=",
-                                "VariableString(_classificationResult[\"model-prediction\"])"
-                              ]
-                            },
-                            {
-                              "type": {
                                 "value": "TextObject::String"
                               },
                               "parameters": [
                                 "DroneInfoDisease",
                                 "=",
-                                "\"Disease:\" + NewLine() + VariableString(_classificationResult[\"model-prediction\"])"
+                                "\"Disease:\" + NewLine() + VariableString(_classificationResult.model_prediction)"
                               ]
                             },
                             {
@@ -4489,24 +4477,99 @@
                               "parameters": [
                                 "DroneInfoScore",
                                 "=",
-                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult[\"model-prediction-confidence-score\"])"
+                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score)"
                               ]
                             }
                           ]
                         },
                         {
-                          "disabled": true,
                           "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [],
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "\"wheat_brown_rust\""
+                              ]
+                            }
+                          ],
                           "actions": [
                             {
                               "type": {
-                                "value": "ModVarSceneTxt"
+                                "value": "ChangeAnimation"
                               },
                               "parameters": [
-                                "_classificationResult.status",
+                                "DroneView",
                                 "=",
-                                "\"\""
+                                "2"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "Wheat.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "DroneView"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "\"wheat_yellow_rust\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "3"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "Wheat.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "DroneView"
                               ]
                             }
                           ]
