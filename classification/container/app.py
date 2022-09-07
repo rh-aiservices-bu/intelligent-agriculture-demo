@@ -63,11 +63,6 @@ async def root():
 async def classify(entry: TileEntry):
     response = TileStatus()
     
-    #TODO Remove debug
-    picture_path = ""
-    print(entry.disease)
-    print(entry.frame)
-
     if (entry.kind == "wheat"):
         if (entry.disease == "wheat_healthy"):
             picture_path = wheat_healthy[entry.frame]
@@ -76,23 +71,18 @@ async def classify(entry: TileEntry):
         if (entry.disease == "wheat_yellow_rust"):
             picture_path = wheat_yellow_rust[entry.frame]
 
-    #TODO Remove debug
-    print(picture_path)
-
     file =  {'file': open(picture_path, 'rb')}
     resp = requests.post(url = PREDICTION_ENDPOINT, files = file)
     
     result = resp.json()
     
-    result['status'] = 'ill'
-    #print(json.dumps(result))
+    if entry.disease in {"wheat_healthy"}:
+        result['status'] = 'healthy'
+    else:
+        result['status'] = 'ill'
+    
+    print(result)
 
-    # Return JSON-formatted results
-    #return {
-    #    "status": "ill",
-    #    "model-prediction": result['model-prediction'],
-    #    "model-prediction-confidence-score": result['model-prediction-confidence-score']
-    #}
     return result
     
 # Launch the FastAPI server

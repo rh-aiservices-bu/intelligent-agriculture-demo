@@ -644,7 +644,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5972000000000002,
+        "zoomFactor": 0.41699999999999976,
         "windowMask": false
       },
       "objectsGroups": [
@@ -895,51 +895,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "Crops",
-          "name": "Wheat",
-          "persistentUuid": "cd3512f4-210b-4b41-9dfa-d5c7823964bb",
-          "width": 0,
-          "x": 359,
-          "y": 124,
-          "zOrder": 17,
-          "numberProperties": [
-            {
-              "name": "animation",
-              "value": 0
-            }
-          ],
-          "stringProperties": [],
-          "initialVariables": [
-            {
-              "folded": true,
-              "name": "disease",
-              "type": "string",
-              "value": "\"\""
-            },
-            {
-              "folded": true,
-              "name": "picture",
-              "type": "string",
-              "value": "\"\""
-            },
-            {
-              "folded": true,
-              "name": "status",
-              "type": "string",
-              "value": "\"healthy\""
-            }
-          ]
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
           "layer": "ErrorMessage",
           "name": "ErrorMessage",
           "persistentUuid": "0bc00a9c-d2a2-4a70-a1e0-a658f9740483",
           "width": 0,
-          "x": 69,
-          "y": 996,
+          "x": 5,
+          "y": 5,
           "zOrder": 18,
           "numberProperties": [],
           "stringProperties": [],
@@ -1199,6 +1160,21 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Wheat",
+          "persistentUuid": "17a7efc9-c45d-4f10-8774-22b15598996d",
+          "width": 0,
+          "x": 375,
+          "y": 117,
+          "zOrder": 34,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1213,7 +1189,7 @@
               "folded": true,
               "name": "status",
               "type": "string",
-              "value": "\"healthy\""
+              "value": "healthy"
             },
             {
               "folded": true,
@@ -1225,7 +1201,7 @@
               "folded": true,
               "name": "disease",
               "type": "string",
-              "value": "\"\""
+              "value": "wheat_healthy"
             }
           ],
           "effects": [],
@@ -3797,6 +3773,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4391,20 +4368,25 @@
                   ],
                   "events": [
                     {
+                      "disabled": true,
                       "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [
+                      "conditions": [],
+                      "actions": [
                         {
                           "type": {
-                            "value": "VarObjetTxt"
+                            "value": "TextObject::String"
                           },
                           "parameters": [
-                            "Wheat",
-                            "status",
+                            "ErrorMessage",
                             "=",
-                            "\"ill\""
+                            "\"{\n  \\\"coordinates\\\": [\\\"\" + ToString(Wheat.X()) + \"\\\",\n  \\\"\" + ToString(Wheat.Y()) + \"\\\"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"status\\\": \\\"\" + Wheat.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Wheat.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Wheat.VariableString(frame) + \"\\\"\n}\""
                           ]
                         }
-                      ],
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
                       "actions": [
                         {
                           "type": {
@@ -4465,6 +4447,16 @@
                                 "value": "TextObject::String"
                               },
                               "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Ill\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
                                 "DroneInfoDisease",
                                 "=",
                                 "\"Disease:\" + NewLine() + VariableString(_classificationResult.model_prediction)"
@@ -4477,7 +4469,83 @@
                               "parameters": [
                                 "DroneInfoScore",
                                 "=",
-                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score)"
+                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "\"wheat_healthy\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "Wheat.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "DroneView"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoDisease",
+                                "=",
+                                "\"Disease:\" + NewLine() + \"None\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoScore",
+                                "=",
+                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
                               ]
                             }
                           ]
@@ -4718,7 +4786,7 @@
                       "parameters": [
                         "CropInfoDisease",
                         "=",
-                        "\"Disease:\" + NewLine() +  \"none\""
+                        "\"Disease:\" + NewLine() +  \"None\""
                       ]
                     }
                   ]
