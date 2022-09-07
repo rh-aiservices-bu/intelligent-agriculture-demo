@@ -4279,6 +4279,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4306,6 +4307,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -4694,6 +4696,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "ClickInfo Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
