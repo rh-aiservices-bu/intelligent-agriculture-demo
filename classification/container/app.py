@@ -5,6 +5,9 @@ from uvicorn import run
 from pydantic import BaseModel
 from typing import Tuple
 from glob import glob
+from dotenv import load_dotenv
+import requests
+import json
 
 # App creation
 app = FastAPI()
@@ -21,6 +24,10 @@ app.add_middleware(
     allow_headers=headers
 )
 
+# Load env vars
+load_dotenv()
+PREDICTION_ENDPOINT = os.getenv('PREDICTION_ENDPOINT')
+
 # Input data class
 class TileEntry(BaseModel):
     coordinates: Tuple[float,float] = None
@@ -32,6 +39,8 @@ class TileEntry(BaseModel):
 # Output data class
 class TileStatus(BaseModel):
     status: str = ""
+    model_prediction: str = ""
+    model_prediction_confidence_score: str = ""
 
 # Initialize picture banks arrays with full relative path
 wheat_healthy = sorted(glob(os.path.join('./assets/pictures/wheat_healthy/','*')))
@@ -70,15 +79,21 @@ async def classify(entry: TileEntry):
     #TODO Remove debug
     print(picture_path)
 
-    #TODO Send picture to prediction service
-            
-    #if entry.ill:
-    #    response.status = "ill"
-    #else:
-    #    response.status = "healthy"
+    file =  {'file': open(picture_path, 'rb')}
+    resp = requests.post(url = PREDICTION_ENDPOINT, files = file)
     
-    response.status = "healthy"
-    return response
+    result = resp.json()
+    
+    result['status'] = 'ill'
+    #print(json.dumps(result))
+
+    # Return JSON-formatted results
+    #return {
+    #    "status": "ill",
+    #    "model-prediction": result['model-prediction'],
+    #    "model-prediction-confidence-score": result['model-prediction-confidence-score']
+    #}
+    return result
     
 # Launch the FastAPI server
 if __name__ == "__main__":

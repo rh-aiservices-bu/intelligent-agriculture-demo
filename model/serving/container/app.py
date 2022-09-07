@@ -98,8 +98,8 @@ async def get_net_image_prediction(file: UploadFile = File(...)):
 
     # Return JSON-formatted results
     return {
-        "model-prediction": class_prediction,
-        "model-prediction-confidence-score": model_score
+        "model_prediction": class_prediction,
+        "model_prediction_confidence_score": model_score
     }
 
 # Launch the FastAPI server
