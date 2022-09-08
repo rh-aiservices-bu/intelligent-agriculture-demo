@@ -34,6 +34,10 @@ class PathFinderEntry(BaseModel):
     start_coordinates: Tuple[float,float] = None
     goal_coordinates: Tuple[float,float] = None
 
+class AddDestinationEntry(BaseModel):
+    kind: str = ""
+    coordinates: Tuple[float,float] = None
+
 # Destination arrays
 wheat_destinations = []
 
@@ -70,6 +74,14 @@ async def root():
 @app.post("/pathfinder")
 async def pathfinder(entry: PathFinderEntry):
     return calculatePath(entry.start_coordinates, entry.goal_coordinates)
+
+# Path API
+@app.put("/destination")
+async def addPath(entry: AddDestinationEntry):
+    if entry.kind == "wheat":
+        wheat_destinations.append(entry.coordinates)
+        print(wheat_destinations)
+    return "ok"
     
 # Initialize PathFinder
 environment = PolygonEnvironment()

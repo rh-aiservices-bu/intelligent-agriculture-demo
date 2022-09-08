@@ -13,6 +13,7 @@ from uvicorn import run
 # Load local env vars if present
 load_dotenv()
 PREDICTION_ENDPOINT = os.getenv('PREDICTION_ENDPOINT')
+PATH_ENDPOINT = os.getenv('PATH_ENDPOINT')
 
 # App creation
 app = FastAPI()
@@ -55,8 +56,9 @@ def calculatePath(start_coordinates, goal_coordinates):
     return path, length
 
 def addPathEntry(kind,coordinates):
-    print(kind)
-    print(coordinates)
+    data_json = {"kind": kind, "coordinates": coordinates}
+    resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json)
+    print(resp.json())
 
 # Base API
 @app.get("/")
@@ -77,7 +79,6 @@ async def classify(entry: TileEntry):
             picture_path = wheat_yellow_rust[entry.frame]
 
     file =  {'file': open(picture_path, 'rb')}
-    print(PREDICTION_ENDPOINT)
     resp = requests.post(url = PREDICTION_ENDPOINT, files = file)
     
     result = resp.json()
