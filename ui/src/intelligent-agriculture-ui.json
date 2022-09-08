@@ -4396,7 +4396,7 @@
                           },
                           "parameters": [
                             "VariableString(_configuration.classificationURL)",
-                            "\"{\n  \\\"coordinates\\\": [\\\"\" + ToString(Wheat.X()) + \"\\\",\n  \\\"\" + ToString(Wheat.Y()) + \"\\\"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"status\\\": \\\"\" + Wheat.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Wheat.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Wheat.VariableString(frame) + \"\\\"\n}\"",
+                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"status\\\": \\\"\" + Wheat.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Wheat.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Wheat.VariableString(frame) + \"\\\"\n}\"",
                             "\"POST\"",
                             "\"application/json\"",
                             "_classificationResultJSon",
