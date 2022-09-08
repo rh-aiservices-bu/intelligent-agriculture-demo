@@ -738,8 +738,8 @@
             {
               "folded": true,
               "name": "model_prediction_confidence_score",
-              "type": "string",
-              "value": "\"\""
+              "type": "number",
+              "value": 0
             },
             {
               "name": "status",
@@ -3779,6 +3779,7 @@
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -3874,7 +3875,7 @@
                               "parameters": [
                                 "_randomResult",
                                 "<=",
-                                "ToNumber(VariableString(_configuration.wealthyCropInitialPercentage))"
+                                "Variable(_configuration.wealthyCropInitialPercentage)"
                               ]
                             }
                           ],
@@ -3923,7 +3924,7 @@
                               "parameters": [
                                 "_randomResult",
                                 ">",
-                                "ToNumber(VariableString(_configuration.wealthyCropInitialPercentage))"
+                                "Variable(_configuration.wealthyCropInitialPercentage)"
                               ]
                             }
                           ],
@@ -4279,7 +4280,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4307,7 +4307,6 @@
                   "comment2": ""
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -4412,6 +4411,16 @@
                             "VariableString(_classificationResultJSon)",
                             "_classificationResult"
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "DroneInfoScore",
+                            "=",
+                            "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
+                          ]
                         }
                       ],
                       "events": [
@@ -4462,16 +4471,6 @@
                                 "DroneInfoDisease",
                                 "=",
                                 "\"Disease:\" + NewLine() + VariableString(_classificationResult.model_prediction)"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "TextObject::String"
-                              },
-                              "parameters": [
-                                "DroneInfoScore",
-                                "=",
-                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
                               ]
                             }
                           ]
@@ -4538,16 +4537,6 @@
                                 "DroneInfoDisease",
                                 "=",
                                 "\"Disease:\" + NewLine() + \"None\""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "TextObject::String"
-                              },
-                              "parameters": [
-                                "DroneInfoScore",
-                                "=",
-                                "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
                               ]
                             }
                           ]

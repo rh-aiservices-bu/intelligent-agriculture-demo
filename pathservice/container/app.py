@@ -24,10 +24,13 @@ app.add_middleware(
     allow_headers=headers
 )
 
-# Input data class
+# Input data classes
 class PathFinderEntry(BaseModel):
     start_coordinates: Tuple[float,float] = None
     goal_coordinates: Tuple[float,float] = None
+
+# Destination arrays
+wheat_destinations = []
 
 # Path calculation functions
 def initializeEnvironment(environment):

@@ -40,7 +40,7 @@ class TileEntry(BaseModel):
 class TileStatus(BaseModel):
     status: str = ""
     model_prediction: str = ""
-    model_prediction_confidence_score: str = ""
+    model_prediction_confidence_score: float = None
 
 # Initialize picture banks arrays with full relative path
 wheat_healthy = sorted(glob(os.path.join('./assets/pictures/wheat_healthy/','*')))
