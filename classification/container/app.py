@@ -1,13 +1,18 @@
+import json
 import os
+from glob import glob
+from typing import Tuple
+
+import requests
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from uvicorn import run
 from pydantic import BaseModel
-from typing import Tuple
-from glob import glob
-from dotenv import load_dotenv
-import requests
-import json
+from uvicorn import run
+
+# Load local env vars if present
+load_dotenv()
+PREDICTION_ENDPOINT = os.getenv('PREDICTION_ENDPOINT')
 
 # App creation
 app = FastAPI()
@@ -23,10 +28,6 @@ app.add_middleware(
     allow_methods=methods,
     allow_headers=headers
 )
-
-# Load env vars
-load_dotenv()
-PREDICTION_ENDPOINT = os.getenv('PREDICTION_ENDPOINT')
 
 # Input data class
 class TileEntry(BaseModel):
@@ -53,6 +54,10 @@ def calculatePath(start_coordinates, goal_coordinates):
     print(length)
     return path, length
 
+def addPathEntry(kind,coordinates):
+    print(kind)
+    print(coordinates)
+
 # Base API
 @app.get("/")
 async def root():
@@ -72,6 +77,7 @@ async def classify(entry: TileEntry):
             picture_path = wheat_yellow_rust[entry.frame]
 
     file =  {'file': open(picture_path, 'rb')}
+    print(PREDICTION_ENDPOINT)
     resp = requests.post(url = PREDICTION_ENDPOINT, files = file)
     
     result = resp.json()
@@ -80,6 +86,7 @@ async def classify(entry: TileEntry):
         result['status'] = 'healthy'
     else:
         result['status'] = 'ill'
+        addPathEntry(entry.kind, entry.coordinates)
     
     print(result)
 
@@ -87,5 +94,5 @@ async def classify(entry: TileEntry):
     
 # Launch the FastAPI server
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.getenv('PORT', 5000))
     run(app, host="0.0.0.0", port=port)

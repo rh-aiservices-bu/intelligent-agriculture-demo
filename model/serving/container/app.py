@@ -1,17 +1,19 @@
-from fastapi import File, UploadFile, FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from tensorflow.keras.models import load_model
-from tensorflow.keras.utils import load_img
-from tensorflow.keras.utils import img_to_array
-from tensorflow import expand_dims
-from tensorflow.nn import relu
-from numpy import argmax
-from numpy import max
-from numpy import array
-from json import dumps
-from uvicorn import run
 import os
 import uuid
+from json import dumps
+
+from dotenv import load_dotenv
+from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
+from numpy import argmax, array, max
+from tensorflow import expand_dims
+from tensorflow.keras.models import load_model
+from tensorflow.keras.utils import img_to_array, load_img
+from tensorflow.nn import relu
+from uvicorn import run
+
+# Load local env vars if present
+load_dotenv()
 
 # App creation
 app = FastAPI()
@@ -104,5 +106,5 @@ async def get_net_image_prediction(file: UploadFile = File(...)):
 
 # Launch the FastAPI server
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.getenv('PORT', 5000))
     run(app, host="0.0.0.0", port=port)

@@ -1,13 +1,18 @@
 import json
 import os
 import uuid
+from json import dumps
+from typing import Tuple
+
+from dotenv import load_dotenv
+from extremitypathfinder import PolygonEnvironment
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from json import dumps
-from uvicorn import run
 from pydantic import BaseModel
-from typing import Tuple
-from extremitypathfinder import PolygonEnvironment
+from uvicorn import run
+
+# Load local env vars if present
+load_dotenv()
 
 # App creation
 app = FastAPI()
@@ -72,5 +77,5 @@ initializeEnvironment(environment)
 
 # Launch the FastAPI server
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.getenv('PORT', 5000))
     run(app, host="0.0.0.0", port=port)
