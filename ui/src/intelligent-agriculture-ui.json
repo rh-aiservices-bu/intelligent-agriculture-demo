@@ -674,8 +674,13 @@
             },
             {
               "name": "droneSpeed",
-              "type": "string",
-              "value": "\"\""
+              "type": "number",
+              "value": 0
+            },
+            {
+              "name": "tractorSpeed",
+              "type": "number",
+              "value": 0
             },
             {
               "name": "wealthyCropInitialPercentage",
@@ -727,6 +732,7 @@
           "value": "\"\""
         },
         {
+          "folded": true,
           "name": "_classificationResult",
           "type": "structure",
           "children": [
@@ -753,6 +759,46 @@
           "name": "_errorMessage",
           "type": "string",
           "value": "\"\""
+        },
+        {
+          "name": "_tractorPath",
+          "type": "array",
+          "children": [
+            {
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "X",
+                  "type": "number",
+                  "value": 150
+                },
+                {
+                  "folded": true,
+                  "name": "Y",
+                  "type": "number",
+                  "value": 400
+                }
+              ]
+            },
+            {
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "X",
+                  "type": "number",
+                  "value": 1000
+                },
+                {
+                  "folded": true,
+                  "name": "Y",
+                  "type": "number",
+                  "value": 600
+                }
+              ]
+            }
+          ]
         }
       ],
       "instances": [
@@ -773,21 +819,6 @@
               "value": 0
             }
           ],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "name": "TractorYellow",
-          "persistentUuid": "b96ca631-89ea-41cf-818b-c7611a8ed2b9",
-          "width": 0,
-          "x": 1295,
-          "y": 569,
-          "zOrder": 8,
-          "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
         },
@@ -911,11 +942,11 @@
           "customSize": false,
           "height": 0,
           "layer": "Tractors",
-          "name": "TractorYellow",
+          "name": "TractorWheat",
           "persistentUuid": "7d91a07a-31db-4ef4-afa2-b9a5b85b2c89",
           "width": 0,
-          "x": 1295,
-          "y": 569,
+          "x": 1354.5,
+          "y": 536,
           "zOrder": 8,
           "numberProperties": [],
           "stringProperties": [],
@@ -1496,13 +1527,30 @@
         },
         {
           "assetStoreId": "",
-          "name": "TractorYellow",
+          "name": "TractorWheat",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "Path",
+              "type": "array",
+              "children": []
+            },
+            {
+              "folded": true,
+              "name": "PathLength",
+              "type": "number",
+              "value": 0
+            }
+          ],
           "effects": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "Tween",
+              "type": "Tween::TweenBehavior"
+            }
+          ],
           "animations": [
             {
               "name": "",
@@ -1600,7 +1648,7 @@
         },
         {
           "assetStoreId": "",
-          "name": "TractorGreen",
+          "name": "TractorCorn",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
@@ -1704,7 +1752,7 @@
         },
         {
           "assetStoreId": "",
-          "name": "TractorOrange",
+          "name": "TractorPotato",
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
@@ -3773,13 +3821,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -3975,6 +4021,43 @@
                           ]
                         }
                       ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ObjectVariablePush"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "Path",
+                            "_tractorPath[0]"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ObjectVariablePush"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "Path",
+                            "_tractorPath[1]"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "PathLength",
+                            "=",
+                            "VariableChildCount(_tractorPath)"
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -3988,7 +4071,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4068,7 +4150,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / ToNumber(VariableString(_configuration.droneSpeed))",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
                     ""
                   ]
                 }
@@ -4181,7 +4263,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / ToNumber(VariableString(_configuration.droneSpeed))",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
                     ""
                   ]
                 }
@@ -4266,7 +4348,7 @@
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
-                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / ToNumber(VariableString(_configuration.droneSpeed))",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
                     ""
                   ]
                 }
@@ -4280,6 +4362,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4289,6 +4372,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -4912,6 +4996,159 @@
                         }
                       ]
                     }
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Tractor Movement",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "PathLength",
+                    ">",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "Tween::Exists"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "Tween",
+                    "\"TractorWheatMove\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::AddObjectPositionTween"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "Tween",
+                    "\"TractorWheatMove\"",
+                    "TractorWheat.Variable(Path[0].X)",
+                    "TractorWheat.Variable(Path[0].Y)",
+                    "\"linear\"",
+                    "DistanceBetweenPositions(TractorWheat.X(),TractorWheat.Y(),TractorWheat.Variable(Path[0].X),TractorWheat.Y())/Variable(_configuration.tractorSpeed)",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "TractorWheat",
+                        ">",
+                        "TractorWheat.Variable(Path[0].X)"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            ">",
+                            "TractorWheat.Variable(Path[0].Y)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "TractorWheat.X() + (TractorWheat.X()-TractorWheat.Variable(Path[0].X))",
+                            "TractorWheat.Y() + (TractorWheat.Y()-TractorWheat.Variable(Path[0].Y))",
+                            "0",
+                            ""
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "Tween",
+                    "\"TractorWheatMove\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "Tween",
+                    "\"TractorWheatMove\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ObjectVariableRemoveAt"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "Path",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "PathLength",
+                    "=",
+                    "TractorWheat.VariableChildCount(Path)"
                   ]
                 }
               ]
