@@ -1,6 +1,6 @@
 {
     "classificationURL": "http://localhost:5002/classify",
     "droneSpeed": 2,
-    "tractorSpeed": 0.1,
+    "tractorSpeed": 0.8,
     "wealthyCropInitialPercentage": 50
 }

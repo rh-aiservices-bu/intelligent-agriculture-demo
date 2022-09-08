@@ -777,7 +777,7 @@
                   "folded": true,
                   "name": "Y",
                   "type": "number",
-                  "value": 400
+                  "value": 600
                 }
               ]
             },
@@ -794,7 +794,41 @@
                   "folded": true,
                   "name": "Y",
                   "type": "number",
+                  "value": 150
+                }
+              ]
+            },
+            {
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "X",
+                  "type": "number",
+                  "value": 150
+                },
+                {
+                  "folded": true,
+                  "name": "Y",
+                  "type": "number",
                   "value": 600
+                }
+              ]
+            },
+            {
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "X",
+                  "type": "number",
+                  "value": 1000
+                },
+                {
+                  "folded": true,
+                  "name": "Y",
+                  "type": "number",
+                  "value": 1000
                 }
               ]
             }
@@ -945,8 +979,8 @@
           "name": "TractorWheat",
           "persistentUuid": "7d91a07a-31db-4ef4-afa2-b9a5b85b2c89",
           "width": 0,
-          "x": 1354.5,
-          "y": 536,
+          "x": 1407.5,
+          "y": 903,
           "zOrder": 8,
           "numberProperties": [],
           "stringProperties": [],
@@ -3821,6 +3855,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -3895,6 +3930,7 @@
                       "comment2": ""
                     },
                     {
+                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Wheat",
                       "conditions": [],
@@ -4023,6 +4059,49 @@
                       ]
                     },
                     {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Initialize tractors",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "PauseAnimation"
+                          },
+                          "parameters": [
+                            "TractorWheat"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PauseAnimation"
+                          },
+                          "parameters": [
+                            "TractorCorn"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PauseAnimation"
+                          },
+                          "parameters": [
+                            "TractorPotato"
+                          ]
+                        }
+                      ]
+                    },
+                    {
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [],
                       "actions": [
@@ -4048,6 +4127,26 @@
                         },
                         {
                           "type": {
+                            "value": "ObjectVariablePush"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "Path",
+                            "_tractorPath[2]"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ObjectVariablePush"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "Path",
+                            "_tractorPath[3]"
+                          ]
+                        },
+                        {
+                          "type": {
                             "value": "ModVarObjet"
                           },
                           "parameters": [
@@ -4055,6 +4154,80 @@
                             "PathLength",
                             "=",
                             "VariableChildCount(_tractorPath)"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Drone movement start",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "_dronePositionNumber",
+                            "=",
+                            "0"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "_dronePositionLegs",
+                            "=",
+                            "Drone.VariableChildCount(FixedPathPoints)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "_droneDestinationX",
+                            "=",
+                            "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "_droneDestinationY",
+                            "=",
+                            "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Tween::AddObjectPositionTween"
+                          },
+                          "parameters": [
+                            "Drone",
+                            "Tween",
+                            "\"FixedPathLeg\"",
+                            "Variable(_droneDestinationX)",
+                            "Variable(_droneDestinationY)",
+                            "\"linear\"",
+                            "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
+                            ""
                           ]
                         }
                       ]
@@ -4071,91 +4244,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
-            {
-              "type": "BuiltinCommonInstructions::Comment",
-              "color": {
-                "b": 109,
-                "g": 230,
-                "r": 255,
-                "textB": 0,
-                "textG": 0,
-                "textR": 0
-              },
-              "comment": "Drone Path initialization",
-              "comment2": ""
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "BuiltinCommonInstructions::Once"
-                  },
-                  "parameters": []
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "ModVarScene"
-                  },
-                  "parameters": [
-                    "_dronePositionNumber",
-                    "=",
-                    "0"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarScene"
-                  },
-                  "parameters": [
-                    "_dronePositionLegs",
-                    "=",
-                    "Drone.VariableChildCount(FixedPathPoints)"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarScene"
-                  },
-                  "parameters": [
-                    "_droneDestinationX",
-                    "=",
-                    "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarScene"
-                  },
-                  "parameters": [
-                    "_droneDestinationY",
-                    "=",
-                    "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Tween::AddObjectPositionTween"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "Tween",
-                    "\"FixedPathLeg\"",
-                    "Variable(_droneDestinationX)",
-                    "Variable(_droneDestinationY)",
-                    "\"linear\"",
-                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
-                    ""
-                  ]
-                }
-              ]
-            },
             {
               "type": "BuiltinCommonInstructions::Comment",
               "color": {
@@ -5008,11 +5101,13 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5053,6 +5148,14 @@
                     "DistanceBetweenPositions(TractorWheat.X(),TractorWheat.Y(),TractorWheat.Variable(Path[0].X),TractorWheat.Y())/Variable(_configuration.tractorSpeed)",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "PlayAnimation"
+                  },
+                  "parameters": [
+                    "TractorWheat"
+                  ]
                 }
               ],
               "events": [
@@ -5081,6 +5184,53 @@
                           },
                           "parameters": [
                             "TractorWheat",
+                            "<=",
+                            "TractorWheat.Variable(Path[0].Y)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "TractorWheat.Variable(Path[0].X)",
+                            "TractorWheat.Variable(Path[0].Y)",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
                             ">",
                             "TractorWheat.Variable(Path[0].Y)"
                           ]
@@ -5093,10 +5243,140 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "TractorWheat.X() + (TractorWheat.X()-TractorWheat.Variable(Path[0].X))",
-                            "TractorWheat.Y() + (TractorWheat.Y()-TractorWheat.Variable(Path[0].Y))",
+                            "TractorWheat.Variable(Path[0].X)",
+                            "TractorWheat.Variable(Path[0].Y)",
                             "0",
                             ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "TractorWheat",
+                        "<",
+                        "TractorWheat.Variable(Path[0].X)"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "<=",
+                            "TractorWheat.Variable(Path[0].Y)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "TractorWheat.Variable(Path[0].X)",
+                            "TractorWheat.Variable(Path[0].Y)",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "no"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            ">",
+                            "TractorWheat.Variable(Path[0].Y)"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "TractorWheat.Variable(Path[0].X)",
+                            "TractorWheat.Variable(Path[0].Y)",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "no"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "yes"
                           ]
                         }
                       ]
@@ -5149,6 +5429,25 @@
                     "PathLength",
                     "=",
                     "TractorWheat.VariableChildCount(Path)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PauseAnimation"
+                  },
+                  "parameters": [
+                    "TractorWheat"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "RotateTowardAngle"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "0",
+                    "0",
+                    ""
                   ]
                 }
               ]
