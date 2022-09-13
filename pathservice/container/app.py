@@ -29,18 +29,25 @@ app.add_middleware(
     allow_headers=headers
 )
 
-# Input data classes
-class PathFinderEntry(BaseModel):
+# Input/Output data classes
+class PathFinderEntry(BaseModel): # Used only for testing
     start_coordinates: Tuple[float,float] = None
     goal_coordinates: Tuple[float,float] = None
+
+class PathFinderResult(BaseModel): # Used only for testing
+    path: List[Tuple[float,float]] = None
+    length: float = None
+
+class RouteFinderEntry(BaseModel): # Tractor asks for full Route
+    kind: str = ""
+    start_coordinates: Tuple[float,float] = None
+
+class RouteFinderResult(BaseModel):
+    path: List[Tuple[float,float]] = None # List of coordinates to follow
 
 class DestinationEntry(BaseModel):
     kind: str = ""
     coordinates: Tuple[float,float] = None
-
-class PathResult(BaseModel):
-    path: List[Tuple[float,float]] = None
-    length: float = None
 
 # Destination arrays
 wheat_destinations = []
@@ -73,10 +80,23 @@ async def root():
     return {"message": "Status:OK"}
 
 # Pathfinder API
-@app.post("/pathfinder", response_model = PathResult)
+@app.post("/pathfinder", response_model = PathFinderResult)
 async def pathfinder(entry: PathFinderEntry):
-    result = PathResult()
+    result = PathFinderResult()
     result.path, result.length = calculatePath(entry.start_coordinates, entry.goal_coordinates)
+    print(result)
+    return result
+
+# Route API
+@app.post("/routefinder", response_model = RouteFinderResult)
+async def routefinder(entry: RouteFinderEntry):
+    result = RouteFinderResult()
+
+    for first_destination in wheat_destinations:
+        for second_destination in wheat_destinations:
+            print('toto')
+
+
     print(result)
     return result
 

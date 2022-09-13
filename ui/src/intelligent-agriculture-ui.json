@@ -644,7 +644,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.41699999999999976,
+        "zoomFactor": 0.5548000000000001,
         "windowMask": false
       },
       "objectsGroups": [
@@ -4455,7 +4455,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5101,7 +5100,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5451,6 +5449,23 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarObjet"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "PathLength",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": []
             }
           ],
           "parameters": []
