@@ -11,6 +11,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from uvicorn import run
 
+import map_definition
+
 # Load local env vars if present
 load_dotenv()
 
@@ -54,20 +56,7 @@ wheat_destinations = []
 
 # Path calculation functions
 def initializeEnvironment(environment):
-    # counter clockwise vertex numbering!
-    boundary_coordinates = [(0.0, 0.0), (10.0, 0.0), (9.0, 5.0), (10.0, 10.0), (0.0, 10.0)]
-
-    # clockwise numbering!
-    list_of_holes = [
-        [
-            (3.0, 7.0),
-            (5.0, 9.0),
-            (4.5, 7.0),
-            (5.0, 4.0),
-        ],
-    ]
-    environment.store(boundary_coordinates, list_of_holes, validate=False)
-
+    environment.store(map_definition.boundary_coordinates, map_definition.list_of_obstacles, validate=False)
     environment.prepare()
 
 def calculatePath(start_coordinates, goal_coordinates):

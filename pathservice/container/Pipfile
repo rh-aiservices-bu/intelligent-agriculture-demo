@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 extremitypathfinder = "~=2.4.1"
 fastapi = "~=0.80.0"
+optapy = "==8.23.0a0"
 pydantic = "~=1.9.2"
 python-dotenv = "~=0.21.0"
 uvicorn = "~=0.18.3"
@@ -13,4 +14,4 @@ uvicorn = "~=0.18.3"
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
