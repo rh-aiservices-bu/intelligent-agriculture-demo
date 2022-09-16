@@ -12,6 +12,7 @@ from pydantic import BaseModel
 from uvicorn import run
 
 import map_definition
+import route_solver
 
 # Load local env vars if present
 load_dotenv()
@@ -80,13 +81,12 @@ async def pathfinder(entry: PathFinderEntry):
 @app.post("/routefinder", response_model = RouteFinderResult)
 async def routefinder(entry: RouteFinderEntry):
     result = RouteFinderResult()
-
     for first_destination in wheat_destinations:
         for second_destination in wheat_destinations:
             print('toto')
 
+    route_solver.routefinder()
 
-    print(result)
     return result
 
 # Path API

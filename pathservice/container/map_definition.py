@@ -1,4 +1,4 @@
-# This is were the main map is defined.
+# This is were the main map is defined.location
 # Coordinates are with (0,0) at bottom left
 
 # Boundaries, with counter clockwise vertex numbering!
@@ -12,4 +12,66 @@ list_of_obstacles = [
         (500.0, 50.0),
         (50.0, 50.0),
     ],
+]
+
+barns = [
+    {
+        'name': '0',
+        'location': (10.0,15.0)
+    },
+    {
+        'name': '1',
+        'location': (1620.0,260.0)
+    }
+]
+
+tractors = [
+    {
+        'name': '2',
+        'capacity': 5,
+        'barn': 0
+    },
+    {
+        'name': '3',
+        'capacity': 2,
+        'barn': 0
+    },
+    {
+        'name': '4',
+        'capacity': 3,
+        'barn': 1
+    }
+]
+
+fields = [
+    {
+        'name': '5',
+        'location': (100.0,260.0),
+        'demand': 1
+    },
+    {
+        'name': '6',
+        'location': (200.0,300.0),
+        'demand': 1
+    },
+    {
+        'name': '7',
+        'location': (400.0,260.0),
+        'demand': 1
+    },
+    {
+        'name': '8',
+        'location': (500.0,300.0),
+        'demand': 1
+    },
+    {
+        'name': '9',
+        'location': (600.0,260.0),
+        'demand': 1
+    },
+    {
+        'name': '10',
+        'location': (700.0,300.0),
+        'demand': 1
+    },
 ]
