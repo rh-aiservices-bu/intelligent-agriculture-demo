@@ -3,8 +3,6 @@ import math
 
 from pprint import pprint
 
-import new_data
-
 import optapy.config
 #from data import DataBuilder
 import map_definition
@@ -234,8 +232,6 @@ def routefinder():
     #                                .set_north_east_corner(Location(1919, 0)).build()
 
     name = 'data'
-    #tractor_list = json.loads(new_data.tractor_json)
-    #field_list = json.loads(new_data.field_json)
     southWestCorner = Location(*map_definition.boundary_coordinates[3])
     northEastCorner = Location(*map_definition.boundary_coordinates[1])
 
@@ -283,9 +279,11 @@ def routefinder():
     last_score = HardSoftScore.ZERO
 
     tractor_routing_solution = problem
-
+    
     best_solution = solver_manager.solve(SINGLETON_ID, lambda _: problem)
-    final_solution = best_solution.getFinalBestSolution()
+    
+    print('ok')
+    #final_solution = best_solution.getFinalBestSolution()
 
     #for tractor in final_solution.tractor_list:
     #    # Select the current route

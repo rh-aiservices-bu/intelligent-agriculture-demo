@@ -18,10 +18,6 @@ barns = [
     {
         'name': '0',
         'location': (10.0,15.0)
-    },
-    {
-        'name': '1',
-        'location': (1620.0,260.0)
     }
 ]
 
@@ -30,16 +26,6 @@ tractors = [
         'name': '2',
         'capacity': 5,
         'barn': 0
-    },
-    {
-        'name': '3',
-        'capacity': 2,
-        'barn': 0
-    },
-    {
-        'name': '4',
-        'capacity': 3,
-        'barn': 1
     }
 ]
 
