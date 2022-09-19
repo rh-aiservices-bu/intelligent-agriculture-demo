@@ -1,5 +1,5 @@
-# This is were the main map is defined.location
-# Coordinates are with (0,0) at bottom left
+# This is were the main map is defined.
+# Location coordinates are with (0,0) at bottom left
 
 # Boundaries, with counter clockwise vertex numbering!
 boundary_coordinates = [(0.0, 0.0), (1919.0, 0.0), (1919.0, 1079.0), (0.0, 1079.0)]
@@ -7,10 +7,10 @@ boundary_coordinates = [(0.0, 0.0), (1919.0, 0.0), (1919.0, 1079.0), (0.0, 1079.
 # Array of obstacles/holes, with clockwise numbering!
 list_of_obstacles = [
     [
-        (50.0, 500.0),
-        (500.0, 500.0),
-        (500.0, 50.0),
-        (50.0, 50.0),
+        (50.0, 200.0),
+        (500.0, 200.0),
+        (500.0, 100.0),
+        (50.0, 100.0),
     ],
 ]
 

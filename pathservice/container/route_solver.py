@@ -5,6 +5,7 @@ from pprint import pprint
 
 import optapy.config
 import map_definition
+from extremitypathfinder import PolygonEnvironment
 from optapy import (constraint_provider, planning_entity,
                     planning_entity_collection_property,
                     planning_list_variable, planning_score, planning_solution,
@@ -47,12 +48,27 @@ class DistanceCalculator:
     def __init__(self):
         pass
 
+    # Path calculation functions
+    def initializeEnvironment():
+        global environment
+        environment.store(map_definition.boundary_coordinates, map_definition.list_of_obstacles, validate=False)
+        environment.prepare()
+
+    def calculatePath(self,start_coordinates, goal_coordinates):
+        global environment
+        print(start_coordinates,goal_coordinates)
+        path, length = environment.find_shortest_path(start_coordinates, goal_coordinates)
+        return path, length
+
     def calculate_distance(self, start, end):
         if start == end:
             return 0
-        X_diff = end.X - start.X
-        Y_diff = end.Y - start.Y
-        return math.ceil(math.sqrt(X_diff**2 + Y_diff**2))
+        # Compute path length using Pathfinder
+        start_coordinates = (start.X,start.Y)
+        end_coordinates = (end.X,end.Y)
+        result = self.calculatePath(start_coordinates,end_coordinates)
+        print(result[1])
+        return result[1]
 
     def init_distance_maps(self, location_list):
         for location in location_list:
@@ -296,5 +312,9 @@ def routefinder():
         print(verts)
 
     return final_solution.tractor_list
+
+# Initialize PathFinder
+environment = PolygonEnvironment()
+DistanceCalculator.initializeEnvironment()
 
 routefinder()
