@@ -24,15 +24,21 @@ barns = [
 tractors = [
     {
         'name': '1',
-        'capacity': 5,
+        'capacity': 1,
         'barn': 0,
-        'virtual': True
+        'virtual': False
+    },
+    {
+        'name': '1-2',
+        'capacity': 1,
+        'barn': 0,
+        'virtual': False
     },
     {
         'name': '2',
-        'capacity': 5,
+        'capacity': 1000,
         'barn': 0,
-        'virtual': False
+        'virtual': True
     }
 ]
 

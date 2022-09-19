@@ -265,12 +265,20 @@ def routefinder():
     # Solve the problem
     
     SINGLETON_ID = 1
+    termination_config = optapy.config.solver.termination.TerminationConfig()
+    # Stop after 4 seconds with no score improvement
+    termination_config.setUnimprovedSpentLimit(Duration.ofSeconds(4))
+    # Stop after 10 seconds max anyway
+    termination_config.setSpentLimit(Duration.ofSeconds(5))
+
     solver_config = optapy.config.solver.SolverConfig()
     solver_config \
         .withSolutionClass(TractorRoutingSolution) \
         .withEntityClasses(Tractor) \
         .withConstraintProviderClass(tractor_routing_constraints) \
-        .withTerminationSpentLimit(Duration.ofSeconds(5))
+        .withTerminationConfig(termination_config)
+        # \
+        #.withTerminationSpentLimit(Duration.ofSeconds(10))
 
     solver_manager = solver_manager_create(solver_config)
     last_score = HardMediumSoftScore.ZERO
@@ -279,7 +287,6 @@ def routefinder():
     
     best_solution = solver_manager.solve(SINGLETON_ID, lambda _: problem)
     
-    print('ok')
     final_solution = best_solution.getFinalBestSolution()
 
     for tractor in final_solution.tractor_list:
@@ -287,7 +294,7 @@ def routefinder():
         verts.extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
         print(tractor.name)
         print(verts)
-        
-    
+
+    return final_solution.tractor_list
 
 routefinder()
