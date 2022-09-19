@@ -10,7 +10,7 @@ from optapy import (constraint_provider, planning_entity,
                     planning_list_variable, planning_score, planning_solution,
                     problem_fact, problem_fact_collection_property,
                     solver_manager_create, value_range_provider)
-from optapy.score import HardSoftScore
+from optapy.score import HardMediumSoftScore
 from optapy.types import Duration
 
 ## Problem facts
@@ -94,10 +94,11 @@ class Field:
 
 @planning_entity
 class Tractor:
-    def __init__(self, name, capacity, barn, field_list=None):
+    def __init__(self, name, capacity, barn, virtual, field_list=None):
         self.name = name
         self.capacity = capacity
         self.barn = barn
+        self.isVirtual = virtual
         if field_list is None:
             self.field_list = []
         else:
@@ -138,8 +139,17 @@ def tractor_capacity(constraint_factory):
     return constraint_factory \
         .for_each(Tractor) \
         .filter(lambda tractor: get_total_demand(tractor) > tractor.capacity) \
-        .penalize("Over tractor capacity", HardSoftScore.ONE_HARD,
+        .penalize("Over tractor capacity", HardMediumSoftScore.ONE_HARD,
                   lambda tractor: int(get_total_demand(tractor) - tractor.capacity))
+
+
+def minimize_virtual_stops(constraint_factory):
+# We need to minimize the usage of the virtual tractor.
+    return constraint_factory \
+        .for_each(Tractor) \
+        .filter(lambda tractor: (tractor.isVirtual and len(tractor.field_list)>0)) \
+        .penalize("Minimal virtual stops", HardMediumSoftScore.ONE_MEDIUM,
+                  lambda tractor: len(tractor.field_list))
 
 
 # We also have one soft constraint: minimize the total distance
@@ -157,7 +167,7 @@ def get_total_distance(tractor):
 def total_distance(constraint_factory):
     return constraint_factory \
         .for_each(Tractor) \
-        .penalize("Minimize total distance", HardSoftScore.ONE_SOFT,
+        .penalize("Minimize total distance", HardMediumSoftScore.ONE_SOFT,
                   lambda tractor: int(get_total_distance(tractor)))
 
 
@@ -169,7 +179,10 @@ def tractor_routing_constraints(constraint_factory):
         tractor_capacity(constraint_factory),
         
         # Soft constraints
-        total_distance(constraint_factory)
+        total_distance(constraint_factory),
+
+        # Soft constraints
+        minimize_virtual_stops(constraint_factory)
     ]
 
 
@@ -206,7 +219,7 @@ class TractorRoutingSolution:
     def get_field_list(self):
         return self.field_list
 
-    @planning_score(HardSoftScore)
+    @planning_score(HardMediumSoftScore)
     def get_score(self):
         return self.score
 
@@ -222,15 +235,6 @@ class TractorRoutingSolution:
 ## Solving
 
 def routefinder():
-    # Now that we defined our model and constraints, create an instance of the problem
-    #problem = DataBuilder.builder(Location, Barn, Field, Tractor, TractorRoutingSolution, 
-    #                                DistanceCalculator()) \
-    #                                .set_tractor_capacity(2) \
-    #                                .set_field_count(50).set_tractor_count(15).set_barn_count(1) \
-    #                                .set_south_west_corner(Location(0, 1079)) \
-    #                                .set_north_east_corner(Location(1919, 0)).build()
-
-    
     name = 'data'
     southWestCorner = Location(*map_definition.boundary_coordinates[3])
     northEastCorner = Location(*map_definition.boundary_coordinates[1])
@@ -241,7 +245,7 @@ def routefinder():
 
     tractor_list = []
     for tractor in map_definition.tractors:
-        tractor_list.append(Tractor(tractor['name'],tractor['capacity'],barn_list[tractor['barn']]))
+        tractor_list.append(Tractor(tractor['name'],tractor['capacity'],barn_list[tractor['barn']],tractor['virtual']))
 
     field_list = []
     for field in map_definition.fields:
@@ -269,7 +273,7 @@ def routefinder():
         .withTerminationSpentLimit(Duration.ofSeconds(5))
 
     solver_manager = solver_manager_create(solver_config)
-    last_score = HardSoftScore.ZERO
+    last_score = HardMediumSoftScore.ZERO
 
     tractor_routing_solution = problem
     
@@ -283,6 +287,7 @@ def routefinder():
         verts.extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
         print(tractor.name)
         print(verts)
+        
     
 
 routefinder()

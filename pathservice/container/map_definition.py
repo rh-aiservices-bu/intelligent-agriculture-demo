@@ -25,12 +25,14 @@ tractors = [
     {
         'name': '1',
         'capacity': 5,
-        'barn': 0
+        'barn': 0,
+        'virtual': True
     },
     {
         'name': '2',
         'capacity': 5,
-        'barn': 0
+        'barn': 0,
+        'virtual': False
     }
 ]
 
