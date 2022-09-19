@@ -23,6 +23,11 @@ barns = [
 
 tractors = [
     {
+        'name': '1',
+        'capacity': 5,
+        'barn': 0
+    },
+    {
         'name': '2',
         'capacity': 5,
         'barn': 0
