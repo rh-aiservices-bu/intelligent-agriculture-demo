@@ -4,7 +4,6 @@ import math
 from pprint import pprint
 
 import optapy.config
-#from data import DataBuilder
 import map_definition
 from optapy import (constraint_provider, planning_entity,
                     planning_entity_collection_property,
@@ -224,13 +223,14 @@ class TractorRoutingSolution:
 
 def routefinder():
     # Now that we defined our model and constraints, create an instance of the problem
-    # problem = DataBuilder.builder(Location, Barn, Field, Tractor, TractorRoutingSolution, 
+    #problem = DataBuilder.builder(Location, Barn, Field, Tractor, TractorRoutingSolution, 
     #                                DistanceCalculator()) \
     #                                .set_tractor_capacity(2) \
     #                                .set_field_count(50).set_tractor_count(15).set_barn_count(1) \
     #                                .set_south_west_corner(Location(0, 1079)) \
     #                                .set_north_east_corner(Location(1919, 0)).build()
 
+    
     name = 'data'
     southWestCorner = Location(*map_definition.boundary_coordinates[3])
     northEastCorner = Location(*map_definition.boundary_coordinates[1])
@@ -241,7 +241,7 @@ def routefinder():
 
     tractor_list = []
     for tractor in map_definition.tractors:
-        tractor_list.append(Tractor(tractor['name'],tractor['capacity'],tractor['barn']))
+        tractor_list.append(Tractor(tractor['name'],tractor['capacity'],barn_list[tractor['barn']]))
 
     field_list = []
     for field in map_definition.fields:
@@ -257,23 +257,16 @@ def routefinder():
 
     problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, field_list, southWestCorner, northEastCorner)
 
-    print(problem.name)
-    print(*problem.location_list)
-    print(*problem.barn_list)
-    print(*problem.tractor_list)
-    print(*problem.field_list)
-    print(problem.south_west_corner)
-    print(problem.north_east_corner)
 
     # Solve the problem
-
+    
     SINGLETON_ID = 1
     solver_config = optapy.config.solver.SolverConfig()
     solver_config \
         .withSolutionClass(TractorRoutingSolution) \
         .withEntityClasses(Tractor) \
         .withConstraintProviderClass(tractor_routing_constraints) \
-        .withTerminationSpentLimit(Duration.ofSeconds(10))
+        .withTerminationSpentLimit(Duration.ofSeconds(5))
 
     solver_manager = solver_manager_create(solver_config)
     last_score = HardSoftScore.ZERO
@@ -283,19 +276,13 @@ def routefinder():
     best_solution = solver_manager.solve(SINGLETON_ID, lambda _: problem)
     
     print('ok')
-    #final_solution = best_solution.getFinalBestSolution()
+    final_solution = best_solution.getFinalBestSolution()
 
-    #for tractor in final_solution.tractor_list:
-    #    # Select the current route
-    #    route = tractor_to_route_dict[tractor.name]
-    #
-    #    # Change color of all fields belonging to this route
-    #    for field in tractor.field_list:
-    #        field_to_marker_dict[field.name].color = tractor_to_route_color_dict[tractor.name]
-    #
-    #   verts = [(tractor.barn.location.X,tractor.barn.location.Y)]
-    #   verts.extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
-    #print(tractor.name)
-    #   print(verts)
+    for tractor in final_solution.tractor_list:
+        verts = [(tractor.barn.location.X,tractor.barn.location.Y)]
+        verts.extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
+        print(tractor.name)
+        print(verts)
+    
 
 routefinder()
