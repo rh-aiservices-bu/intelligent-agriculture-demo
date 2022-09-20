@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from extremitypathfinder import PolygonEnvironment
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from uvicorn import run
 
 import map_definition
@@ -33,11 +33,19 @@ app.add_middleware(
 )
 
 # Input/Output data classes
-class PathFinderEntry(BaseModel): # Used only for testing
+class PathFinderEntry(BaseModel):
     start_coordinates: Tuple[float,float] = None
     goal_coordinates: Tuple[float,float] = None
 
-class PathFinderResult(BaseModel): # Used only for testing
+    class Config:
+        schema_extra = {
+            "example": {
+                "start_coordinates": (10.0,22.1),
+                "end_coordinates": (20.5,400.0)
+            }
+        }
+
+class PathFinderResult(BaseModel):
     path: List[Tuple[float,float]] = None
     length: float = None
 
@@ -73,6 +81,7 @@ async def root():
 @app.post("/pathfinder", response_model = PathFinderResult)
 async def pathfinder(entry: PathFinderEntry):
     result = PathFinderResult()
+    print(entry.start_coordinates)
     result.path, result.length = calculatePath(entry.start_coordinates, entry.goal_coordinates)
     print(result)
     return result

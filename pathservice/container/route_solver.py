@@ -316,5 +316,3 @@ def routefinder():
 # Initialize PathFinder
 environment = PolygonEnvironment()
 DistanceCalculator.initializeEnvironment()
-
-routefinder()
