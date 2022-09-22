@@ -41,7 +41,7 @@ class PathFinderEntry(BaseModel):
         schema_extra = {
             "example": {
                 "start_coordinates": (10.0,22.1),
-                "end_coordinates": (20.5,400.0)
+                "goal_coordinates": (20.5,400.0)
             }
         }
 
@@ -49,16 +49,47 @@ class PathFinderResult(BaseModel):
     path: List[Tuple[float,float]] = None
     length: float = None
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "path": [(10.0, 22.1), (20.5, 400.0)],
+                "length": 378.0458437808832
+            }
+        }
+
 class RouteFinderEntry(BaseModel): # Tractor asks for full Route
     kind: str = ""
     start_coordinates: Tuple[float,float] = None
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "kind": "wheat",
+                "start_coordinates": (10.0,22.1)
+            }
+        }
+
 class RouteFinderResult(BaseModel):
     path: List[Tuple[float,float]] = None # List of coordinates to follow
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "path": [(10.0, 22.1), (20.5, 400.0)],
+            }
+        }
 
 class DestinationEntry(BaseModel):
     kind: str = ""
     coordinates: Tuple[float,float] = None
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "kind": "wheat",
+                "coordinates": (10.0,22.1)
+            }
+        }
 
 # Destination arrays
 wheat_destinations = []
@@ -81,9 +112,7 @@ async def root():
 @app.post("/pathfinder", response_model = PathFinderResult)
 async def pathfinder(entry: PathFinderEntry):
     result = PathFinderResult()
-    print(entry.start_coordinates)
     result.path, result.length = calculatePath(entry.start_coordinates, entry.goal_coordinates)
-    print(result)
     return result
 
 # Route API
