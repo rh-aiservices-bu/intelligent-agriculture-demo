@@ -16,26 +16,23 @@ list_of_obstacles = [
 
 barns = [
     {
-        'name': '0',
-        'location': (10.0,15.0)
+        'name': 'wheat-0',
+        'location': (10.0,15.0),
+        'kind': 'wheat'
     }
 ]
 
 tractors = [
     {
-        'name': '1',
-        'capacity': 1,
+        'name': 'wheat-0',
+        'kind': 'wheat',
+        'capacity': 5,
         'barn': 0,
         'virtual': False
     },
     {
-        'name': '1-2',
-        'capacity': 1,
-        'barn': 0,
-        'virtual': False
-    },
-    {
-        'name': '2',
+        'name': 'wheat-virtual',
+        'kind': 'wheat',
         'capacity': 1000,
         'barn': 0,
         'virtual': True

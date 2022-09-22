@@ -92,7 +92,10 @@ class DestinationEntry(BaseModel):
         }
 
 # Destination arrays
-wheat_destinations = []
+destinations = dict()
+destinations['wheat'] = []
+destinations['corn'] = []
+destinations['potatoes'] = []
 
 # Path calculation functions
 def initializeEnvironment(environment):
@@ -119,27 +122,25 @@ async def pathfinder(entry: PathFinderEntry):
 @app.post("/routefinder", response_model = RouteFinderResult)
 async def routefinder(entry: RouteFinderEntry):
     result = RouteFinderResult()
-    for first_destination in wheat_destinations:
-        for second_destination in wheat_destinations:
-            print('toto')
-
-    route_solver.routefinder()
-
+    result.path = route_solver.routefinder(entry.kind,destinations[entry.kind])
     return result
 
 # Path API
 @app.put("/destination")
 async def addDestinationEntry(entry: DestinationEntry):
     if entry.kind == "wheat":
-        wheat_destinations.append(entry.coordinates)
-        print(wheat_destinations)
+        destinations['wheat'].append(entry.coordinates)
+        print(destinations['wheat'])
     return True
 
 @app.post("/delete-destination")
 async def deleteDestinationEntry(entry: DestinationEntry):
     if entry.kind == "wheat":
-        wheat_destinations.remove(entry.coordinates)
-        print(wheat_destinations)
+        try:
+            destinations['wheat'].remove(entry.coordinates)
+        except:
+            print("Destination is not in list")
+    print(destinations['wheat'])
     return True
     
 # Initialize PathFinder

@@ -79,9 +79,10 @@ class DistanceCalculator:
 
 class Barn:
 # Start/stop locations of the tractors
-    def __init__(self, name, location):
+    def __init__(self, name, location, kind):
         self.name = name
         self.location = location
+        self.kind = kind
 
     def __str__(self):
         return f'BarnLocation {self.name}'
@@ -110,8 +111,9 @@ class Field:
 
 @planning_entity
 class Tractor:
-    def __init__(self, name, capacity, barn, virtual, field_list=None):
+    def __init__(self, name, kind, capacity, barn, virtual, field_list=None):
         self.name = name
+        self.kind = kind
         self.capacity = capacity
         self.barn = barn
         self.isVirtual = virtual
@@ -250,7 +252,70 @@ class TractorRoutingSolution:
 
 ## Solving
 
-def routefinder():
+def routefinder(kind,destinations):
+    name = 'data'
+    southWestCorner = Location(*map_definition.boundary_coordinates[3])
+    northEastCorner = Location(*map_definition.boundary_coordinates[1])
+
+    barn_list = []
+    for barn in (barn for barn in map_definition.barns if barn['kind'] == kind):
+        barn_list.append(Barn(barn['name'],Location(*barn['location']),kind))
+
+    tractor_list = []
+    for tractor in (tractor for tractor in map_definition.tractors if tractor['kind'] == kind):
+        tractor_list.append(Tractor(tractor['name'],tractor['kind'],tractor['capacity'],barn_list[tractor['barn']],tractor['virtual']))
+
+    field_list = []
+    for i in range(len(destinations)):
+        field_list.append(Field('field-'+str(i),Location(*destinations[i]),1))
+
+    location_list = []
+    for field in field_list:
+        location_list.append(field.location)
+    for barn in barn_list:
+        location_list.append(barn.location)
+
+    DistanceCalculator().init_distance_maps(location_list)
+
+    problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, field_list, southWestCorner, northEastCorner)
+
+
+    # Solve the problem
+    
+    SINGLETON_ID = 1
+    termination_config = optapy.config.solver.termination.TerminationConfig()
+    # Stop after 4 seconds with no score improvement
+    termination_config.setUnimprovedSpentLimit(Duration.ofSeconds(4))
+    # Stop after 10 seconds max anyway
+    termination_config.setSpentLimit(Duration.ofSeconds(5))
+
+    solver_config = optapy.config.solver.SolverConfig()
+    solver_config \
+        .withSolutionClass(TractorRoutingSolution) \
+        .withEntityClasses(Tractor) \
+        .withConstraintProviderClass(tractor_routing_constraints) \
+        .withTerminationConfig(termination_config)
+        # \
+        #.withTerminationSpentLimit(Duration.ofSeconds(10))
+
+    solver_manager = solver_manager_create(solver_config)
+    last_score = HardMediumSoftScore.ZERO
+
+    tractor_routing_solution = problem
+    
+    best_solution = solver_manager.solve(SINGLETON_ID, lambda _: problem)
+    
+    final_solution = best_solution.getFinalBestSolution()
+
+    verts=dict()
+
+    for tractor in final_solution.tractor_list:
+        verts[tractor.name] = [(tractor.barn.location.X,tractor.barn.location.Y)]
+        verts[tractor.name].extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
+
+    return verts[kind+'-0']
+
+def routefinder_from_map():
     name = 'data'
     southWestCorner = Location(*map_definition.boundary_coordinates[3])
     northEastCorner = Location(*map_definition.boundary_coordinates[1])
