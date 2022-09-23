@@ -49,12 +49,6 @@ wheat_healthy = sorted(glob(os.path.join('./assets/pictures/wheat_healthy/','*')
 wheat_brown_rust = sorted(glob(os.path.join('./assets/pictures/wheat_brown_rust/','*')))
 wheat_yellow_rust = sorted(glob(os.path.join('./assets/pictures/wheat_yellow_rust/','*')))
 
-def calculatePath(start_coordinates, goal_coordinates):
-    path, length = environment.find_shortest_path(start_coordinates, goal_coordinates)
-    print(path)
-    print(length)
-    return path, length
-
 def addPathEntry(kind,coordinates):
     data_json = {"kind": kind, "coordinates": coordinates}
     resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json)
@@ -68,8 +62,7 @@ async def root():
 # Classification API
 @app.post("/classify", response_model = TileStatus)
 async def classify(entry: TileEntry):
-    response = TileStatus()
-    
+
     if (entry.kind == "wheat"):
         if (entry.disease == "wheat_healthy"):
             picture_path = wheat_healthy[entry.frame]
@@ -88,10 +81,10 @@ async def classify(entry: TileEntry):
     else:
         result['status'] = 'ill'
         addPathEntry(entry.kind, entry.coordinates)
-    
-    print(result)
 
-    return result
+    response = TileStatus(result['status'],result['model_prediction'],result['model_prediction_confidence_score'])
+    
+    return response
     
 # Launch the FastAPI server
 if __name__ == "__main__":
