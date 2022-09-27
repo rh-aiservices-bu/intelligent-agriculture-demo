@@ -613,6 +613,15 @@
         "name": "crop_picture_empty-1.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/background.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/background.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -626,9 +635,6 @@
       "disableInputWhenNotFocused": true,
       "mangledName": "Main_32scene",
       "name": "Main scene",
-      "oglFOV": 90,
-      "oglZFar": 500,
-      "oglZNear": 1,
       "r": 74,
       "standardSortMethod": true,
       "stopSoundsOnStartup": true,
@@ -644,7 +650,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5548000000000001,
+        "zoomFactor": 0.5547999999999998,
         "windowMask": false
       },
       "objectsGroups": [
@@ -844,8 +850,8 @@
           "name": "Wheat",
           "persistentUuid": "44d0a987-fe41-401e-87c1-133757ea1065",
           "width": 0,
-          "x": 185,
-          "y": 335,
+          "x": 181,
+          "y": 274,
           "zOrder": 4,
           "numberProperties": [
             {
@@ -915,12 +921,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Corn",
           "persistentUuid": "837a05ec-38a2-40c8-9aa5-362ce22039f6",
           "width": 0,
-          "x": 512,
-          "y": 372,
+          "x": 383,
+          "y": 400,
           "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
@@ -945,12 +951,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "7a1f3b24-1f7e-449c-83c4-a5d2a52ad01b",
           "width": 0,
-          "x": 1052,
-          "y": 464,
+          "x": 1351,
+          "y": 608,
           "zOrder": 14,
           "numberProperties": [],
           "stringProperties": [],
@@ -994,8 +1000,8 @@
           "name": "Corn",
           "persistentUuid": "632ee94d-a608-454f-9a5d-fb7e891f3042",
           "width": 0,
-          "x": 512,
-          "y": 372,
+          "x": 380,
+          "y": 271,
           "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
@@ -1050,12 +1056,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "85163887-4948-4257-8210-733840f4e316",
           "width": 0,
-          "x": 323,
-          "y": 552,
+          "x": 181,
+          "y": 424,
           "zOrder": 22,
           "numberProperties": [],
           "stringProperties": [],
@@ -1065,12 +1071,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "b899544c-f4bd-4cb5-a2d7-c7c0eb5c5a5c",
           "width": 0,
-          "x": 832,
-          "y": 530,
+          "x": 805,
+          "y": 667,
           "zOrder": 23,
           "numberProperties": [],
           "stringProperties": [],
@@ -1080,7 +1086,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "da450ab7-9d9c-4e73-827d-9d8a64e83aac",
           "width": 0,
@@ -1095,7 +1101,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "e9025595-ece5-45ef-95e5-6b9a6fe2f956",
           "width": 0,
@@ -1110,12 +1116,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "c4bd4a77-cf32-4e86-9899-08957c4e2436",
           "width": 0,
-          "x": 940,
-          "y": 781,
+          "x": 1050,
+          "y": 857,
           "zOrder": 26,
           "numberProperties": [],
           "stringProperties": [],
@@ -1125,12 +1131,12 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "40b0e24c-e3be-45bf-bdad-64292e624357",
           "width": 0,
-          "x": 1189,
-          "y": 749,
+          "x": 1239,
+          "y": 808,
           "zOrder": 27,
           "numberProperties": [],
           "stringProperties": [],
@@ -1230,14 +1236,49 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Crops",
           "name": "Wheat",
           "persistentUuid": "17a7efc9-c45d-4f10-8774-22b15598996d",
           "width": 0,
-          "x": 375,
-          "y": 117,
+          "x": 364,
+          "y": 103,
           "zOrder": 34,
           "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "Background",
+          "name": "Background",
+          "persistentUuid": "965eb06c-d1e9-4216-85f0-5aa2a475a461",
+          "width": 0,
+          "x": 0,
+          "y": 0,
+          "zOrder": 35,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "Crops",
+          "name": "Wheat",
+          "persistentUuid": "c8310fa8-9f07-427d-8fb0-192001946380",
+          "width": 0,
+          "x": 183,
+          "y": 106,
+          "zOrder": 4,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 0
+            }
+          ],
           "stringProperties": [],
           "initialVariables": []
         }
@@ -1906,7 +1947,7 @@
                       "folded": true,
                       "name": "X",
                       "type": "number",
-                      "value": 1600
+                      "value": 1540
                     },
                     {
                       "folded": true,
@@ -1940,7 +1981,7 @@
                       "folded": true,
                       "name": "X",
                       "type": "number",
-                      "value": -1600
+                      "value": -1540
                     },
                     {
                       "folded": true,
@@ -3847,6 +3888,47 @@
             "g": 0,
             "r": 0
           }
+        },
+        {
+          "assetStoreId": "",
+          "name": "Background",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/background.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -4244,7 +4326,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5473,6 +5554,17 @@
       ],
       "layers": [
         {
+          "ambientLightColorB": 8532168,
+          "ambientLightColorG": 6046000,
+          "ambientLightColorR": 8710960,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "Background",
+          "visibility": true,
+          "cameras": [],
+          "effects": []
+        },
+        {
           "ambientLightColorB": 32,
           "ambientLightColorG": 0,
           "ambientLightColorR": 0,
@@ -5637,7 +5729,8 @@
           "objectGroups": []
         }
       ],
-      "eventsBasedBehaviors": []
+      "eventsBasedBehaviors": [],
+      "eventsBasedObjects": []
     }
   ],
   "externalLayouts": [],
