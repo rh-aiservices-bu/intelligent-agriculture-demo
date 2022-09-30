@@ -315,69 +315,6 @@ def routefinder(kind,destinations):
 
     return verts[kind+'-0']
 
-def routefinder_from_map():
-    name = 'data'
-    southWestCorner = Location(*map_definition.boundary_coordinates[3])
-    northEastCorner = Location(*map_definition.boundary_coordinates[1])
-
-    barn_list = []
-    for barn in map_definition.barns:
-        barn_list.append(Barn(barn['name'],Location(*barn['location'])))
-
-    tractor_list = []
-    for tractor in map_definition.tractors:
-        tractor_list.append(Tractor(tractor['name'],tractor['capacity'],barn_list[tractor['barn']],tractor['virtual']))
-
-    field_list = []
-    for field in map_definition.fields:
-        field_list.append(Field(field['name'],Location(*field['location']),field['demand']))
-
-    location_list = []
-    for field in field_list:
-        location_list.append(field.location)
-    for barn in barn_list:
-        location_list.append(barn.location)
-
-    DistanceCalculator().init_distance_maps(location_list)
-
-    problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, field_list, southWestCorner, northEastCorner)
-
-
-    # Solve the problem
-    
-    SINGLETON_ID = 1
-    termination_config = optapy.config.solver.termination.TerminationConfig()
-    # Stop after 4 seconds with no score improvement
-    termination_config.setUnimprovedSpentLimit(Duration.ofSeconds(4))
-    # Stop after 10 seconds max anyway
-    termination_config.setSpentLimit(Duration.ofSeconds(5))
-
-    solver_config = optapy.config.solver.SolverConfig()
-    solver_config \
-        .withSolutionClass(TractorRoutingSolution) \
-        .withEntityClasses(Tractor) \
-        .withConstraintProviderClass(tractor_routing_constraints) \
-        .withTerminationConfig(termination_config)
-        # \
-        #.withTerminationSpentLimit(Duration.ofSeconds(10))
-
-    solver_manager = solver_manager_create(solver_config)
-    last_score = HardMediumSoftScore.ZERO
-
-    tractor_routing_solution = problem
-    
-    best_solution = solver_manager.solve(SINGLETON_ID, lambda _: problem)
-    
-    final_solution = best_solution.getFinalBestSolution()
-
-    for tractor in final_solution.tractor_list:
-        verts = [(tractor.barn.location.X,tractor.barn.location.Y)]
-        verts.extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
-        print(tractor.name)
-        print(verts)
-
-    return final_solution.tractor_list
-
 # Initialize PathFinder
 environment = PolygonEnvironment()
 DistanceCalculator.initializeEnvironment()

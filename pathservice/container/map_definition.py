@@ -2,15 +2,40 @@
 # Location coordinates are with (0,0) at bottom left
 
 # Boundaries, with counter clockwise vertex numbering!
-boundary_coordinates = [(0.0, 0.0), (1919.0, 0.0), (1919.0, 1079.0), (0.0, 1079.0)]
+boundary_coordinates = [
+    (1650,0),
+    (1650.0, 930.0),
+    (0, 930.0),
+    (0.0, 0.0)
+    ]
 
 # Array of obstacles/holes, with clockwise numbering!
 list_of_obstacles = [
     [
-        (50.0, 200.0),
-        (500.0, 200.0),
-        (500.0, 100.0),
-        (50.0, 100.0),
+        (0,737),
+        (123,665),
+        (230,640),
+        (142,548),
+        (0,592),
+    ],
+    [
+        (338,636),
+        (456,620),
+        (600,550),
+        (830,540),
+        (1060,475),
+        (935,360),
+        (640,390),
+        (398,512),
+        (236,542),
+    ],
+    [
+        (1158,475),
+        (1430,518),
+        (1650,470),
+        (1650,297),
+        (1450,390),
+        (1025,352),
     ],
 ]
 
@@ -37,37 +62,4 @@ tractors = [
         'barn': 0,
         'virtual': True
     }
-]
-
-fields = [
-    {
-        'name': '5',
-        'location': (100.0,260.0),
-        'demand': 1
-    },
-    {
-        'name': '6',
-        'location': (200.0,300.0),
-        'demand': 1
-    },
-    {
-        'name': '7',
-        'location': (400.0,260.0),
-        'demand': 1
-    },
-    {
-        'name': '8',
-        'location': (500.0,300.0),
-        'demand': 1
-    },
-    {
-        'name': '9',
-        'location': (600.0,260.0),
-        'demand': 1
-    },
-    {
-        'name': '10',
-        'location': (700.0,300.0),
-        'demand': 1
-    },
 ]
