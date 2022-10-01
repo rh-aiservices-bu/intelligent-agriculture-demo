@@ -12,6 +12,7 @@ python-dotenv = "~=0.21.0"
 uvicorn = "~=0.18.3"
 
 [dev-packages]
+"watchdog[watchmedo]" = "~=2.1.9"
 
 [requires]
 python_version = "3.9"

@@ -1,4 +1,4 @@
-import json
+""" Classification API. Receives field data and sends back prediction. """
 import os
 from glob import glob
 from typing import Tuple
@@ -30,16 +30,18 @@ app.add_middleware(
     allow_headers=headers
 )
 
-# Input data class
+# Input data classes
 class TileEntry(BaseModel):
+    """ Data about a field received from the drone """
     coordinates: Tuple[float,float] = None
     kind: str = ""
     status: str = ""
     disease: str = ""
     frame: int = None
 
-# Output data class
+# Output data classes
 class TileStatus(BaseModel):
+    """ Data sent back to the drone after model prediction """
     status: str = ""
     model_prediction: str = ""
     model_prediction_confidence_score: float = None
@@ -49,7 +51,8 @@ wheat_healthy = sorted(glob(os.path.join('./assets/pictures/wheat_healthy/','*')
 wheat_brown_rust = sorted(glob(os.path.join('./assets/pictures/wheat_brown_rust/','*')))
 wheat_yellow_rust = sorted(glob(os.path.join('./assets/pictures/wheat_yellow_rust/','*')))
 
-def addPathEntry(kind,coordinates):
+def add_path_entry(kind,coordinates):
+    """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates}
     resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json)
     print(resp.json())
@@ -57,36 +60,41 @@ def addPathEntry(kind,coordinates):
 # Base API
 @app.get("/")
 async def root():
+    """ Simple status check """
     return {"message": "Status:OK"}
 
 # Classification API
 @app.post("/classify", response_model = TileStatus)
 async def classify(entry: TileEntry):
+    """ Classification API """
 
-    if (entry.kind == "wheat"):
-        if (entry.disease == "wheat_healthy"):
+    if entry.kind == "wheat":
+        if entry.disease == "wheat_healthy":
             picture_path = wheat_healthy[entry.frame]
-        if (entry.disease == "wheat_brown_rust"):
+        if entry.disease == "wheat_brown_rust":
             picture_path = wheat_brown_rust[entry.frame]
-        if (entry.disease == "wheat_yellow_rust"):
+        if entry.disease == "wheat_yellow_rust":
             picture_path = wheat_yellow_rust[entry.frame]
 
     file =  {'file': open(picture_path, 'rb')}
     resp = requests.post(url = PREDICTION_ENDPOINT, files = file)
-    
+
     result = resp.json()
-    
+
     if entry.disease in {"wheat_healthy"}:
         result['status'] = 'healthy'
     else:
         result['status'] = 'ill'
-        addPathEntry(entry.kind, entry.coordinates)
+        add_path_entry(entry.kind, entry.coordinates)
 
-    response = TileStatus(result['status'],result['model_prediction'],result['model_prediction_confidence_score'])
-    
+    response = TileStatus()
+    response.status = result['status']
+    response.model_prediction = result['model_prediction']
+    response.model_prediction_confidence_score = result['model_prediction_confidence_score']
+
     return response
-    
+
 # Launch the FastAPI server
 if __name__ == "__main__":
-    port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', '5000'))
     run(app, host="0.0.0.0", port=port)

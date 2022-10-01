@@ -1,0 +1,6 @@
+[BASIC]
+# Good variable names which should always be accepted, separated by a comma
+good-names=f,i,j,k,ex,Run,_,pk,x,y
+
+[TYPECHECK]
+ignored-modules=LazyLoader

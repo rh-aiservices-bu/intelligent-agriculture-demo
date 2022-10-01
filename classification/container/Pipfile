@@ -11,6 +11,7 @@ requests = "~=2.28.1"
 uvicorn = "~=0.18.3"
 
 [dev-packages]
+"watchdog[watchmedo]" = "~=2.1.9"
 
 [requires]
 python_version = "3.8"

@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from extremitypathfinder import PolygonEnvironment
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from uvicorn import run
 
 import map_definition
