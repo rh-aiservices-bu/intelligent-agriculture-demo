@@ -850,8 +850,8 @@
           "name": "Wheat",
           "persistentUuid": "44d0a987-fe41-401e-87c1-133757ea1065",
           "width": 0,
-          "x": 181,
-          "y": 274,
+          "x": 88,
+          "y": 223,
           "zOrder": 4,
           "numberProperties": [
             {
@@ -870,8 +870,8 @@
           "name": "Corn",
           "persistentUuid": "cdc07edf-cf89-4e6d-a2ed-6c6e8845bd10",
           "width": 0,
-          "x": 592,
-          "y": 126,
+          "x": 1088,
+          "y": 70,
           "zOrder": 9,
           "numberProperties": [
             {
@@ -890,8 +890,8 @@
           "name": "Potato",
           "persistentUuid": "751c37ae-22cb-468f-98d1-f2d8c925d824",
           "width": 0,
-          "x": 1066,
-          "y": 211,
+          "x": 386,
+          "y": 76,
           "zOrder": 10,
           "numberProperties": [
             {
@@ -910,8 +910,8 @@
           "name": "Potato",
           "persistentUuid": "d39bf2a9-fa98-40d5-80c4-91487ed821e0",
           "width": 0,
-          "x": 1385,
-          "y": 203,
+          "x": 246,
+          "y": 78,
           "zOrder": 11,
           "numberProperties": [],
           "stringProperties": [],
@@ -925,8 +925,8 @@
           "name": "Corn",
           "persistentUuid": "837a05ec-38a2-40c8-9aa5-362ce22039f6",
           "width": 0,
-          "x": 383,
-          "y": 400,
+          "x": 814,
+          "y": 74,
           "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
@@ -955,8 +955,8 @@
           "name": "Wheat",
           "persistentUuid": "7a1f3b24-1f7e-449c-83c4-a5d2a52ad01b",
           "width": 0,
-          "x": 1351,
-          "y": 608,
+          "x": 1264,
+          "y": 873,
           "zOrder": 14,
           "numberProperties": [],
           "stringProperties": [],
@@ -985,8 +985,8 @@
           "name": "TractorWheat",
           "persistentUuid": "7d91a07a-31db-4ef4-afa2-b9a5b85b2c89",
           "width": 0,
-          "x": 1407.5,
-          "y": 903,
+          "x": 715,
+          "y": 822,
           "zOrder": 8,
           "numberProperties": [],
           "stringProperties": [],
@@ -1000,8 +1000,8 @@
           "name": "Corn",
           "persistentUuid": "632ee94d-a608-454f-9a5d-fb7e891f3042",
           "width": 0,
-          "x": 380,
-          "y": 271,
+          "x": 960,
+          "y": 71,
           "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
@@ -1060,8 +1060,8 @@
           "name": "Wheat",
           "persistentUuid": "85163887-4948-4257-8210-733840f4e316",
           "width": 0,
-          "x": 181,
-          "y": 424,
+          "x": 81,
+          "y": 356,
           "zOrder": 22,
           "numberProperties": [],
           "stringProperties": [],
@@ -1075,8 +1075,8 @@
           "name": "Wheat",
           "persistentUuid": "b899544c-f4bd-4cb5-a2d7-c7c0eb5c5a5c",
           "width": 0,
-          "x": 805,
-          "y": 667,
+          "x": 385,
+          "y": 878,
           "zOrder": 23,
           "numberProperties": [],
           "stringProperties": [],
@@ -1090,8 +1090,8 @@
           "name": "Wheat",
           "persistentUuid": "da450ab7-9d9c-4e73-827d-9d8a64e83aac",
           "width": 0,
-          "x": 211,
-          "y": 770,
+          "x": 98,
+          "y": 880,
           "zOrder": 24,
           "numberProperties": [],
           "stringProperties": [],
@@ -1105,8 +1105,8 @@
           "name": "Wheat",
           "persistentUuid": "e9025595-ece5-45ef-95e5-6b9a6fe2f956",
           "width": 0,
-          "x": 583,
-          "y": 733,
+          "x": 248,
+          "y": 881,
           "zOrder": 25,
           "numberProperties": [],
           "stringProperties": [],
@@ -1120,8 +1120,8 @@
           "name": "Wheat",
           "persistentUuid": "c4bd4a77-cf32-4e86-9899-08957c4e2436",
           "width": 0,
-          "x": 1050,
-          "y": 857,
+          "x": 1136,
+          "y": 872,
           "zOrder": 26,
           "numberProperties": [],
           "stringProperties": [],
@@ -1135,8 +1135,8 @@
           "name": "Wheat",
           "persistentUuid": "40b0e24c-e3be-45bf-bdad-64292e624357",
           "width": 0,
-          "x": 1239,
-          "y": 808,
+          "x": 1014,
+          "y": 873,
           "zOrder": 27,
           "numberProperties": [],
           "stringProperties": [],
@@ -1151,7 +1151,7 @@
           "persistentUuid": "b26232d2-0eff-4f5f-8134-112fa4064128",
           "width": 0,
           "x": 1680,
-          "y": 631,
+          "y": 654,
           "zOrder": 28,
           "numberProperties": [],
           "stringProperties": [],
@@ -1240,8 +1240,8 @@
           "name": "Wheat",
           "persistentUuid": "17a7efc9-c45d-4f10-8774-22b15598996d",
           "width": 0,
-          "x": 364,
-          "y": 103,
+          "x": 74,
+          "y": 473,
           "zOrder": 34,
           "numberProperties": [],
           "stringProperties": [],
@@ -1270,8 +1270,8 @@
           "name": "Wheat",
           "persistentUuid": "c8310fa8-9f07-427d-8fb0-192001946380",
           "width": 0,
-          "x": 183,
-          "y": 106,
+          "x": 91,
+          "y": 79,
           "zOrder": 4,
           "numberProperties": [
             {
@@ -1279,6 +1279,51 @@
               "value": 0
             }
           ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TractorPotato",
+          "persistentUuid": "e799b829-02bd-4d2e-bc31-6fe5be8ebf54",
+          "width": 0,
+          "x": 344,
+          "y": 288,
+          "zOrder": 36,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "TractorCorn",
+          "persistentUuid": "e8095c46-0443-476a-99e6-2eb70a878b0c",
+          "width": 0,
+          "x": 1272,
+          "y": 245,
+          "zOrder": 37,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "DroneInfoStatus",
+          "persistentUuid": "ff23fd25-2977-4341-8f44-f8c0d099baa4",
+          "width": 0,
+          "x": 1680,
+          "y": 275,
+          "zOrder": 31,
+          "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
         }
@@ -2142,9 +2187,9 @@
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
@@ -2163,9 +2208,9 @@
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
@@ -3786,7 +3831,7 @@
         },
         {
           "assetStoreId": "",
-          "bold": false,
+          "bold": true,
           "italic": false,
           "name": "ClickInfo",
           "smoothed": true,
@@ -3796,18 +3841,18 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Click on tile\nfor info",
+          "string": "Tile info (click)",
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
           "assetStoreId": "",
-          "bold": false,
+          "bold": true,
           "italic": false,
           "name": "DroneViewTitle",
           "smoothed": true,
@@ -3821,9 +3866,9 @@
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
@@ -3842,9 +3887,9 @@
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
@@ -3863,9 +3908,9 @@
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
@@ -3884,9 +3929,9 @@
           "font": "",
           "characterSize": 30,
           "color": {
-            "b": 0,
-            "g": 0,
-            "r": 0
+            "b": 255,
+            "g": 255,
+            "r": 255
           }
         },
         {
