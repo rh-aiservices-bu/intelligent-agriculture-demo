@@ -1,6 +1,6 @@
 [BASIC]
 # Good variable names which should always be accepted, separated by a comma
-good-names=f,i,j,k,ex,Run,_,pk,x,y
+good-names=f,i,j,k,ex,Run,_,pk,x,y,X,Y
 
 [TYPECHECK]
-ignored-modules=LazyLoader
+ignored-modules=LazyLoader,optapy

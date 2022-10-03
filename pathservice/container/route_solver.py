@@ -1,8 +1,4 @@
-import json
-import math
-
-from pprint import pprint
-
+""" Route solving module, using OptaPlanner """
 import optapy.config
 import map_definition
 from extremitypathfinder import PolygonEnvironment
@@ -21,56 +17,62 @@ from optapy.types import Duration
 # and the fields to visit.
 
 class Location:
-# Location coordinates, as well as the distances from every other locations    
-    def __init__(self, X, Y, distance_map=None):
-        self.X = X
-        self.Y = Y
+    """ Location coordinates, as well as the distances from every other locations """
+    def __init__(self, x, y, distance_map=None):
+        self.x = x
+        self.y = y
         self.distance_map = distance_map
 
     def set_distance_map(self, distance_map):
+        """ Self explanatory """
         self.distance_map = distance_map
 
     def get_distance_to(self, location):
+        """ Self explanatory """
         return self.distance_map[location]
 
-    def to_X_Y_tuple(self):
+    def to_x_y_tuple(self):
+        """ Self explanatory """
         return (
-            self.X,
-            self.Y
+            self.x,
+            self.y
         )
 
     def __str__(self):
-        return f'[{self.X}, {self.Y}]'
+        return f'[{self.x}, {self.y}]'
 
 
 class DistanceCalculator:
-# Compute and initialize distance maps   
+    """ Compute and initialize distance maps """
     def __init__(self):
         pass
 
     # Path calculation functions
-    def initializeEnvironment():
-        global environment
-        environment.store(map_definition.boundary_coordinates, map_definition.list_of_obstacles, validate=False)
-        environment.prepare()
+    def initialize_environment(self,env):
+        """ Self explanatory """
+        env.store(map_definition.boundary_coordinates, \
+            map_definition.list_of_obstacles, validate=False)
+        env.prepare()
 
-    def calculatePath(self,start_coordinates, goal_coordinates):
-        global environment
+    def calculate_path(self,start_coordinates, goal_coordinates):
+        """ Self explanatory """
+        #global environment
         print(start_coordinates,goal_coordinates)
         path, length = environment.find_shortest_path(start_coordinates, goal_coordinates)
         return path, length
 
     def calculate_distance(self, start, end):
+        """ Compute path length using Pathfinder """
         if start == end:
             return 0
-        # Compute path length using Pathfinder
-        start_coordinates = (start.X,start.Y)
-        end_coordinates = (end.X,end.Y)
-        result = self.calculatePath(start_coordinates,end_coordinates)
+        start_coordinates = (start.x,start.y)
+        end_coordinates = (end.x,end.y)
+        result = self.calculate_path(start_coordinates,end_coordinates)
         print(result[1])
         return result[1]
 
     def init_distance_maps(self, location_list):
+        """ Initializes distances between each points pairs """
         for location in location_list:
             distance_map = dict()
             for other_location in location_list:
@@ -78,7 +80,7 @@ class DistanceCalculator:
             location.set_distance_map(distance_map)
 
 class Barn:
-# Start/stop locations of the tractors
+    """ Start/stop locations of the tractors """
     def __init__(self, name, location, kind):
         self.name = name
         self.location = location
@@ -90,7 +92,7 @@ class Barn:
 
 @problem_fact
 class Field:
-# A tractor visits fields to treat crops, which takes up some capacity
+    """ A tractor visits fields to treat crops, which takes up some capacity """
     def __init__(self, name, location, demand):
         self.name = name
         self.location = location
@@ -111,12 +113,13 @@ class Field:
 
 @planning_entity
 class Tractor:
+    """ That's a tractor! """
     def __init__(self, name, kind, capacity, barn, virtual, field_list=None):
         self.name = name
         self.kind = kind
         self.capacity = capacity
         self.barn = barn
-        self.isVirtual = virtual
+        self.is_virtual = virtual
         if field_list is None:
             self.field_list = []
         else:
@@ -124,12 +127,15 @@ class Tractor:
 
     @planning_list_variable(Field, ['field_range'])
     def get_field_list(self):
+        """ Getter """
         return self.field_list
 
     def set_field_list(self, field_list):
+        """ Setter """
         self.field_list = field_list
 
     def get_route(self):
+        """ Returns route attached to tractor """
         if len(self.field_list) == 0:
             return []
         route = [self.barn.location]
@@ -137,7 +143,7 @@ class Tractor:
             route.append(field.location)
         route.append(self.barn.location)
         return route
-    
+
     def __str__(self):
         return f'Tractor {self.name}'
 
@@ -145,15 +151,19 @@ class Tractor:
 # In tractor routing, we have one hard constraint: no tractor can go over its capacity
 
 def get_total_demand(tractor):
+    """ Get all demands for a specific tractor """
     total_demand = 0
     for field in tractor.field_list:
         total_demand += field.demand
     return total_demand
 
 def tractor_capacity(constraint_factory):
-# The lambda in penalize controls how much to penalize for a violation. We want a tractor 5 over capacity to be penalized more than a tractor only 1 over capacity. Hence we penalize by
-# `get_total_demand(tractor) - tractor.capacity`
-# which is how much over capacity the tractor is.
+    """ The lambda in penalize controls how much to penalize for a violation. \
+        We want a tractor 5 over capacity to be penalized more than a tractor \
+        only 1 over capacity. Hence we penalize by \
+        `get_total_demand(tractor) - tractor.capacity`
+        which is how much over capacity the tractor is.
+    """
     return constraint_factory \
         .for_each(Tractor) \
         .filter(lambda tractor: get_total_demand(tractor) > tractor.capacity) \
@@ -162,7 +172,7 @@ def tractor_capacity(constraint_factory):
 
 
 def minimize_virtual_stops(constraint_factory):
-# We need to minimize the usage of the virtual tractor.
+    """ We need to minimize the usage of the virtual tractor. """
     return constraint_factory \
         .for_each(Tractor) \
         .filter(lambda tractor: (tractor.isVirtual and len(tractor.field_list)>0)) \
@@ -170,19 +180,19 @@ def minimize_virtual_stops(constraint_factory):
                   lambda tractor: len(tractor.field_list))
 
 
-# We also have one soft constraint: minimize the total distance
 def get_total_distance(tractor):
-
-    total_distance = 1
+    """ We also have one soft constraint: minimize the total distance """
+    distance = 1
     last_location = tractor.barn.location
     for field in tractor.field_list:
-        total_distance += field.location.get_distance_to(last_location)
+        distance += field.location.get_distance_to(last_location)
         last_location = field.location
     if last_location is not tractor.barn.location:
-        total_distance += tractor.barn.location.get_distance_to(last_location)
-    return total_distance
+        distance += tractor.barn.location.get_distance_to(last_location)
+    return distance
 
 def total_distance(constraint_factory):
+    """ Returns distance constraints """
     return constraint_factory \
         .for_each(Tractor) \
         .penalize("Minimize total distance", HardMediumSoftScore.ONE_SOFT,
@@ -190,12 +200,12 @@ def total_distance(constraint_factory):
 
 
 @constraint_provider
-# Return a list containing the constraints in a `@constraint_provider` decorated function
 def tractor_routing_constraints(constraint_factory):
+    """ Return a list containing the constraints in a `@constraint_provider` decorated function """
     return [
         # Hard constraints
         tractor_capacity(constraint_factory),
-        
+
         # Soft constraints
         total_distance(constraint_factory),
 
@@ -217,6 +227,7 @@ def tractor_routing_constraints(constraint_factory):
 
 @planning_solution
 class TractorRoutingSolution:
+    """ init """
     def __init__(self,  name, location_list, barn_list, tractor_list, field_list,
                  south_west_corner, north_east_corner, score=None):
         self.name = name
@@ -230,32 +241,39 @@ class TractorRoutingSolution:
 
     @planning_entity_collection_property(Tractor)
     def get_tractor_list(self):
+        """ Self explanatory """
         return self.tractor_list
 
     @problem_fact_collection_property(Field)
     @value_range_provider('field_range', value_range_type=list)
     def get_field_list(self):
+        """ Self explanatory """
         return self.field_list
 
     @planning_score(HardMediumSoftScore)
     def get_score(self):
+        """ Self explanatory """
         return self.score
 
     def set_score(self, score):
+        """ Self explanatory """
         self.score = score
 
     def get_bounds(self):
+        """ Self explanatory """
         return [self.south_west_corner.to_X_Y_tuple(), self.north_east_corner.to_X_Y_tuple()]
 
     def get_distance_meters(self):
+        """ Self explanatory """
         return -self.score.getSoftScore() if self.score is not None else 0
 
 ## Solving
 
 def routefinder(kind,destinations):
+    """ Main function """
     name = 'data'
-    southWestCorner = Location(*map_definition.boundary_coordinates[3])
-    northEastCorner = Location(*map_definition.boundary_coordinates[1])
+    south_west_corner = Location(*map_definition.boundary_coordinates[3])
+    north_east_corner = Location(*map_definition.boundary_coordinates[1])
 
     barn_list = []
     for barn in (barn for barn in map_definition.barns if barn['kind'] == kind):
@@ -263,11 +281,12 @@ def routefinder(kind,destinations):
 
     tractor_list = []
     for tractor in (tractor for tractor in map_definition.tractors if tractor['kind'] == kind):
-        tractor_list.append(Tractor(tractor['name'],tractor['kind'],tractor['capacity'],barn_list[tractor['barn']],tractor['virtual']))
+        tractor_list.append(Tractor(tractor['name'],tractor['kind'],tractor['capacity'], \
+            barn_list[tractor['barn']],tractor['virtual']))
 
     field_list = []
-    for i in range(len(destinations)):
-        field_list.append(Field('field-'+str(i),Location(*destinations[i]),1))
+    for i, destination in enumerate(destinations):
+        field_list.append(Field('field-'+str(i),Location(*destination),1))
 
     location_list = []
     for field in field_list:
@@ -277,12 +296,13 @@ def routefinder(kind,destinations):
 
     DistanceCalculator().init_distance_maps(location_list)
 
-    problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, field_list, southWestCorner, northEastCorner)
+    problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, \
+         field_list, south_west_corner, north_east_corner)
 
 
     # Solve the problem
-    
-    SINGLETON_ID = 1
+
+    singleton_id = 1
     termination_config = optapy.config.solver.termination.TerminationConfig()
     # Stop after 4 seconds with no score improvement
     termination_config.setUnimprovedSpentLimit(Duration.ofSeconds(4))
@@ -299,22 +319,21 @@ def routefinder(kind,destinations):
         #.withTerminationSpentLimit(Duration.ofSeconds(10))
 
     solver_manager = solver_manager_create(solver_config)
-    last_score = HardMediumSoftScore.ZERO
 
-    tractor_routing_solution = problem
-    
-    best_solution = solver_manager.solve(SINGLETON_ID, lambda _: problem)
-    
+    best_solution = solver_manager.solve(singleton_id, lambda _: problem)
+
     final_solution = best_solution.getFinalBestSolution()
 
     verts=dict()
 
     for tractor in final_solution.tractor_list:
         verts[tractor.name] = [(tractor.barn.location.X,tractor.barn.location.Y)]
-        verts[tractor.name].extend(map(lambda field: (field.location.X,field.location.Y), tractor.field_list))
+        verts[tractor.name].extend(map(lambda field: (field.location.X,field.location.Y), \
+             tractor.field_list))
 
     return verts[kind+'-0']
 
 # Initialize PathFinder
 environment = PolygonEnvironment()
-DistanceCalculator.initializeEnvironment()
+calculator = DistanceCalculator()
+calculator.initialize_environment(environment)
