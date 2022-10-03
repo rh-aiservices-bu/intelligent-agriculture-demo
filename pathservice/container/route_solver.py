@@ -47,6 +47,11 @@ class DistanceCalculator:
     def __init__(self):
         pass
 
+    def translate_coordinates(self,coordinates):
+        """ Convert to/from GDevelop to PathFinder coordinates """
+        x,y = coordinates
+        return (x,map_definition.MAP_HEIGHT-y)
+
     # Path calculation functions
     def initialize_environment(self,env):
         """ Self explanatory """

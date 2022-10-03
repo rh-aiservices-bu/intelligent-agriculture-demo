@@ -39,8 +39,8 @@ class PathFinderEntry(BaseModel):
         """ Example """
         schema_extra = {
             "example": {
-                "start_coordinates": (10.0,22.1),
-                "goal_coordinates": (20.5,400.0)
+                "start_coordinates": (715,822),
+                "goal_coordinates": (220,200)
             }
         }
 
@@ -68,7 +68,7 @@ class RouteFinderEntry(BaseModel): # Tractor asks for full Route
         schema_extra = {
             "example": {
                 "kind": "wheat",
-                "start_coordinates": (10.0,22.1)
+                "start_coordinates": (715,822)
             }
         }
 
@@ -97,17 +97,17 @@ class DestinationsQuery(BaseModel):
         }
 
 # TBD: Find why this model does not work
-#class DestinationsResult(BaseModel):
-#    """ Destinations query result """
-#    destinations: list[tuple[float,float]] = [] # List of coordinates
-#
-#    class Config:
-#        """ Example """
-#        schema_extra = {
-#            "example": {
-#                "destinations": [(10.0, 22.1), (20.5, 400.0)],
-#            }
-#        }
+class DestinationsResult(BaseModel):
+    """ Destinations query result """
+    destinations: list[tuple[float,float]] = [] # List of coordinates
+
+    class Config:
+        """ Example """
+        schema_extra = {
+            "example": {
+                "destinations": [(10.0, 22.1), (20.5, 400.0)],
+            }
+        }
 
 class DestinationEntry(BaseModel):
     """ Additional destination entry """
@@ -130,16 +130,41 @@ destinations['corn'] = []
 destinations['potatoes'] = []
 
 # Path calculation functions
+def translate_coordinates(coordinates):
+    """ Convert to/from GDevelop to PathFinder coordinates """
+    x,y = coordinates
+    return (x,map_definition.MAP_HEIGHT-y)
+
 def initialize_environment(pathfinder_environment):
     """ Initialize pathfinder environment """
-    pathfinder_environment.store(map_definition.boundary_coordinates, \
-        map_definition.list_of_obstacles, validate=False)
+    translated_boundary_coordinates = []
+    for coordinates in map_definition.boundary_coordinates:
+        translated_boundary_coordinates.append(translate_coordinates(coordinates))
+    print(translated_boundary_coordinates)
+
+    translated_list_of_obstacles = []
+    for item in map_definition.list_of_obstacles:
+        item_coordinates = []
+        for coordinates in item:
+            item_coordinates.append(translate_coordinates(coordinates))
+        translated_list_of_obstacles.append(item_coordinates)
+    print(translated_list_of_obstacles)
+
+    pathfinder_environment.store(translated_boundary_coordinates, \
+        translated_list_of_obstacles, validate=False)
     pathfinder_environment.prepare()
 
 def calculate_path(start_coordinates, goal_coordinates):
     """ Finds shortest path, returns array and length """
-    path, length = environment.find_shortest_path(start_coordinates, goal_coordinates)
-    return path, length
+    print(start_coordinates)
+    path, length = environment.find_shortest_path(translate_coordinates(start_coordinates), \
+        translate_coordinates(goal_coordinates))
+
+    translated_path = []
+    for coordinates in path:
+        translated_path.append(translate_coordinates(coordinates))
+
+    return translated_path, length
 
 # Base API
 @app.get("/")
@@ -164,11 +189,11 @@ async def routefinder(entry: RouteFinderEntry):
     return result
 
 # Path API
-@app.post("/alldestinations", response_model = list[tuple[float,float]])
+@app.post("/alldestinations", response_model = DestinationsResult)
 async def get_destinations(entry: DestinationsQuery):
     """ Returns destinations array for a kind of crop """
-    response = destinations[entry.kind]
-    print(response)
+    response = DestinationsResult()
+    response.destinations = destinations[entry.kind]
     return response
 
 @app.delete("/alldestinations")
