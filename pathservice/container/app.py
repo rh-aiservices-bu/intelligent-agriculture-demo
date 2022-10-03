@@ -1,8 +1,5 @@
-import json
+""" Path and Route services API """
 import os
-import uuid
-from json import dumps
-from typing import List,Tuple
 
 from dotenv import load_dotenv
 from extremitypathfinder import PolygonEnvironment
@@ -34,10 +31,12 @@ app.add_middleware(
 
 # Input/Output data classes
 class PathFinderEntry(BaseModel):
-    start_coordinates: Tuple[float,float] = None
-    goal_coordinates: Tuple[float,float] = None
+    """ Path query data """
+    start_coordinates: tuple[float,float] = None
+    goal_coordinates: tuple[float,float] = None
 
     class Config:
+        """ Example """
         schema_extra = {
             "example": {
                 "start_coordinates": (10.0,22.1),
@@ -46,10 +45,12 @@ class PathFinderEntry(BaseModel):
         }
 
 class PathFinderResult(BaseModel):
-    path: List[Tuple[float,float]] = None
+    """ Path query result """
+    path: list[tuple[float,float]] = None
     length: float = None
 
     class Config:
+        """ Example """
         schema_extra = {
             "example": {
                 "path": [(10.0, 22.1), (20.5, 400.0)],
@@ -58,10 +59,12 @@ class PathFinderResult(BaseModel):
         }
 
 class RouteFinderEntry(BaseModel): # Tractor asks for full Route
+    """ Route query data """
     kind: str = ""
-    start_coordinates: Tuple[float,float] = None
+    start_coordinates: tuple[float,float] = None
 
     class Config:
+        """ Example """
         schema_extra = {
             "example": {
                 "kind": "wheat",
@@ -70,20 +73,48 @@ class RouteFinderEntry(BaseModel): # Tractor asks for full Route
         }
 
 class RouteFinderResult(BaseModel):
-    path: List[Tuple[float,float]] = None # List of coordinates to follow
+    """ Route query result """
+    path: list[tuple[float,float]] = None # List of coordinates to follow
 
     class Config:
+        """ Example """
         schema_extra = {
             "example": {
                 "path": [(10.0, 22.1), (20.5, 400.0)],
             }
         }
 
-class DestinationEntry(BaseModel):
+class DestinationsQuery(BaseModel):
+    """ Destinations table query """
     kind: str = ""
-    coordinates: Tuple[float,float] = None
 
     class Config:
+        """ Example """
+        schema_extra = {
+            "example": {
+                "kind": "wheat",
+            }
+        }
+
+class DestinationsResult(BaseModel):
+    """ Destinations query result """
+    destinations: list[tuple[float,float]] = [] # List of coordinates
+
+    class Config:
+        """ Example """
+        schema_extra = {
+            "example": {
+                "destinations": [[10.0, 22.1], [20.5, 400.0]],
+            }
+        }
+
+class DestinationEntry(BaseModel):
+    """ Additional destination entry """
+    kind: str = ""
+    coordinates: tuple[float,float] = None
+
+    class Config:
+        """ Example """
         schema_extra = {
             "example": {
                 "kind": "wheat",
@@ -98,56 +129,79 @@ destinations['corn'] = []
 destinations['potatoes'] = []
 
 # Path calculation functions
-def initializeEnvironment(environment):
-    environment.store(map_definition.boundary_coordinates, map_definition.list_of_obstacles, validate=False)
-    environment.prepare()
+def initialize_environment(pathfinder_environment):
+    """ Initialize pathfinder environment """
+    pathfinder_environment.store(map_definition.boundary_coordinates, \
+        map_definition.list_of_obstacles, validate=False)
+    pathfinder_environment.prepare()
 
-def calculatePath(start_coordinates, goal_coordinates):
+def calculate_path(start_coordinates, goal_coordinates):
+    """ Finds shortest path, returns array and length """
     path, length = environment.find_shortest_path(start_coordinates, goal_coordinates)
     return path, length
 
 # Base API
 @app.get("/")
 async def root():
+    """ Basic status """
     return {"message": "Status:OK"}
 
 # Pathfinder API
 @app.post("/pathfinder", response_model = PathFinderResult)
 async def pathfinder(entry: PathFinderEntry):
+    """ Finds path between two points """
     result = PathFinderResult()
-    result.path, result.length = calculatePath(entry.start_coordinates, entry.goal_coordinates)
+    result.path, result.length = calculate_path(entry.start_coordinates, entry.goal_coordinates)
     return result
 
 # Route API
 @app.post("/routefinder", response_model = RouteFinderResult)
 async def routefinder(entry: RouteFinderEntry):
+    """ Finds route going through all destinations """
     result = RouteFinderResult()
     result.path = route_solver.routefinder(entry.kind,destinations[entry.kind])
     return result
 
 # Path API
+@app.post("/alldestinations", response_model = DestinationsResult)
+async def get_destinations(entry: DestinationsQuery):
+    """ Returns destinations array for a kind of crop """
+    response = destinations[entry.kind]
+    print(response)
+    return response
+
+@app.delete("/alldestinations")
+async def delete_destinations(entry: DestinationsQuery):
+    """ Reset destinations array for a kind of crop """
+    destinations[entry.kind] = []
+    return destinations
+
 @app.put("/destination")
-async def addDestinationEntry(entry: DestinationEntry):
+async def add_destination_entry(entry: DestinationEntry):
+    """ Adds a destination in the array """
     if entry.kind == "wheat":
         destinations['wheat'].append(entry.coordinates)
         print(destinations['wheat'])
     return True
 
-@app.post("/delete-destination")
-async def deleteDestinationEntry(entry: DestinationEntry):
+@app.delete("/destination")
+async def delete_destination_entry(entry: DestinationEntry):
+    """ Removes a destination from an array
+    """
     if entry.kind == "wheat":
         try:
-            destinations['wheat'].remove(entry.coordinates)
-        except:
+            destinations['wheat'] = \
+                list(filter(lambda a: a != entry.coordinates, destinations['wheat']))
+        except ValueError():
             print("Destination is not in list")
     print(destinations['wheat'])
     return True
-    
+
 # Initialize PathFinder
 environment = PolygonEnvironment()
-initializeEnvironment(environment)
+initialize_environment(environment)
 
 # Launch the FastAPI server
 if __name__ == "__main__":
-    port = int(os.getenv('PORT', 5000))
+    port = int(os.getenv('PORT', '5000'))
     run(app, host="0.0.0.0", port=port)
