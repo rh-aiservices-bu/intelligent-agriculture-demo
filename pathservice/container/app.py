@@ -96,17 +96,18 @@ class DestinationsQuery(BaseModel):
             }
         }
 
-class DestinationsResult(BaseModel):
-    """ Destinations query result """
-    destinations: list[tuple[float,float]] = [] # List of coordinates
-
-    class Config:
-        """ Example """
-        schema_extra = {
-            "example": {
-                "destinations": [[10.0, 22.1], [20.5, 400.0]],
-            }
-        }
+# TBD: Find why this model does not work
+#class DestinationsResult(BaseModel):
+#    """ Destinations query result """
+#    destinations: list[tuple[float,float]] = [] # List of coordinates
+#
+#    class Config:
+#        """ Example """
+#        schema_extra = {
+#            "example": {
+#                "destinations": [(10.0, 22.1), (20.5, 400.0)],
+#            }
+#        }
 
 class DestinationEntry(BaseModel):
     """ Additional destination entry """
@@ -163,7 +164,7 @@ async def routefinder(entry: RouteFinderEntry):
     return result
 
 # Path API
-@app.post("/alldestinations", response_model = DestinationsResult)
+@app.post("/alldestinations", response_model = list[tuple[float,float]])
 async def get_destinations(entry: DestinationsQuery):
     """ Returns destinations array for a kind of crop """
     response = destinations[entry.kind]
