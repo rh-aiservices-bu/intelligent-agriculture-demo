@@ -141,7 +141,8 @@ async def pathfinder_api(entry: PathFinderEntry):
     """ Finds path between two points """
     result = PathFinderResult()
     result.path, result.length = \
-        pathfinder.calculate_path(environment,entry.start_coordinates, entry.goal_coordinates)
+        pathfinder.calculate_path(pathfinder_environment, \
+            entry.start_coordinates, entry.goal_coordinates)
     return result
 
 # Route API
@@ -149,7 +150,8 @@ async def pathfinder_api(entry: PathFinderEntry):
 async def routefinder(entry: RouteFinderEntry):
     """ Finds route going through all destinations """
     result = RouteFinderResult()
-    result.path = route_solver.routefinder(environment,entry.kind,destinations[entry.kind])
+    result.path = route_solver.routefinder(pathfinder_environment, \
+        entry.kind,destinations[entry.kind])
     return result
 
 # Path API
@@ -188,8 +190,8 @@ async def delete_destination_entry(entry: DestinationEntry):
     return True
 
 # Initialize PathFinder
-environment = PolygonEnvironment()
-pathfinder.initialize_environment(environment)
+pathfinder_environment = PolygonEnvironment()
+pathfinder.initialize_environment(pathfinder_environment)
 
 # Launch the FastAPI server
 if __name__ == "__main__":

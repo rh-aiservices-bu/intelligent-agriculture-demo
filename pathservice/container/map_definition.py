@@ -1,6 +1,7 @@
 """
     This is were the main map is defined.
-    Location coordinates are with (0,0) at top left (GDevelop reference)
+    Location coordinates are with (0,0) at top left (GDevelop/Inkscape reference)
+    So everything will have to be translated for use with PathFinder and RouteFinder
 """
 
 MAP_WIDTH = 1650
@@ -9,9 +10,9 @@ MAP_HEIGHT = 930
 # Boundaries, with counter clockwise vertex numbering!
 boundary_coordinates = [
     (0,0),
-    (0, 930),
+    (0, 930),   #South-West corner
     (1650, 930),
-    (1650, 0)
+    (1650, 0)   #North-East corner
     ]
 
 # Array of obstacles/holes, with clockwise numbering!

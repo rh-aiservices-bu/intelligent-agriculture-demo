@@ -3,7 +3,8 @@ import map_definition
 
 # Path calculation functions
 def translate_coordinates(coordinates):
-    """ Convert to/from GDevelop to PathFinder coordinates """
+    """ Convert to/from GDevelop to PathFinder coordinates
+        We have to do this because PAthFinder has (0,0)  at the bottom left """
     x,y = coordinates
     return (x,map_definition.MAP_HEIGHT-y)
 
