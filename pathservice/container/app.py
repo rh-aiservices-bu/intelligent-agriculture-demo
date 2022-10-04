@@ -2,13 +2,13 @@
 import os
 
 from dotenv import load_dotenv
-from extremitypathfinder import PolygonEnvironment
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from uvicorn import run
+from extremitypathfinder import PolygonEnvironment
 
-import map_definition
+import pathfinder
 import route_solver
 
 # Load local env vars if present
@@ -129,43 +129,6 @@ destinations['wheat'] = []
 destinations['corn'] = []
 destinations['potatoes'] = []
 
-# Path calculation functions
-def translate_coordinates(coordinates):
-    """ Convert to/from GDevelop to PathFinder coordinates """
-    x,y = coordinates
-    return (x,map_definition.MAP_HEIGHT-y)
-
-def initialize_environment(pathfinder_environment):
-    """ Initialize pathfinder environment """
-    translated_boundary_coordinates = []
-    for coordinates in map_definition.boundary_coordinates:
-        translated_boundary_coordinates.append(translate_coordinates(coordinates))
-    print(translated_boundary_coordinates)
-
-    translated_list_of_obstacles = []
-    for item in map_definition.list_of_obstacles:
-        item_coordinates = []
-        for coordinates in item:
-            item_coordinates.append(translate_coordinates(coordinates))
-        translated_list_of_obstacles.append(item_coordinates)
-    print(translated_list_of_obstacles)
-
-    pathfinder_environment.store(translated_boundary_coordinates, \
-        translated_list_of_obstacles, validate=False)
-    pathfinder_environment.prepare()
-
-def calculate_path(start_coordinates, goal_coordinates):
-    """ Finds shortest path, returns array and length """
-    print(start_coordinates)
-    path, length = environment.find_shortest_path(translate_coordinates(start_coordinates), \
-        translate_coordinates(goal_coordinates))
-
-    translated_path = []
-    for coordinates in path:
-        translated_path.append(translate_coordinates(coordinates))
-
-    return translated_path, length
-
 # Base API
 @app.get("/")
 async def root():
@@ -174,10 +137,11 @@ async def root():
 
 # Pathfinder API
 @app.post("/pathfinder", response_model = PathFinderResult)
-async def pathfinder(entry: PathFinderEntry):
+async def pathfinder_api(entry: PathFinderEntry):
     """ Finds path between two points """
     result = PathFinderResult()
-    result.path, result.length = calculate_path(entry.start_coordinates, entry.goal_coordinates)
+    result.path, result.length = \
+        pathfinder.calculate_path(environment,entry.start_coordinates, entry.goal_coordinates)
     return result
 
 # Route API
@@ -225,7 +189,7 @@ async def delete_destination_entry(entry: DestinationEntry):
 
 # Initialize PathFinder
 environment = PolygonEnvironment()
-initialize_environment(environment)
+pathfinder.initialize_environment(environment)
 
 # Launch the FastAPI server
 if __name__ == "__main__":

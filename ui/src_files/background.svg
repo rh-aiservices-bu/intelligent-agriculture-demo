@@ -6207,7 +6207,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer9"
-     inkscape:label="Obstacles">
+     inkscape:label="Obstacles"
+     style="display:none">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 0,581.76854 43.957129,-27.94206 80.011141,-23.28904 82.92532,45.55125 48.61092,83.20414 -66.4603,4.33344 L 108.3435,690.54026 0,750.24865 Z"
