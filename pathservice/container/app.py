@@ -149,7 +149,7 @@ async def pathfinder_api(entry: PathFinderEntry):
 async def routefinder(entry: RouteFinderEntry):
     """ Finds route going through all destinations """
     result = RouteFinderResult()
-    result.path = route_solver.routefinder(entry.kind,destinations[entry.kind])
+    result.path = route_solver.routefinder(environment,entry.kind,destinations[entry.kind])
     return result
 
 # Path API

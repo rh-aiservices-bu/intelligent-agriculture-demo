@@ -1,7 +1,6 @@
 """ Route solving module, using OptaPlanner """
 import optapy.config
 import map_definition
-from extremitypathfinder import PolygonEnvironment
 from optapy import (constraint_provider, planning_entity,
                     planning_entity_collection_property,
                     planning_list_variable, planning_score, planning_solution,
@@ -9,6 +8,8 @@ from optapy import (constraint_provider, planning_entity,
                     solver_manager_create, value_range_provider)
 from optapy.score import HardMediumSoftScore
 from optapy.types import Duration
+
+import pathfinder
 
 ## Problem facts
 # Problem facts are facts about the problem. As such, they do not change during
@@ -47,41 +48,21 @@ class DistanceCalculator:
     def __init__(self):
         pass
 
-    def translate_coordinates(self,coordinates):
-        """ Convert to/from GDevelop to PathFinder coordinates """
-        x,y = coordinates
-        return (x,map_definition.MAP_HEIGHT-y)
-
-    # Path calculation functions
-    def initialize_environment(self,env):
-        """ Self explanatory """
-        env.store(map_definition.boundary_coordinates, \
-            map_definition.list_of_obstacles, validate=False)
-        env.prepare()
-
-    def calculate_path(self,start_coordinates, goal_coordinates):
-        """ Self explanatory """
-        #global environment
-        print(start_coordinates,goal_coordinates)
-        path, length = environment.find_shortest_path(start_coordinates, goal_coordinates)
-        return path, length
-
-    def calculate_distance(self, start, end):
+    def calculate_distance(self, environment,start, end):
         """ Compute path length using Pathfinder """
         if start == end:
             return 0
-        start_coordinates = (start.x,start.y)
-        end_coordinates = (end.x,end.y)
-        result = self.calculate_path(start_coordinates,end_coordinates)
-        print(result[1])
+        start_coordinates = pathfinder.translate_coordinates((start.x,start.y))
+        end_coordinates = pathfinder.translate_coordinates((end.x,end.y))
+        result = pathfinder.calculate_path(environment,start_coordinates,end_coordinates)
         return result[1]
 
-    def init_distance_maps(self, location_list):
+    def init_distance_maps(self, environment,location_list):
         """ Initializes distances between each points pairs """
         for location in location_list:
             distance_map = dict()
             for other_location in location_list:
-                distance_map[other_location] = self.calculate_distance(location, other_location)
+                distance_map[other_location] = self.calculate_distance(environment,location, other_location)
             location.set_distance_map(distance_map)
 
 class Barn:
@@ -274,7 +255,7 @@ class TractorRoutingSolution:
 
 ## Solving
 
-def routefinder(kind,destinations):
+def routefinder(environment,kind,destinations):
     """ Main function """
     name = 'data'
     south_west_corner = Location(*map_definition.boundary_coordinates[3])
@@ -299,7 +280,7 @@ def routefinder(kind,destinations):
     for barn in barn_list:
         location_list.append(barn.location)
 
-    DistanceCalculator().init_distance_maps(location_list)
+    DistanceCalculator().init_distance_maps(environment,location_list)
 
     problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, \
          field_list, south_west_corner, north_east_corner)
@@ -339,6 +320,4 @@ def routefinder(kind,destinations):
     return verts[kind+'-0']
 
 # Initialize PathFinder
-environment = PolygonEnvironment()
-calculator = DistanceCalculator()
-calculator.initialize_environment(environment)
+#calculator = DistanceCalculator()
