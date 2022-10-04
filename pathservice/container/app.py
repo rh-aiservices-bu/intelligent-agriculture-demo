@@ -139,19 +139,38 @@ async def root():
 @app.post("/pathfinder", response_model = PathFinderResult)
 async def pathfinder_api(entry: PathFinderEntry):
     """ Finds path between two points """
+    # We have to translate entry as we will use a different referential
+    translated_start_coordinates = pathfinder.translate_coordinates(entry.start_coordinates)
+    translated_goal_coordinates = pathfinder.translate_coordinates(entry.goal_coordinates)
+
     result = PathFinderResult()
     result.path, result.length = \
         pathfinder.calculate_path(pathfinder_environment, \
-            entry.start_coordinates, entry.goal_coordinates)
-    return result
+            translated_start_coordinates, translated_goal_coordinates)
+
+    # We need to translate back the returned path
+    translated_path = []
+    for coordinates in result.path:
+        translated_path.append(pathfinder.translate_coordinates(coordinates))
+
+    response = PathFinderResult()
+    response.path, response.length = translated_path, result.length
+
+    return response
 
 # Route API
 @app.post("/routefinder", response_model = RouteFinderResult)
 async def routefinder(entry: RouteFinderEntry):
     """ Finds route going through all destinations """
+    # We have to translate the entry as we will use a different referential for processing
+    translated_destinations = pathfinder.translate_destinations(destinations[entry.kind])
+
+    path = route_solver.routefinder(pathfinder_environment, entry.kind,translated_destinations)
+
+    # We need to translate back the returned path
     result = RouteFinderResult()
-    result.path = route_solver.routefinder(pathfinder_environment, \
-        entry.kind,destinations[entry.kind])
+    result.path = pathfinder.translate_destinations(path)
+
     return result
 
 # Path API
