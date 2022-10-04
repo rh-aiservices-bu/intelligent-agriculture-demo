@@ -162,14 +162,12 @@ async def pathfinder_api(entry: PathFinderEntry):
 @app.post("/routefinder", response_model = RouteFinderResult)
 async def routefinder(entry: RouteFinderEntry):
     """ Finds route going through all destinations """
-    # We have to translate the entry as we will use a different referential for processing
-    translated_destinations = pathfinder.translate_destinations(destinations[entry.kind])
+    # destinations entries will be translated in the router module
+    path = route_solver.routefinder(pathfinder_environment, entry.kind,destinations[entry.kind])
 
-    path = route_solver.routefinder(pathfinder_environment, entry.kind,translated_destinations)
-
-    # We need to translate back the returned path
+    # Path has already been translated back in the router module
     result = RouteFinderResult()
-    result.path = pathfinder.translate_destinations(path)
+    result.path = path
 
     return result
 

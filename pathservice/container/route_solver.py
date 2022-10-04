@@ -52,9 +52,6 @@ class DistanceCalculator:
         """ Compute path length using Pathfinder """
         if start == end:
             return 0
-        #start_coordinates = pathfinder.translate_coordinates((start.x,start.y))
-        #end_coordinates = pathfinder.translate_coordinates((end.x,end.y))
-        #result = pathfinder.calculate_path(environment,start_coordinates,end_coordinates)
         result = pathfinder.calculate_path(environment,(start.x,start.y),(end.x,end.y))
         return result[1]
 
@@ -260,6 +257,8 @@ class TractorRoutingSolution:
 def routefinder(environment,kind,destinations):
     """ Main function """
     name = 'data'
+
+    # We have to translate all inputs
     south_west_corner = Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[1]))
     north_east_corner = Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[3]))
 
@@ -315,15 +314,15 @@ def routefinder(environment,kind,destinations):
 
     solver_manager = solver_manager_create(solver_config)
 
-    #best_solution = solver_manager.solve(singleton_id, lambda _: problem)
+    best_solution = solver_manager.solve(singleton_id, lambda _: problem)
 
     #final_solution = best_solution.getFinalBestSolution()
 
     #verts=dict()
 
     #for tractor in final_solution.tractor_list:
-    #    verts[tractor.name] = [(tractor.barn.location.X,tractor.barn.location.Y)]
-    #    verts[tractor.name].extend(map(lambda field: (field.location.X,field.location.Y), \
+    #    verts[tractor.name] = [pathfinder.translate_coordinates((tractor.barn.location.X,tractor.barn.location.Y))]
+    #    verts[tractor.name].extend(map(lambda field: pathfinder.translate_coordinates((field.location.X,field.location.Y)), \
     #         tractor.field_list))
 
     #return verts[kind+'-0']
