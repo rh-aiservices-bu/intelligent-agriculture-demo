@@ -57,6 +57,7 @@ class DistanceCalculator:
 
     def init_distance_maps(self, environment,location_list):
         """ Initializes distances between each points pairs """
+        print("init")
         for location in location_list:
             distance_map = dict()
             for other_location in location_list:
@@ -287,10 +288,18 @@ def routefinder(environment,kind,destinations):
          field_list, south_west_corner, north_east_corner)
 
     print(name)
-    print(*location_list)
+    for location in location_list:
+        print(location.x)
+        print(location.y)
+        print(*location.distance_map)
+        for other_location in location_list:
+            print(location.get_distance_to(other_location))
     print(*barn_list)
     print(*tractor_list)
-    print(*field_list)
+    for field in field_list:
+        print(field.name)
+        print(field.location)
+        print(field.demand)
     print(south_west_corner)
     print(north_east_corner)
 
