@@ -57,7 +57,6 @@ class DistanceCalculator:
 
     def init_distance_maps(self, environment,location_list):
         """ Initializes distances between each points pairs """
-        print("init")
         for location in location_list:
             distance_map = dict()
             for other_location in location_list:
@@ -161,7 +160,7 @@ def minimize_virtual_stops(constraint_factory):
     """ We need to minimize the usage of the virtual tractor. """
     return constraint_factory \
         .for_each(Tractor) \
-        .filter(lambda tractor: (tractor.isVirtual and len(tractor.field_list)>0)) \
+        .filter(lambda tractor: (tractor.is_virtual and len(tractor.field_list)>0)) \
         .penalize("Minimal virtual stops", HardMediumSoftScore.ONE_MEDIUM,
                   lambda tractor: len(tractor.field_list))
 
@@ -260,21 +259,38 @@ def routefinder(environment,kind,destinations):
     name = 'data'
 
     # We have to translate all inputs
-    south_west_corner = Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[1]))
-    north_east_corner = Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[3]))
+    south_west_corner = \
+        Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[1]))
+    north_east_corner = \
+        Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[3]))
+
+    print("SW:" + str(south_west_corner.x) + "-" + str(south_west_corner.y))
+    print("NE:" + str(north_east_corner.x) + "-" + str(north_east_corner.y))
 
     barn_list = []
     for barn in (barn for barn in map_definition.barns if barn['kind'] == kind):
-        barn_list.append(Barn(barn['name'],Location(*pathfinder.translate_coordinates(barn['location'])),kind))
+        barn_list.append(Barn(barn['name'], \
+            Location(*pathfinder.translate_coordinates(barn['location'])),kind))
+    #barn_list.append(Barn('wheat-0',Location(715,108),'wheat'))
+
+    print("Barn:" + str(barn_list[0].location.x) + "-" + str(barn_list[0].location.y))
 
     tractor_list = []
     for tractor in (tractor for tractor in map_definition.tractors if tractor['kind'] == kind):
         tractor_list.append(Tractor(tractor['name'],tractor['kind'],tractor['capacity'], \
             barn_list[tractor['barn']],tractor['virtual']))
+    #tractor_list.append(Tractor('wheat-0','wheat',5,barn_list[0],False))
+    #tractor_list.append(Tractor('wheat-0','wheat',1000,barn_list[0],True))
 
     field_list = []
     for i, destination in enumerate(destinations):
-        field_list.append(Field('field-'+str(i),Location(*pathfinder.translate_coordinates(destination)),1))
+        field_list.append(Field('field-'+str(i), \
+            Location(*pathfinder.translate_coordinates(destination)),1))
+    #field_list.append(Field('field-0',Location(200,830),1))
+    #field_list.append(Field('field-1',Location(100,830),1))
+
+    print("Field1:" + str(field_list[0].location.x) + "-" + str(field_list[0].location.y))
+    #print("Field2:" + str(field_list[1].location.x) + "-" + str(field_list[1].location.y))
 
     location_list = []
     for barn in barn_list:
@@ -286,22 +302,6 @@ def routefinder(environment,kind,destinations):
 
     problem = TractorRoutingSolution(name, location_list, barn_list, tractor_list, \
          field_list, south_west_corner, north_east_corner)
-
-    print(name)
-    for location in location_list:
-        print(location.x)
-        print(location.y)
-        print(*location.distance_map)
-        for other_location in location_list:
-            print(location.get_distance_to(other_location))
-    print(*barn_list)
-    print(*tractor_list)
-    for field in field_list:
-        print(field.name)
-        print(field.location)
-        print(field.demand)
-    print(south_west_corner)
-    print(north_east_corner)
 
     # Solve the problem
 
@@ -325,17 +325,19 @@ def routefinder(environment,kind,destinations):
 
     best_solution = solver_manager.solve(singleton_id, lambda _: problem)
 
-    #final_solution = best_solution.getFinalBestSolution()
+    final_solution = best_solution.getFinalBestSolution()
 
-    #verts=dict()
+    verts=dict()
 
-    #for tractor in final_solution.tractor_list:
-    #    verts[tractor.name] = [pathfinder.translate_coordinates((tractor.barn.location.X,tractor.barn.location.Y))]
-    #    verts[tractor.name].extend(map(lambda field: pathfinder.translate_coordinates((field.location.X,field.location.Y)), \
-    #         tractor.field_list))
+    for tractor in final_solution.tractor_list:
+        verts[tractor.name] = \
+            [pathfinder.translate_coordinates((tractor.barn.location.x,tractor.barn.location.y))]
+        verts[tractor.name].extend(map(lambda field: \
+            pathfinder.translate_coordinates((field.location.x,field.location.y)), \
+            tractor.field_list))
 
-    #return verts[kind+'-0']
-    return [(0,0)]
+    return verts[kind+'-0']
+    #return [(0,0)]
 
 # Initialize PathFinder
 #calculator = DistanceCalculator()
