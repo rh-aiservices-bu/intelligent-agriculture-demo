@@ -264,33 +264,20 @@ def routefinder(environment,kind,destinations):
     north_east_corner = \
         Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[3]))
 
-    print("SW:" + str(south_west_corner.x) + "-" + str(south_west_corner.y))
-    print("NE:" + str(north_east_corner.x) + "-" + str(north_east_corner.y))
-
     barn_list = []
     for barn in (barn for barn in map_definition.barns if barn['kind'] == kind):
         barn_list.append(Barn(barn['name'], \
             Location(*pathfinder.translate_coordinates(barn['location'])),kind))
-    #barn_list.append(Barn('wheat-0',Location(715,108),'wheat'))
-
-    print("Barn:" + str(barn_list[0].location.x) + "-" + str(barn_list[0].location.y))
 
     tractor_list = []
     for tractor in (tractor for tractor in map_definition.tractors if tractor['kind'] == kind):
         tractor_list.append(Tractor(tractor['name'],tractor['kind'],tractor['capacity'], \
             barn_list[tractor['barn']],tractor['virtual']))
-    #tractor_list.append(Tractor('wheat-0','wheat',5,barn_list[0],False))
-    #tractor_list.append(Tractor('wheat-0','wheat',1000,barn_list[0],True))
 
     field_list = []
     for i, destination in enumerate(destinations):
         field_list.append(Field('field-'+str(i), \
             Location(*pathfinder.translate_coordinates(destination)),1))
-    #field_list.append(Field('field-0',Location(200,830),1))
-    #field_list.append(Field('field-1',Location(100,830),1))
-
-    print("Field1:" + str(field_list[0].location.x) + "-" + str(field_list[0].location.y))
-    #print("Field2:" + str(field_list[1].location.x) + "-" + str(field_list[1].location.y))
 
     location_list = []
     for barn in barn_list:
@@ -309,8 +296,8 @@ def routefinder(environment,kind,destinations):
     termination_config = optapy.config.solver.termination.TerminationConfig()
     # Stop after 4 seconds with no score improvement
     termination_config.setUnimprovedSpentLimit(Duration.ofSeconds(4))
-    # Stop after 10 seconds max anyway
-    termination_config.setSpentLimit(Duration.ofSeconds(5))
+    # Stop after 6 seconds max anyway
+    termination_config.setSpentLimit(Duration.ofSeconds(6))
 
     solver_config = optapy.config.solver.SolverConfig()
     solver_config \
@@ -318,8 +305,6 @@ def routefinder(environment,kind,destinations):
         .withEntityClasses(Tractor) \
         .withConstraintProviderClass(tractor_routing_constraints) \
         .withTerminationConfig(termination_config)
-        # \
-        #.withTerminationSpentLimit(Duration.ofSeconds(10))
 
     solver_manager = solver_manager_create(solver_config)
 
@@ -335,9 +320,7 @@ def routefinder(environment,kind,destinations):
         verts[tractor.name].extend(map(lambda field: \
             pathfinder.translate_coordinates((field.location.x,field.location.y)), \
             tractor.field_list))
+        # Add return to the barn
+        verts[tractor.name].append(pathfinder.translate_coordinates((tractor.barn.location.x,tractor.barn.location.y)))
 
     return verts[kind+'-0']
-    #return [(0,0)]
-
-# Initialize PathFinder
-#calculator = DistanceCalculator()

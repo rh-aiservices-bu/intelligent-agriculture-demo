@@ -74,7 +74,7 @@ class RouteFinderEntry(BaseModel): # Tractor asks for full Route
 
 class RouteFinderResult(BaseModel):
     """ Route query result """
-    path: list[tuple[float,float]] = None # List of coordinates to follow
+    route: list[tuple[float,float]] = None # List of coordinates to got to
 
     class Config:
         """ Example """
@@ -96,7 +96,6 @@ class DestinationsQuery(BaseModel):
             }
         }
 
-# TBD: Find why this model does not work
 class DestinationsResult(BaseModel):
     """ Destinations query result """
     destinations: list[tuple[float,float]] = [] # List of coordinates
@@ -163,15 +162,15 @@ async def pathfinder_api(entry: PathFinderEntry):
 async def routefinder(entry: RouteFinderEntry):
     """ Finds route going through all destinations """
     # destinations entries will be translated in the router module
-    path = route_solver.routefinder(pathfinder_environment, entry.kind,destinations[entry.kind])
+    route = route_solver.routefinder(pathfinder_environment, entry.kind,destinations[entry.kind])
 
     # Path has already been translated back in the router module
     result = RouteFinderResult()
-    result.path = path
+    result.route = route
 
     return result
 
-# Path API
+# Destination arrays API
 @app.post("/alldestinations", response_model = DestinationsResult)
 async def get_destinations(entry: DestinationsQuery):
     """ Returns destinations array for a kind of crop """
