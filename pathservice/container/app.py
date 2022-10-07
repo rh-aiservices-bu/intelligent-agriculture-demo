@@ -164,7 +164,8 @@ async def routefinder(entry: RouteFinderEntry):
     result = RouteFinderResult()
     if(destinations[entry.kind]) != []:
         # destinations entries will be translated in the router module
-        route = route_solver.routefinder(pathfinder_environment, entry.kind,destinations[entry.kind])
+        route = route_solver.routefinder(pathfinder_environment, \
+            entry.kind,destinations[entry.kind])
 
         # Path has already been translated back in the router module
         result.route = route

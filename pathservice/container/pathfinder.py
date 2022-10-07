@@ -14,7 +14,7 @@ def translate_destinations(destinations):
     translated_destinations = []
     for coordinates in destinations:
         translated_destinations.append(translate_coordinates(coordinates))
-    return translate_destinations(destinations)
+    return translated_destinations
 
 def initialize_environment(pathfinder_environment):
     """ Initialize pathfinder environment """
@@ -42,9 +42,5 @@ def calculate_path(pathfinder_environment,start_coordinates, goal_coordinates):
     # Please translate if needed before submitting to the function
     path, length = \
         pathfinder_environment.find_shortest_path(start_coordinates, goal_coordinates)
-
-    #translated_path = []
-    #for coordinates in path:
-    #    translated_path.append(translate_coordinates(coordinates))
 
     return path, length

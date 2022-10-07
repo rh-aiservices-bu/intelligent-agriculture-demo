@@ -1,6 +1,7 @@
 """ Route solving module, using OptaPlanner """
+from itertools import groupby
+
 import optapy.config
-import map_definition
 from optapy import (constraint_provider, planning_entity,
                     planning_entity_collection_property,
                     planning_list_variable, planning_score, planning_solution,
@@ -9,7 +10,10 @@ from optapy import (constraint_provider, planning_entity,
 from optapy.score import HardMediumSoftScore
 from optapy.types import Duration
 
+import map_definition
 import pathfinder
+from pathfinder import calculate_path as pf_cp
+from pathfinder import translate_coordinates as pf_tc
 
 ## Problem facts
 # Problem facts are facts about the problem. As such, they do not change during
@@ -52,7 +56,7 @@ class DistanceCalculator:
         """ Compute path length using Pathfinder """
         if start == end:
             return 0
-        result = pathfinder.calculate_path(environment,(start.x,start.y),(end.x,end.y))
+        result = pf_cp(environment,(start.x,start.y),(end.x,end.y))
         return result[1]
 
     def init_distance_maps(self, environment,location_list):
@@ -260,14 +264,14 @@ def routefinder(environment,kind,destinations):
 
     # We have to translate all inputs
     south_west_corner = \
-        Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[1]))
+        Location(*pf_tc(map_definition.boundary_coordinates[1]))
     north_east_corner = \
-        Location(*pathfinder.translate_coordinates(map_definition.boundary_coordinates[3]))
+        Location(*pf_tc(map_definition.boundary_coordinates[3]))
 
     barn_list = []
     for barn in (barn for barn in map_definition.barns if barn['kind'] == kind):
         barn_list.append(Barn(barn['name'], \
-            Location(*pathfinder.translate_coordinates(barn['location'])),kind))
+            Location(*pf_tc(barn['location'])),kind))
 
     tractor_list = []
     for tractor in (tractor for tractor in map_definition.tractors if tractor['kind'] == kind):
@@ -277,7 +281,7 @@ def routefinder(environment,kind,destinations):
     field_list = []
     for i, destination in enumerate(destinations):
         field_list.append(Field('field-'+str(i), \
-            Location(*pathfinder.translate_coordinates(destination)),1))
+            Location(*pf_tc(destination)),1))
 
     location_list = []
     for barn in barn_list:
@@ -316,12 +320,26 @@ def routefinder(environment,kind,destinations):
 
     for tractor in final_solution.tractor_list:
         verts[tractor.name] = []
-        #verts[tractor.name] = \
-        #    [pathfinder.translate_coordinates((tractor.barn.location.x,tractor.barn.location.y))]
+        # We start from the barn
+        verts[tractor.name].append((tractor.barn.location.x,tractor.barn.location.y))
+        # Then add the destinations
         verts[tractor.name].extend(map(lambda field: \
-            pathfinder.translate_coordinates((field.location.x,field.location.y)), \
+            (field.location.x,field.location.y), \
             tractor.field_list))
-        # Add return to the barn
-        verts[tractor.name].append(pathfinder.translate_coordinates((tractor.barn.location.x,tractor.barn.location.y)))
+        # Add back to the barn
+        verts[tractor.name].append((tractor.barn.location.x,tractor.barn.location.y))
 
-    return verts[kind+'-0']
+    # solver does not take obstacles into account, only distances
+    # (although distances have been calculated with full path)
+    # So let's parse it again to have the full path
+    full_path = []
+    for i in range(len(verts[kind+'-0'])-1):
+        full_path = full_path + pf_cp(environment, verts[kind+'-0'][i], \
+            verts[kind+'-0'][i+1])[0]
+
+    # Now let's remove duplicates
+    cleaned_path = [k for k, g in groupby(full_path)]
+    # And finally translate coordinates
+    translated_clean_path = pathfinder.translate_destinations(cleaned_path)
+
+    return translated_clean_path

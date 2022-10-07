@@ -5156,6 +5156,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5174,7 +5175,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5228,23 +5228,39 @@
                     "ToString(Variable(_routingResultWheat.route[0][0])) + \"-\" + ToString(Variable(_routingResultWheat.route[0][1]))"
                   ]
                 }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Tractor orientation depending on direction",
+              "comment2": ""
+            },
+            {
+              "folded": true,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "ObjectVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "moving",
+                    "True"
+                  ]
+                }
               ],
+              "actions": [],
               "events": [
                 {
-                  "type": "BuiltinCommonInstructions::Comment",
-                  "color": {
-                    "b": 109,
-                    "g": 230,
-                    "r": 255,
-                    "textB": 0,
-                    "textG": 0,
-                    "textR": 0
-                  },
-                  "comment": "Tractor orientation depending on direction",
-                  "comment2": ""
-                },
-                {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5357,7 +5373,6 @@
                   ]
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5453,7 +5468,7 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "no"
+                            "yes"
                           ]
                         },
                         {
@@ -5462,7 +5477,7 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "yes"
+                            "no"
                           ]
                         }
                       ]
@@ -5472,6 +5487,12 @@
               ]
             },
             {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [],
+              "actions": []
+            },
+            {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5581,6 +5602,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
