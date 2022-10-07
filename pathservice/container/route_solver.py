@@ -264,9 +264,9 @@ def routefinder(environment,kind,destinations):
 
     # We have to translate all inputs
     south_west_corner = \
-        Location(*pf_tc(map_definition.boundary_coordinates[1]))
+        Location(*pf_tc(map_definition.south_west_corner))
     north_east_corner = \
-        Location(*pf_tc(map_definition.boundary_coordinates[3]))
+        Location(*pf_tc(map_definition.north_east_corner))
 
     barn_list = []
     for barn in (barn for barn in map_definition.barns if barn['kind'] == kind):
