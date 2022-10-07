@@ -5194,6 +5194,7 @@
               "comment2": ""
             },
             {
+              "disabled": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5277,16 +5278,7 @@
                   ]
                 }
               ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "PlayAnimation"
-                  },
-                  "parameters": [
-                    "TractorWheat"
-                  ]
-                }
-              ],
+              "actions": [],
               "events": [
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -5325,8 +5317,8 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "TractorWheat.Variable(Path[0].X)",
-                            "TractorWheat.Variable(Path[0].Y)",
+                            "Variable(_routingResultWheat.route[0][0])",
+                            "Variable(_routingResultWheat.route[0][1])",
                             "0",
                             ""
                           ]
@@ -5372,8 +5364,8 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "TractorWheat.Variable(Path[0].X)",
-                            "TractorWheat.Variable(Path[0].Y)",
+                            "Variable(_routingResultWheat.route[0][0])",
+                            "Variable(_routingResultWheat.route[0][1])",
                             "0",
                             ""
                           ]
@@ -5437,8 +5429,8 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "TractorWheat.Variable(Path[0].X)",
-                            "TractorWheat.Variable(Path[0].Y)",
+                            "Variable(_routingResultWheat.route[0][0])",
+                            "Variable(_routingResultWheat.route[0][1])",
                             "0",
                             ""
                           ]
@@ -5484,8 +5476,8 @@
                           },
                           "parameters": [
                             "TractorWheat",
-                            "TractorWheat.Variable(Path[0].X)",
-                            "TractorWheat.Variable(Path[0].Y)",
+                            "Variable(_routingResultWheat.route[0][0])",
+                            "Variable(_routingResultWheat.route[0][1])",
                             "0",
                             ""
                           ]
@@ -5515,7 +5507,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5558,27 +5549,6 @@
                     "=",
                     "Variable(_routingResultWheat.routeLength)-1"
                   ]
-                },
-                {
-                  "type": {
-                    "value": "RotateTowardAngle"
-                  },
-                  "parameters": [
-                    "TractorWheat",
-                    "0",
-                    "0",
-                    ""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "ErrorMessage",
-                    "=",
-                    "\"Target\""
-                  ]
                 }
               ],
               "events": [
@@ -5610,6 +5580,24 @@
                         "\"linear\"",
                         "DistanceBetweenPositions(TractorWheat.X(),TractorWheat.Y(),Variable(_routingResultWheat.route[0][0]),Variable(_routingResultWheat.route[0][1]))/Variable(_configuration.tractorSpeed)",
                         ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "TractorWheat",
+                        "moving",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PlayAnimation"
+                      },
+                      "parameters": [
+                        "TractorWheat"
                       ]
                     }
                   ]
@@ -5648,9 +5636,52 @@
                   "parameters": [
                     "TractorWheat"
                   ]
+                },
+                {
+                  "type": {
+                    "value": "RotateTowardAngle"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "0",
+                    "0",
+                    ""
+                  ]
                 }
               ],
               "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "_routingResultWheat.routeLength",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "TractorWheat",
+                        "\"RouteTimer\""
+                      ]
+                    }
+                  ]
+                },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
@@ -5734,6 +5765,21 @@
                             "_routingResultWheat.routeLength",
                             "=",
                             "VariableChildCount(_routingResultWheat.route)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "Tween::AddObjectPositionTween"
+                          },
+                          "parameters": [
+                            "TractorWheat",
+                            "Tween",
+                            "\"TractorWheatMove\"",
+                            "Variable(_routingResultWheat.route[0][0])",
+                            "Variable(_routingResultWheat.route[0][1])",
+                            "\"linear\"",
+                            "DistanceBetweenPositions(TractorWheat.X(),TractorWheat.Y(),Variable(_routingResultWheat.route[0][0]),Variable(_routingResultWheat.route[0][1]))/Variable(_configuration.tractorSpeed)",
+                            ""
                           ]
                         }
                       ]
