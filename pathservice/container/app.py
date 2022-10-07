@@ -2,7 +2,7 @@
 import os
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from uvicorn import run
@@ -208,6 +208,12 @@ async def delete_destination_entry(entry: DestinationEntry):
             print("Destination is not in list")
     print(destinations['wheat'])
     return True
+
+@app.delete("/destination2")
+async def delete_destination_entry2(request:Request):
+    """ Removes a destination from an array
+    """
+    return await request.body()
 
 # Initialize PathFinder
 pathfinder_environment = PolygonEnvironment()
