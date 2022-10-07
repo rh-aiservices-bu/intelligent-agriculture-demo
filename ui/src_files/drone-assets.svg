@@ -8,9 +8,9 @@
    version="1.1"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="drone-assets.svg"
-   inkscape:export-filename="../src/assets/drone-2.png"
-   inkscape:export-xdpi="11.947162"
-   inkscape:export-ydpi="11.947162"
+   inkscape:export-filename="../src/assets/drone-1.png"
+   inkscape:export-xdpi="23.894323"
+   inkscape:export-ydpi="23.894323"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +28,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4283557"
-     inkscape:cx="164.52485"
-     inkscape:cy="240.83637"
+     inkscape:cx="145.62199"
+     inkscape:cy="241.53647"
      inkscape:document-units="px"
      inkscape:current-layer="g13315"
      showgrid="false"
@@ -49,7 +49,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -283,7 +282,7 @@
      inkscape:groupmode="layer"
      id="g13315"
      inkscape:label="main fins -blue"
-     style="display:none">
+     style="display:inline">
     <g
        id="g13295"
        transform="translate(192.12172,-435.18427)"
@@ -421,7 +420,7 @@
      id="layer2"
      inkscape:label="side fins - yellow"
      sodipodi:insensitive="true"
-     style="display:none">
+     style="display:inline">
     <path
        sodipodi:open="true"
        sodipodi:end="2.5284769"
@@ -540,7 +539,7 @@
      id="g10364"
      inkscape:label="side fins - blue"
      sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:none">
     <path
        sodipodi:open="true"
        sodipodi:end="2.5284769"

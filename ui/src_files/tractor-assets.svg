@@ -4,9 +4,9 @@
    viewBox="0 0 128 128"
    version="1.1"
    id="svg350"
-   sodipodi:docname="tractor_original.svg"
+   sodipodi:docname="tractor-assets.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   inkscape:export-filename="tractor_sprites/tractor_green_left_2.png"
+   inkscape:export-filename="../src/assets/tractor_orange_2.png"
    inkscape:export-xdpi="75.8402"
    inkscape:export-ydpi="75.8402"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -25,14 +25,14 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="6.5546875"
-     inkscape:cx="69.492253"
+     inkscape:cx="69.415971"
      inkscape:cy="72.31466"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g10709" />
   <linearGradient
      id="test-1"
      x1="60.308998"
@@ -2657,6 +2657,14 @@
        y1="62"
        x2="60.308998"
        y2="108.77" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#a"
+       id="radialGradient967"
+       gradientUnits="userSpaceOnUse"
+       cx="23.182"
+       cy="108.37"
+       r="14.789" />
   </defs>
   <clipPath
      id="d">
@@ -2764,13 +2772,13 @@
        d="M 45,50.01 V 41 c 0,-1.47 -0.53,-2.79 -1.54,-3.79 -2.17,-2.14 -5.84,-2.18 -6.23,-2.17 -1.1,0.01 -1.99,0.9 -1.98,2.01 0.01,1.1 0.91,1.95 2,1.95 h 0.02 c 0.73,0 2.59,0.26 3.37,1.03 C 40.89,40.28 41,40.59 41,41 v 9.01 c -1.12,0.05 -2,0.97 -2,2.11 V 73.8 c 0,1.17 0.93,2.2 2.1,2.2 h 3.78 C 46.05,76 47,74.97 47,73.8 V 52.12 c 0,-1.13 -0.89,-2.05 -2,-2.11 z"
        fill="#6d4c41"
        id="path194"
-       style="display:inline"
+       style="display:none"
        sodipodi:insensitive="true" />
     <path
        d="M 103.72,32.12 H 77.47 c -1.31,0 -4.51,0.31 -4.95,3.02 -1.91,11.92 -4.44,26.94 -4.44,26.94 0,0 -50.49,2.04 -60.08,6.96 -2.19,1.12 -4.71,3.76 -3.37,12.15 l 4.58,22.56 c 0.89,3.46 7.75,4.44 10.42,4.44 l 88.7,-0.1 c 4.44,0 7.4,0.51 8.02,-4.14 0.02,-0.17 0.02,-0.35 0.01,-0.52 l -4.72,-63.06 c -0.84,-7.23 -0.04,-8.25 -7.92,-8.25 z"
        fill="url(#f)"
        id="path9713"
-       style="display:inline;fill:url(#linearGradient8788);fill-opacity:1"
+       style="display:none;fill:url(#linearGradient8788);fill-opacity:1"
        inkscape:label="main_base_green"
        sodipodi:insensitive="true" />
     <path
@@ -2784,7 +2792,7 @@
        d="M 103.72,32.12 H 77.47 c -1.31,0 -4.51,0.31 -4.95,3.02 -1.91,11.92 -4.44,26.94 -4.44,26.94 0,0 -50.49,2.04 -60.08,6.96 -2.19,1.12 -4.71,3.76 -3.37,12.15 l 4.58,22.56 c 0.89,3.46 7.75,4.44 10.42,4.44 l 88.7,-0.1 c 4.44,0 7.4,0.51 8.02,-4.14 0.02,-0.17 0.02,-0.35 0.01,-0.52 l -4.72,-63.06 c -0.84,-7.23 -0.04,-8.25 -7.92,-8.25 z"
        fill="url(#f)"
        id="path203"
-       style="display:none;fill-opacity:1"
+       style="display:inline;fill-opacity:1"
        inkscape:label="main_base"
        sodipodi:insensitive="true" />
     <g
@@ -2857,7 +2865,7 @@
        fill="#fb8c00"
        id="path9346"
        inkscape:label="roof_base_green"
-       style="display:inline;fill:#4ecd06;fill-opacity:1" />
+       style="display:none;fill:#4ecd06;fill-opacity:1" />
     <path
        d="M 115.43,28 H 67.7 c -1.13,0 -2.05,0.9 -2.05,2 0,1.1 1.54,2.89 4.31,2.89 l 42.96,-0.04 c 3.69,0 4.57,-1.74 4.57,-2.84 0,-1.11 -0.93,-2.01 -2.06,-2.01 z"
        fill="#fb8c00"
@@ -2871,7 +2879,7 @@
        id="path248"
        inkscape:label="roof_base"
        sodipodi:insensitive="true"
-       style="display:none" />
+       style="display:inline" />
     <g
        opacity="0.2"
        id="g344">
@@ -2898,54 +2906,54 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="big-wheel"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <polygon
-       points="94.65,66.81 95.88,95.94 86.85,95.94 88.08,66.81 "
+       points="95.88,95.94 86.85,95.94 88.08,66.81 94.65,66.81 "
        id="polygon250"
        style="display:inline" />
     <polygon
-       points="79.82,69.17 95.45,93.78 87.63,98.3 74.13,72.46 "
+       points="95.45,93.78 87.63,98.3 74.13,72.46 79.82,69.17 "
        id="polygon252"
        style="display:inline" />
     <polygon
-       points="68.15,78.63 94,92.13 89.48,99.95 64.87,84.32 "
+       points="94,92.13 89.48,99.95 64.87,84.32 68.15,78.63 "
        id="polygon254"
        style="display:inline" />
     <polygon
-       points="62.78,92.66 91.91,91.43 91.91,100.45 62.78,99.22 "
+       points="91.91,91.43 91.91,100.45 62.78,99.22 62.78,92.66 "
        id="polygon256"
        style="display:inline" />
     <polygon
-       points="65.15,107.49 89.76,91.86 94.27,99.68 68.43,113.17 "
+       points="89.76,91.86 94.27,99.68 68.43,113.17 65.15,107.49 "
        id="polygon258"
        style="display:inline" />
     <polygon
-       points="74.61,119.15 88.1,93.31 95.92,97.82 80.29,122.43 "
+       points="88.1,93.31 95.92,97.82 80.29,122.43 74.61,119.15 "
        id="polygon260"
        style="display:inline" />
     <polygon
-       points="88.63,124.52 87.4,95.39 96.43,95.39 95.19,124.52 "
+       points="87.4,95.39 96.43,95.39 95.19,124.52 88.63,124.52 "
        id="polygon262"
        style="display:inline" />
     <polygon
-       points="103.46,122.16 87.83,97.55 95.65,93.04 109.15,118.88 "
+       points="87.83,97.55 95.65,93.04 109.15,118.88 103.46,122.16 "
        id="polygon264"
        style="display:inline" />
     <polygon
-       points="115.12,112.7 89.28,99.2 93.8,91.39 118.41,107.02 "
+       points="89.28,99.2 93.8,91.39 118.41,107.02 115.12,112.7 "
        id="polygon266"
        style="display:inline" />
     <polygon
-       points="120.49,98.68 91.37,99.91 91.37,90.88 120.49,92.11 "
+       points="91.37,99.91 91.37,90.88 120.49,92.11 120.49,98.68 "
        id="polygon268"
        style="display:inline" />
     <polygon
-       points="118.13,83.85 93.52,99.48 89.01,91.66 114.85,78.16 "
+       points="93.52,99.48 89.01,91.66 114.85,78.16 118.13,83.85 "
        id="polygon270"
        style="display:inline" />
     <polygon
-       points="108.67,72.18 95.17,98.02 87.36,93.51 102.99,68.9 "
+       points="95.17,98.02 87.36,93.51 102.99,68.9 108.67,72.18 "
        id="polygon272"
        style="display:inline" />
     <circle
@@ -2984,8 +2992,8 @@
      inkscape:groupmode="layer"
      id="g10709"
      inkscape:label="big-wheel_turn"
-     style="display:inline"
-     transform="rotate(15,91.63,95.67)">
+     style="display:none"
+     transform="rotate(15,93.527317,95.420213)">
     <polygon
        points="88.08,66.81 94.65,66.81 95.88,95.94 86.85,95.94 "
        id="polygon10675"
@@ -3071,53 +3079,53 @@
      id="layer3"
      inkscape:label="small-wheel"
      style="display:none"
-     sodipodi:insensitive="true">
+     transform="translate(0,0.5)">
     <polygon
-       points="20.54,108.57 21.21,92.58 24.82,92.58 25.49,108.57 "
+       points="24.82,92.58 25.49,108.57 20.54,108.57 21.21,92.58 "
        id="polygon297"
        style="display:inline" />
     <polygon
-       points="20.96,109.87 13.56,95.68 16.68,93.88 25.26,107.39 "
+       points="16.68,93.88 25.26,107.39 20.96,109.87 13.56,95.68 "
        id="polygon299"
        style="display:inline" />
     <polygon
-       points="21.98,110.77 8.47,102.19 10.27,99.07 24.46,106.48 "
+       points="10.27,99.07 24.46,106.48 21.98,110.77 8.47,102.19 "
        id="polygon301"
        style="display:inline" />
     <polygon
-       points="23.32,111.05 7.33,110.37 7.33,106.77 23.32,106.1 "
+       points="7.33,106.77 23.32,106.1 23.32,111.05 7.33,110.37 "
        id="polygon303"
        style="display:inline" />
     <polygon
-       points="24.61,110.62 10.42,118.03 8.62,114.91 22.13,106.33 "
+       points="8.62,114.91 22.13,106.33 24.61,110.62 10.42,118.03 "
        id="polygon305"
        style="display:inline" />
     <polygon
-       points="25.52,109.61 16.94,123.12 13.82,121.31 21.22,107.13 "
+       points="13.82,121.31 21.22,107.13 25.52,109.61 16.94,123.12 "
        id="polygon307"
        style="display:inline" />
     <polygon
-       points="25.79,108.27 25.12,124.26 21.51,124.26 20.84,108.27 "
+       points="21.51,124.26 20.84,108.27 25.79,108.27 25.12,124.26 "
        id="polygon309"
        style="display:inline" />
     <polygon
-       points="25.37,106.98 32.77,121.16 29.65,122.97 21.07,109.46 "
+       points="29.65,122.97 21.07,109.46 25.37,106.98 32.77,121.16 "
        id="polygon311"
        style="display:inline" />
     <polygon
-       points="24.35,106.07 37.86,114.65 36.06,117.77 21.87,110.36 "
+       points="36.06,117.77 21.87,110.36 24.35,106.07 37.86,114.65 "
        id="polygon313"
        style="display:inline" />
     <polygon
-       points="23.01,105.79 39,106.47 39,110.07 23.01,110.75 "
+       points="39,110.07 23.01,110.75 23.01,105.79 39,106.47 "
        id="polygon315"
        style="display:inline" />
     <polygon
-       points="21.72,106.22 35.91,98.81 37.71,101.93 24.2,110.51 "
+       points="37.71,101.93 24.2,110.51 21.72,106.22 35.91,98.81 "
        id="polygon317"
        style="display:inline" />
     <polygon
-       points="20.81,107.24 29.39,93.73 32.51,95.53 25.11,109.72 "
+       points="32.51,95.53 25.11,109.72 20.81,107.24 29.39,93.73 "
        id="polygon319"
        style="display:inline" />
     <circle
@@ -3126,7 +3134,7 @@
        r="14.79"
        fill="url(#a)"
        id="circle334"
-       style="display:inline" />
+       style="display:inline;fill:url(#radialGradient967)" />
     <circle
        cx="23.18"
        cy="108.37"
