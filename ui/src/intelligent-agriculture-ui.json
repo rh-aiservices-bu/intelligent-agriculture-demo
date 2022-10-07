@@ -622,6 +622,15 @@
         "name": "assets/background.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "NewSprite-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewSprite-1.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -650,7 +659,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5547999999999998,
+        "zoomFactor": 0.5441999999999998,
         "windowMask": false
       },
       "objectsGroups": [
@@ -820,6 +829,12 @@
           "name": "_errorMessage",
           "type": "string",
           "value": "\"\""
+        },
+        {
+          "folded": true,
+          "name": "_pathDashIterator",
+          "type": "number",
+          "value": 0
         }
       ],
       "instances": [
@@ -1102,7 +1117,7 @@
           "persistentUuid": "c4bd4a77-cf32-4e86-9899-08957c4e2436",
           "width": 0,
           "x": 1136,
-          "y": 872,
+          "y": 873,
           "zOrder": 26,
           "numberProperties": [],
           "stringProperties": [],
@@ -1267,7 +1282,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Tractors",
           "name": "TractorPotato",
           "persistentUuid": "e799b829-02bd-4d2e-bc31-6fe5be8ebf54",
           "width": 0,
@@ -1282,7 +1297,7 @@
           "angle": 0,
           "customSize": false,
           "height": 0,
-          "layer": "",
+          "layer": "Tractors",
           "name": "TractorCorn",
           "persistentUuid": "e8095c46-0443-476a-99e6-2eb70a878b0c",
           "width": 0,
@@ -4007,13 +4022,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4041,6 +4054,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
                   "actions": [
@@ -4103,6 +4117,7 @@
                       ]
                     },
                     {
+                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Wheat",
                       "conditions": [],
@@ -4153,6 +4168,17 @@
                                 "status",
                                 "=",
                                 "\"healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ModVarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "\"wheat_healthy\""
                               ]
                             },
                             {
@@ -4588,7 +4614,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -4704,14 +4729,19 @@
                             "=",
                             "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
                           ]
+                        },
+                        {
+                          "type": {
+                            "value": "Tween::ResumeTween"
+                          },
+                          "parameters": [
+                            "Drone",
+                            "Tween",
+                            "\"FixedPathLeg\""
+                          ]
                         }
                       ],
                       "events": [
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [],
-                          "actions": []
-                        },
                         {
                           "type": "BuiltinCommonInstructions::Standard",
                           "conditions": [
@@ -4763,13 +4793,12 @@
                           "conditions": [
                             {
                               "type": {
-                                "value": "VarObjetTxt"
+                                "value": "VarSceneTxt"
                               },
                               "parameters": [
-                                "Wheat",
-                                "disease",
+                                "_classificationResult.model_prediction",
                                 "=",
-                                "\"wheat_healthy\""
+                                "\"Wheat___Healthy\""
                               ]
                             }
                           ],
@@ -4829,13 +4858,12 @@
                           "conditions": [
                             {
                               "type": {
-                                "value": "VarObjetTxt"
+                                "value": "VarSceneTxt"
                               },
                               "parameters": [
-                                "Wheat",
-                                "disease",
+                                "_classificationResult.model_prediction",
                                 "=",
-                                "\"wheat_brown_rust\""
+                                "\"Wheat___Brown_Rust\""
                               ]
                             }
                           ],
@@ -4875,13 +4903,12 @@
                           "conditions": [
                             {
                               "type": {
-                                "value": "VarObjetTxt"
+                                "value": "VarSceneTxt"
                               },
                               "parameters": [
-                                "Wheat",
-                                "disease",
+                                "_classificationResult.model_prediction",
                                 "=",
-                                "\"wheat_yellow_rust\""
+                                "\"Wheat___Yellow_Rust\""
                               ]
                             }
                           ],
@@ -4921,6 +4948,7 @@
                   ]
                 },
                 {
+                  "disabled": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5226,7 +5254,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5323,7 +5350,6 @@
                   ]
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5469,7 +5495,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5562,6 +5587,16 @@
                       "parameters": [
                         "TractorWheat"
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "_pathDashIterator",
+                        "=",
+                        "0"
+                      ]
                     }
                   ]
                 }
@@ -5581,7 +5616,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5598,6 +5632,7 @@
               "actions": [],
               "events": [
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5710,6 +5745,7 @@
                   ]
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5831,187 +5867,190 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Wheat Tractor Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
-          "events": [],
-          "parameters": []
-        },
-        {
-          "type": "BuiltinCommonInstructions::Comment",
-          "color": {
-            "b": 109,
-            "g": 230,
-            "r": 255,
-            "textB": 0,
-            "textG": 0,
-            "textR": 0
-          },
-          "comment": "Collision with Wheat that is marked",
-          "comment2": ""
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
+          "events": [
             {
-              "type": {
-                "value": "BuiltinCommonInstructions::And"
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
               },
-              "parameters": [],
-              "subInstructions": [
+              "comment": "Collision with Wheat that is marked",
+              "comment2": ""
+            },
+            {
+              "folded": true,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
                 {
                   "type": {
-                    "value": "CollisionNP"
+                    "value": "BuiltinCommonInstructions::And"
                   },
-                  "parameters": [
-                    "TractorWheat",
-                    "Wheat",
-                    "",
-                    "",
-                    ""
+                  "parameters": [],
+                  "subInstructions": [
+                    {
+                      "type": {
+                        "value": "CollisionNP"
+                      },
+                      "parameters": [
+                        "TractorWheat",
+                        "Wheat",
+                        "",
+                        "",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "AnimationName"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "\"IllMarked\""
+                      ]
+                    }
                   ]
                 },
                 {
                   "type": {
-                    "value": "AnimationName"
+                    "value": "BuiltinCommonInstructions::Once"
                   },
-                  "parameters": [
-                    "Wheat",
-                    "\"IllMarked\""
-                  ]
+                  "parameters": []
                 }
-              ]
-            },
-            {
-              "type": {
-                "value": "BuiltinCommonInstructions::Once"
-              },
-              "parameters": []
-            }
-          ],
-          "actions": [
-            {
-              "type": {
-                "value": "Tween::PauseTween"
-              },
-              "parameters": [
-                "TractorWheat",
-                "Tween",
-                "\"TractorWheatMove\""
-              ]
-            },
-            {
-              "type": {
-                "value": "ResetObjectTimer"
-              },
-              "parameters": [
-                "TractorWheat",
-                "\"Treatment\""
-              ]
-            }
-          ],
-          "events": [
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
+              ],
               "actions": [
                 {
                   "type": {
-                    "await": true,
-                    "value": "SendAsyncRequest"
+                    "value": "Tween::PauseTween"
                   },
                   "parameters": [
-                    "VariableString(_configuration.pathserviceEndpoint) + \"/destination\"",
-                    "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
-                    "\"DELETE\"",
-                    "\"application/json\"",
-                    "_errorMessage",
-                    "_errorMessage"
+                    "TractorWheat",
+                    "Tween",
+                    "\"TractorWheatMove\""
                   ]
                 },
                 {
                   "type": {
-                    "value": "ChangeAnimation"
+                    "value": "ResetObjectTimer"
                   },
                   "parameters": [
-                    "Wheat",
-                    "=",
-                    "0"
+                    "TractorWheat",
+                    "\"Treatment\""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "await": true,
+                        "value": "SendAsyncRequest"
+                      },
+                      "parameters": [
+                        "VariableString(_configuration.pathserviceEndpoint) + \"/destination\"",
+                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
+                        "\"DELETE\"",
+                        "\"application/json\"",
+                        "_errorMessage",
+                        "_errorMessage"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ChangeAnimation"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "status",
+                        "=",
+                        "\"healthy\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "disease",
+                        "=",
+                        "\"wheat_healthy\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjet"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "frame",
+                        "=",
+                        "RandomInRange(0,24)"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "CompareObjectTimer"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "\"Treatment\"",
+                    ">=",
+                    "2.5"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::ResumeTween"
+                  },
+                  "parameters": [
+                    "TractorWheat",
+                    "Tween",
+                    "\"TractorWheatMove\""
                   ]
                 },
                 {
                   "type": {
-                    "value": "ModVarObjetTxt"
+                    "value": "RemoveObjectTimer"
                   },
                   "parameters": [
-                    "Wheat",
-                    "status",
-                    "=",
-                    "\"healthy\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarObjetTxt"
-                  },
-                  "parameters": [
-                    "Wheat",
-                    "disease",
-                    "=",
-                    "\"wheat_healthy\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarObjet"
-                  },
-                  "parameters": [
-                    "Wheat",
-                    "frame",
-                    "=",
-                    "RandomInRange(0,24)"
+                    "TractorWheat",
+                    "\"Treatment\""
                   ]
                 }
               ]
             }
-          ]
-        },
-        {
-          "type": "BuiltinCommonInstructions::Standard",
-          "conditions": [
-            {
-              "type": {
-                "value": "CompareObjectTimer"
-              },
-              "parameters": [
-                "TractorWheat",
-                "\"Treatment\"",
-                ">=",
-                "2.5"
-              ]
-            }
           ],
-          "actions": [
-            {
-              "type": {
-                "value": "Tween::ResumeTween"
-              },
-              "parameters": [
-                "TractorWheat",
-                "Tween",
-                "\"TractorWheatMove\""
-              ]
-            },
-            {
-              "type": {
-                "value": "RemoveObjectTimer"
-              },
-              "parameters": [
-                "TractorWheat",
-                "\"Treatment\""
-              ]
-            }
-          ]
+          "parameters": []
         }
       ],
       "layers": [
