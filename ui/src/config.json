@@ -1,5 +1,6 @@
 {
-    "classificationURL": "http://localhost:5002/classify",
+    "classificationEndpoint": "http://localhost:5002",
+    "pathserviceEndpoint": "http://localhost:5003",
     "droneSpeed": 2,
     "tractorSpeed": 0.8,
     "wealthyCropInitialPercentage": 50

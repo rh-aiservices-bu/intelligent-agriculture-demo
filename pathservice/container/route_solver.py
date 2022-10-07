@@ -315,8 +315,9 @@ def routefinder(environment,kind,destinations):
     verts=dict()
 
     for tractor in final_solution.tractor_list:
-        verts[tractor.name] = \
-            [pathfinder.translate_coordinates((tractor.barn.location.x,tractor.barn.location.y))]
+        verts[tractor.name] = []
+        #verts[tractor.name] = \
+        #    [pathfinder.translate_coordinates((tractor.barn.location.x,tractor.barn.location.y))]
         verts[tractor.name].extend(map(lambda field: \
             pathfinder.translate_coordinates((field.location.x,field.location.y)), \
             tractor.field_list))
