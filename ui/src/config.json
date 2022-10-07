@@ -2,6 +2,6 @@
     "classificationEndpoint": "http://localhost:5002",
     "pathserviceEndpoint": "http://localhost:5003",
     "droneSpeed": 2,
-    "tractorSpeed": 0.05,
+    "tractorSpeed": 0.5,
     "wealthyCropInitialPercentage": 50
 }
