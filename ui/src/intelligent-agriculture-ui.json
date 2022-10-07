@@ -3958,7 +3958,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4031,6 +4030,26 @@
                       },
                       "comment": "Initialize crops",
                       "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "await": true,
+                            "value": "SendAsyncRequest"
+                          },
+                          "parameters": [
+                            "VariableString(_configuration.pathserviceEndpoint) + \"/alldestinations\"",
+                            "\"{\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
+                            "\"DELETE\"",
+                            "\"application/json\"",
+                            "",
+                            ""
+                          ]
+                        }
+                      ]
                     },
                     {
                       "folded": true,
@@ -4539,6 +4558,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5156,7 +5176,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5258,7 +5277,16 @@
                   ]
                 }
               ],
-              "actions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "PlayAnimation"
+                  },
+                  "parameters": [
+                    "TractorWheat"
+                  ]
+                }
+              ],
               "events": [
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -5487,11 +5515,6 @@
               ]
             },
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": []
-            },
-            {
               "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
@@ -5534,14 +5557,6 @@
                     "_routingResultWheat.routeLength",
                     "=",
                     "Variable(_routingResultWheat.routeLength)-1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "PauseAnimation"
-                  },
-                  "parameters": [
-                    "TractorWheat"
                   ]
                 },
                 {
@@ -5602,7 +5617,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5625,6 +5639,14 @@
                     "TractorWheat",
                     "moving",
                     "False"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PauseAnimation"
+                  },
+                  "parameters": [
+                    "TractorWheat"
                   ]
                 }
               ],
