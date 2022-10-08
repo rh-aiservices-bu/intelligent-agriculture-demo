@@ -202,24 +202,6 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "assets/drone-1.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "assets/drone-1.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "alwaysLoaded": false,
-        "file": "assets/drone-2.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "assets/drone-2.png",
-        "smoothed": true,
-        "userAdded": false
-      },
-      {
-        "alwaysLoaded": false,
         "file": "assets/pictures/wheat_healthy/Healthy002.jpg",
         "kind": "image",
         "metadata": "",
@@ -622,6 +604,60 @@
         "name": "assets/background.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/drone-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/drone-1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/drone-2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/drone-2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/tower.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/tower.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/tower-outage.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/tower-outage.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/comm1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/comm1.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/comm2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/comm2.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -650,7 +686,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7244000000000007,
+        "zoomFactor": 0.5653999999999999,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1341,6 +1377,26 @@
           "y": 78,
           "zOrder": 39,
           "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "Tower",
+          "persistentUuid": "1875e03e-292e-427e-a657-0f9e161b2851",
+          "width": 0,
+          "x": 560,
+          "y": 50,
+          "zOrder": 40,
+          "numberProperties": [
+            {
+              "name": "animation",
+              "value": 0
+            }
+          ],
           "stringProperties": [],
           "initialVariables": []
         }
@@ -2155,7 +2211,7 @@
           ],
           "animations": [
             {
-              "name": "",
+              "name": "drone-1",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -4064,6 +4120,139 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Tower",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "normal",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.07999999821186066,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/tower.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "outage",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.07999999821186066,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/tower-outage.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Comm",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Tween",
+              "type": "Tween::TweenBehavior"
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "timeBetweenFrames": 0.16670000553131104,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/comm1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/comm2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -4653,6 +4842,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4662,6 +4852,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -4680,6 +4871,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5293,7 +5485,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Wheat Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5423,6 +5614,45 @@
                     }
                   ],
                   "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "Comm",
+                        "TractorWheat.X()",
+                        "TractorWheat.Y()",
+                        "\"Tractors\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "RotateTowardPosition"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "Tower.X()",
+                        "Tower.Y()",
+                        "0",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "Tween",
+                        "\"Move\"",
+                        "Tower.X()",
+                        "Tower.Y()",
+                        "\"linear\"",
+                        "4000",
+                        "yes"
+                      ]
+                    },
                     {
                       "type": {
                         "value": "RemoveObjectTimer"
@@ -5674,6 +5904,7 @@
               "comment2": ""
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5690,7 +5921,6 @@
               "actions": [],
               "events": [
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
