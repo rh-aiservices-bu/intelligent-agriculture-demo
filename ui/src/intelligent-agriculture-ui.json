@@ -650,7 +650,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5441999999999998,
+        "zoomFactor": 0.7244000000000007,
         "windowMask": false
       },
       "objectsGroups": [
@@ -877,8 +877,8 @@
           "name": "Potato",
           "persistentUuid": "751c37ae-22cb-468f-98d1-f2d8c925d824",
           "width": 0,
-          "x": 386,
-          "y": 76,
+          "x": 850,
+          "y": 260,
           "zOrder": 10,
           "numberProperties": [
             {
@@ -897,8 +897,8 @@
           "name": "Potato",
           "persistentUuid": "d39bf2a9-fa98-40d5-80c4-91487ed821e0",
           "width": 0,
-          "x": 246,
-          "y": 78,
+          "x": 684,
+          "y": 260,
           "zOrder": 11,
           "numberProperties": [],
           "stringProperties": [],
@@ -1313,6 +1313,36 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "Crops",
+          "name": "Wheat",
+          "persistentUuid": "77a80e5c-1174-4997-9525-b0c8ad743174",
+          "width": 0,
+          "x": 227,
+          "y": 80,
+          "zOrder": 38,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "Crops",
+          "name": "Wheat",
+          "persistentUuid": "f07d2219-321d-4907-9150-dd48fdf845a3",
+          "width": 0,
+          "x": 361,
+          "y": 78,
+          "zOrder": 39,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
         }
       ],
       "objects": [
@@ -1340,6 +1370,35 @@
               "name": "disease",
               "type": "string",
               "value": "wheat_healthy"
+            },
+            {
+              "name": "_classificationResult",
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "model_prediction",
+                  "type": "string",
+                  "value": "\"\""
+                },
+                {
+                  "name": "model_prediction_confidence",
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "folded": true,
+                  "name": "status",
+                  "type": "string",
+                  "value": "\"\""
+                }
+              ]
+            },
+            {
+              "folded": true,
+              "name": "surveyed",
+              "type": "boolean",
+              "value": false
             }
           ],
           "effects": [],
@@ -4018,7 +4077,6 @@
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4143,12 +4201,11 @@
                           "actions": [
                             {
                               "type": {
-                                "value": "ChangeAnimation"
+                                "value": "SetAnimationName"
                               },
                               "parameters": [
                                 "Wheat",
-                                "=",
-                                "0"
+                                "\"Healthy\""
                               ]
                             },
                             {
@@ -4203,12 +4260,11 @@
                           "actions": [
                             {
                               "type": {
-                                "value": "ChangeAnimation"
+                                "value": "SetAnimationName"
                               },
                               "parameters": [
                                 "Wheat",
-                                "=",
-                                "1"
+                                "\"Ill\""
                               ]
                             },
                             {
@@ -4646,21 +4702,15 @@
                         },
                         {
                           "type": {
-                            "inverted": true,
-                            "value": "AnimationName"
+                            "value": "ObjectVariableAsBoolean"
                           },
                           "parameters": [
                             "Wheat",
-                            "\"IllMarked\""
+                            "surveyed",
+                            "False"
                           ]
                         }
                       ]
-                    },
-                    {
-                      "type": {
-                        "value": "BuiltinCommonInstructions::Once"
-                      },
-                      "parameters": []
                     }
                   ],
                   "actions": [
@@ -4672,6 +4722,25 @@
                         "Drone",
                         "Tween",
                         "\"FixedPathLeg\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "surveyed",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "\"surveyed\""
                       ]
                     }
                   ],
@@ -4696,10 +4765,11 @@
                         },
                         {
                           "type": {
-                            "value": "JSONToVariableStructure"
+                            "value": "JSONToObjectVariableStructure"
                           },
                           "parameters": [
                             "VariableString(_classificationResultJSon)",
+                            "Wheat",
                             "_classificationResult"
                           ]
                         },
@@ -4710,17 +4780,7 @@
                           "parameters": [
                             "DroneInfoScore",
                             "=",
-                            "\"Confidence:\" + NewLine() + VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::ResumeTween"
-                          },
-                          "parameters": [
-                            "Drone",
-                            "Tween",
-                            "\"FixedPathLeg\""
+                            "\"Confidence:\" + NewLine() + Wheat.VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
                           ]
                         }
                       ],
@@ -4730,9 +4790,77 @@
                           "conditions": [
                             {
                               "type": {
-                                "value": "VarSceneTxt"
+                                "value": "VarObjetTxt"
                               },
                               "parameters": [
+                                "Wheat",
+                                "_classificationResult.model_prediction",
+                                "=",
+                                "\"Wheat___Healthy\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetAnimationName"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "\"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "1"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "Wheat.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoDisease",
+                                "=",
+                                "\"Disease:\" + NewLine() + \"None\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
                                 "_classificationResult.status",
                                 "=",
                                 "\"ill\""
@@ -4766,46 +4894,93 @@
                               "parameters": [
                                 "DroneInfoDisease",
                                 "=",
-                                "\"Disease:\" + NewLine() + VariableString(_classificationResult.model_prediction)"
+                                "\"Disease:\" + NewLine() + Wheat.VariableString(_classificationResult.model_prediction)"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Wheat",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Wheat___Brown_Rust\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "2"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Wheat.Variable(frame)"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Wheat",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Wheat___Yellow_Rust\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "3"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Wheat.Variable(frame)"
+                                  ]
+                                }
                               ]
                             }
                           ]
                         },
                         {
                           "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "VarSceneTxt"
-                              },
-                              "parameters": [
-                                "_classificationResult.model_prediction",
-                                "=",
-                                "\"Wheat___Healthy\""
-                              ]
-                            }
-                          ],
+                          "conditions": [],
                           "actions": [
-                            {
-                              "type": {
-                                "value": "ChangeAnimation"
-                              },
-                              "parameters": [
-                                "DroneView",
-                                "=",
-                                "1"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "ChangeSprite"
-                              },
-                              "parameters": [
-                                "DroneView",
-                                "=",
-                                "Wheat.Variable(frame)"
-                              ]
-                            },
                             {
                               "type": {
                                 "value": "PauseAnimation"
@@ -4816,112 +4991,12 @@
                             },
                             {
                               "type": {
-                                "value": "TextObject::String"
+                                "value": "Tween::ResumeTween"
                               },
                               "parameters": [
-                                "DroneInfoStatus",
-                                "=",
-                                "\"Status:\" + NewLine() + \"Healthy\""
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "TextObject::String"
-                              },
-                              "parameters": [
-                                "DroneInfoDisease",
-                                "=",
-                                "\"Disease:\" + NewLine() + \"None\""
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "VarSceneTxt"
-                              },
-                              "parameters": [
-                                "_classificationResult.model_prediction",
-                                "=",
-                                "\"Wheat___Brown_Rust\""
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "ChangeAnimation"
-                              },
-                              "parameters": [
-                                "DroneView",
-                                "=",
-                                "2"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "ChangeSprite"
-                              },
-                              "parameters": [
-                                "DroneView",
-                                "=",
-                                "Wheat.Variable(frame)"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "PauseAnimation"
-                              },
-                              "parameters": [
-                                "DroneView"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "BuiltinCommonInstructions::Standard",
-                          "conditions": [
-                            {
-                              "type": {
-                                "value": "VarSceneTxt"
-                              },
-                              "parameters": [
-                                "_classificationResult.model_prediction",
-                                "=",
-                                "\"Wheat___Yellow_Rust\""
-                              ]
-                            }
-                          ],
-                          "actions": [
-                            {
-                              "type": {
-                                "value": "ChangeAnimation"
-                              },
-                              "parameters": [
-                                "DroneView",
-                                "=",
-                                "3"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "ChangeSprite"
-                              },
-                              "parameters": [
-                                "DroneView",
-                                "=",
-                                "Wheat.Variable(frame)"
-                              ]
-                            },
-                            {
-                              "type": {
-                                "value": "PauseAnimation"
-                              },
-                              "parameters": [
-                                "DroneView"
+                                "Drone",
+                                "Tween",
+                                "\"FixedPathLeg\""
                               ]
                             }
                           ]
@@ -4931,39 +5006,39 @@
                   ]
                 },
                 {
-                  "disabled": true,
-                  "type": "BuiltinCommonInstructions::Standard",
+                  "type": "BuiltinCommonInstructions::ForEach",
+                  "object": "Wheat",
                   "conditions": [
                     {
                       "type": {
                         "value": "CompareObjectTimer"
                       },
                       "parameters": [
-                        "Drone",
-                        "\"Survey\"",
-                        ">=",
-                        "1"
+                        "Wheat",
+                        "\"surveyed\"",
+                        ">",
+                        "10"
                       ]
                     }
                   ],
                   "actions": [
                     {
                       "type": {
-                        "value": "Tween::ResumeTween"
+                        "value": "RemoveObjectTimer"
                       },
                       "parameters": [
-                        "Drone",
-                        "Tween",
-                        "\"FixedPathLeg\""
+                        "Wheat",
+                        "\"surveyed\""
                       ]
                     },
                     {
                       "type": {
-                        "value": "RemoveObjectTimer"
+                        "value": "SetObjectVariableAsBoolean"
                       },
                       "parameters": [
-                        "Drone",
-                        "\"Survey\""
+                        "Wheat",
+                        "surveyed",
+                        "False"
                       ]
                     }
                   ]
