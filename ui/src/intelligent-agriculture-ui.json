@@ -658,6 +658,15 @@
         "name": "assets/comm2.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/mec.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/mec.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -706,7 +715,6 @@
           "value": "\"\""
         },
         {
-          "folded": true,
           "name": "_configuration",
           "type": "structure",
           "children": [
@@ -714,6 +722,12 @@
               "name": "classificationEndpoint",
               "type": "string",
               "value": "\"\""
+            },
+            {
+              "folded": true,
+              "name": "commSpeed",
+              "type": "number",
+              "value": 0
             },
             {
               "name": "droneSpeed",
@@ -1388,8 +1402,8 @@
           "name": "Tower",
           "persistentUuid": "1875e03e-292e-427e-a657-0f9e161b2851",
           "width": 0,
-          "x": 560,
-          "y": 50,
+          "x": 372,
+          "y": 945,
           "zOrder": 40,
           "numberProperties": [
             {
@@ -1397,6 +1411,21 @@
               "value": 0
             }
           ],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "MEC",
+          "persistentUuid": "4d672f15-e14b-4904-8c9a-82efc669f848",
+          "width": 0,
+          "x": 1204,
+          "y": 957,
+          "zOrder": 41,
+          "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
         }
@@ -1837,7 +1866,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets/tractor_yellow_1.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 69,
+                          "y": 14
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 46.5,
@@ -1873,7 +1908,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets/tractor_yellow_2.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 69,
+                          "y": 14
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 46.5,
@@ -4142,7 +4183,13 @@
                     {
                       "hasCustomCollisionMask": false,
                       "image": "assets/tower.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 32,
+                          "y": 11.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -4171,7 +4218,13 @@
                     {
                       "hasCustomCollisionMask": false,
                       "image": "assets/tower-outage.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 32,
+                          "y": 11.5
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
@@ -4197,7 +4250,20 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "folded": true,
+              "name": "kind",
+              "type": "string",
+              "value": "\"\""
+            },
+            {
+              "folded": true,
+              "name": "leg",
+              "type": "string",
+              "value": "\"\""
+            }
+          ],
           "effects": [],
           "behaviors": [
             {
@@ -4221,19 +4287,60 @@
                       "originPoint": {
                         "name": "origine",
                         "x": 0,
-                        "y": 0
+                        "y": 18
                       },
                       "centerPoint": {
-                        "automatic": true,
+                        "automatic": false,
                         "name": "centre",
                         "x": 0,
-                        "y": 0
+                        "y": 18
                       },
                       "customCollisionMask": []
                     },
                     {
                       "hasCustomCollisionMask": false,
                       "image": "assets/comm2.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 18
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 18
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "MEC",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "mec",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.07999999821186066,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/mec.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -5621,8 +5728,8 @@
                       "parameters": [
                         "",
                         "Comm",
-                        "TractorWheat.X()",
-                        "TractorWheat.Y()",
+                        "TractorWheat.PointX(\"Comm\")",
+                        "TractorWheat.PointY(\"Comm\")",
                         "\"Tractors\""
                       ]
                     },
@@ -5640,17 +5747,39 @@
                     },
                     {
                       "type": {
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "kind",
+                        "=",
+                        "\"wheat\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "leg",
+                        "=",
+                        "\"tractorToTower\""
+                      ]
+                    },
+                    {
+                      "type": {
                         "value": "Tween::AddObjectPositionTween"
                       },
                       "parameters": [
                         "Comm",
                         "Tween",
-                        "\"Move\"",
-                        "Tower.X()",
-                        "Tower.Y()",
+                        "\"CommWheat\"",
+                        "Tower.PointX(\"Comm\")",
+                        "Tower.PointY(\"Comm\")",
                         "\"linear\"",
-                        "4000",
-                        "yes"
+                        "DistanceBetweenPositions(Comm.PointX(\"Comm\"),Comm.PointY(\"Comm\"),Tower.PointX(\"Comm\"),Tower.PointY(\"Comm\"))/Variable(_configuration.commSpeed)",
+                        "no"
                       ]
                     },
                     {
@@ -5763,6 +5892,157 @@
                             "\"RouteTimer\""
                           ]
                         }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "Comm",
+                    "Tween",
+                    "\"CommWheat\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "Comm",
+                    "Tween",
+                    "\"CommWheat\""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "leg",
+                        "=",
+                        "\"tractorToTower\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "Tween",
+                        "\"CommWheat\"",
+                        "MEC.X()",
+                        "MEC.Y()",
+                        "\"linear\"",
+                        "DistanceBetweenPositions(Comm.PointX(\"Comm\"),Comm.PointY(\"Comm\"),MEC.X(),MEC.Y())/Variable(_configuration.commSpeed)",
+                        "no"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "leg",
+                        "=",
+                        "\"towerToMEC\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "leg",
+                        "=",
+                        "\"towerToMEC\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Delete"
+                      },
+                      "parameters": [
+                        "Comm",
+                        ""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": []
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "leg",
+                        "=",
+                        "\"MECtoTower\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "Tween",
+                        "\"CommWheat\"",
+                        "MEC.X()",
+                        "MEC.Y()",
+                        "\"linear\"",
+                        "DistanceBetweenPositions(Comm.PointX(\"Comm\"),Comm.PointY(\"Comm\"),MEC.X(),MEC.Y())/Variable(_configuration.commSpeed)",
+                        "no"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarObjetTxt"
+                      },
+                      "parameters": [
+                        "Comm",
+                        "leg",
+                        "=",
+                        "\"towerToMEC\""
                       ]
                     }
                   ]

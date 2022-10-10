@@ -3,5 +3,6 @@
     "pathserviceEndpoint": "http://localhost:5003",
     "droneSpeed": 0.5,
     "tractorSpeed": 0.1,
+    "commSpeed": 1,
     "wealthyCropInitialPercentage": 50
 }
