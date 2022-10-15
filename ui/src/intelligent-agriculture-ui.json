@@ -1402,8 +1402,8 @@
           "name": "Tower",
           "persistentUuid": "1875e03e-292e-427e-a657-0f9e161b2851",
           "width": 0,
-          "x": 1044,
-          "y": 165,
+          "x": 455,
+          "y": 940,
           "zOrder": 40,
           "numberProperties": [
             {
@@ -5594,6 +5594,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Wheat Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5612,6 +5613,7 @@
               "comment2": ""
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5830,6 +5832,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -5986,6 +5989,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6115,6 +6119,7 @@
               "comment2": ""
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
