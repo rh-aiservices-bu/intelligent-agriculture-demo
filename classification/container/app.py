@@ -69,11 +69,11 @@ async def classify(entry: TileEntry):
     """ Classification API """
 
     if entry.kind == "wheat":
-        if entry.disease == "wheat_healthy":
+        if entry.disease == "Wheat___Healthy":
             picture_path = wheat_healthy[entry.frame]
-        if entry.disease == "wheat_brown_rust":
+        if entry.disease == "Wheat___Brown_Rust":
             picture_path = wheat_brown_rust[entry.frame]
-        if entry.disease == "wheat_yellow_rust":
+        if entry.disease == "Wheat___Yellow_Rust":
             picture_path = wheat_yellow_rust[entry.frame]
 
     file =  {'file': open(picture_path, 'rb')}
@@ -81,7 +81,7 @@ async def classify(entry: TileEntry):
 
     result = resp.json()
 
-    if entry.disease in {"wheat_healthy"}:
+    if entry.disease in {"Wheat___Healthy"}:
         result['status'] = 'healthy'
     else:
         result['status'] = 'ill'

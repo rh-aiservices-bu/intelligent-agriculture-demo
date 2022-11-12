@@ -673,7 +673,95 @@
   },
   "objects": [],
   "objectsGroups": [],
-  "variables": [],
+  "variables": [
+    {
+      "name": "StringFormat",
+      "type": "structure",
+      "children": [
+        {
+          "name": "Corn___Common_Rust",
+          "type": "string",
+          "value": "Corn Common Rust"
+        },
+        {
+          "folded": true,
+          "name": "Corn___Gray_Leaf_Spot",
+          "type": "string",
+          "value": "Corn Gray Leaf Spot"
+        },
+        {
+          "folded": true,
+          "name": "Corn___Healthy",
+          "type": "string",
+          "value": "Corn Healthy"
+        },
+        {
+          "folded": true,
+          "name": "Corn___Northern_Leaf_Blight",
+          "type": "string",
+          "value": "Corn Northern Leaf Blight"
+        },
+        {
+          "folded": true,
+          "name": "Potato___Early_Blight",
+          "type": "string",
+          "value": "Potato Early Blight"
+        },
+        {
+          "folded": true,
+          "name": "Potato___Healthy",
+          "type": "string",
+          "value": "Potato Healthy"
+        },
+        {
+          "folded": true,
+          "name": "Potato___Late_Blight",
+          "type": "string",
+          "value": "Potato Late Blight"
+        },
+        {
+          "folded": true,
+          "name": "Rice___Brown_Spot",
+          "type": "string",
+          "value": "Rice Brown Spot"
+        },
+        {
+          "folded": true,
+          "name": "Rice___Healthy",
+          "type": "string",
+          "value": "Rice Healthy"
+        },
+        {
+          "name": "Rice___Leaf_Blast",
+          "type": "string",
+          "value": "Rice Leaf Blast"
+        },
+        {
+          "name": "Rice___Neck_Blast",
+          "type": "string",
+          "value": "Rice Neck Blast"
+        },
+        {
+          "folded": true,
+          "name": "Wheat___Brown_Rust",
+          "type": "string",
+          "value": "Wheat Brown Rust"
+        },
+        {
+          "folded": true,
+          "name": "Wheat___Healthy",
+          "type": "string",
+          "value": "Wheat Healthy"
+        },
+        {
+          "folded": true,
+          "name": "Wheat___Yellow_Rust",
+          "type": "string",
+          "value": "Wheat Yellow Rust"
+        }
+      ]
+    }
+  ],
   "layouts": [
     {
       "b": 19,
@@ -695,7 +783,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5653999999999999,
+        "zoomFactor": 0.9046000000000016,
         "windowMask": false
       },
       "objectsGroups": [
@@ -1053,7 +1141,7 @@
           "persistentUuid": "12879811-2996-4a5d-9d2b-8dfaa9435d98",
           "width": 0,
           "x": 1680,
-          "y": 900,
+          "y": 785,
           "zOrder": 19,
           "numberProperties": [],
           "stringProperties": [],
@@ -1068,7 +1156,7 @@
           "persistentUuid": "032c537c-991d-41b9-9482-deca655691ce",
           "width": 0,
           "x": 1680,
-          "y": 980,
+          "y": 860,
           "zOrder": 20,
           "numberProperties": [],
           "stringProperties": [],
@@ -1083,7 +1171,7 @@
           "persistentUuid": "5832587b-7d06-4d01-9f98-4b15b65fd0c7",
           "width": 0,
           "x": 1680,
-          "y": 700,
+          "y": 585,
           "zOrder": 21,
           "numberProperties": [],
           "stringProperties": [],
@@ -1184,25 +1272,10 @@
           "customSize": false,
           "height": 0,
           "layer": "",
-          "name": "ClickInfo",
-          "persistentUuid": "b26232d2-0eff-4f5f-8134-112fa4064128",
-          "width": 0,
-          "x": 1680,
-          "y": 654,
-          "zOrder": 28,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
           "name": "DroneViewTitle",
           "persistentUuid": "6d85a12e-f770-4821-a8de-c2823a29b99c",
           "width": 0,
-          "x": 1680,
+          "x": 1665,
           "y": 30,
           "zOrder": 29,
           "numberProperties": [],
@@ -1248,7 +1321,7 @@
           "persistentUuid": "5963a764-08f3-4cde-a62d-e873218ee336",
           "width": 0,
           "x": 1680,
-          "y": 360,
+          "y": 425,
           "zOrder": 32,
           "numberProperties": [],
           "stringProperties": [],
@@ -1263,7 +1336,7 @@
           "persistentUuid": "7a8236aa-8b13-4d7d-98d5-a2731f6baa74",
           "width": 0,
           "x": 1680,
-          "y": 450,
+          "y": 350,
           "zOrder": 33,
           "numberProperties": [],
           "stringProperties": [],
@@ -1425,6 +1498,21 @@
           "x": 1259,
           "y": 998,
           "zOrder": 41,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "ClickInfo",
+          "persistentUuid": "c453c8db-454d-4efc-891f-819cdf23634d",
+          "width": 0,
+          "x": 1665,
+          "y": 539,
+          "zOrder": 28,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -4028,7 +4116,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Tile info (click)",
+          "string": "Crop Info (click)",
           "font": "",
           "characterSize": 30,
           "color": {
@@ -4049,7 +4137,7 @@
           "variables": [],
           "effects": [],
           "behaviors": [],
-          "string": "Drone View",
+          "string": "Drone Survey",
           "font": "",
           "characterSize": 30,
           "color": {
@@ -4368,13 +4456,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -4465,7 +4551,6 @@
                       ]
                     },
                     {
-                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Wheat",
                       "conditions": [],
@@ -4525,7 +4610,7 @@
                                 "Wheat",
                                 "disease",
                                 "=",
-                                "\"wheat_healthy\""
+                                "\"Wheat___Healthy\""
                               ]
                             },
                             {
@@ -4584,7 +4669,7 @@
                                 "Wheat",
                                 "disease",
                                 "=",
-                                "Choose::RandomString(\"wheat_brown_rust,wheat_yellow_rust\")"
+                                "Choose::RandomString(\"Wheat___Brown_Rust,Wheat___Yellow_Rust\")"
                               ]
                             },
                             {
@@ -4724,6 +4809,63 @@
                             "\"linear\"",
                             "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
                             ""
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Texts init",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "TextObject::SetWrapping"
+                          },
+                          "parameters": [
+                            "DroneInfoDisease",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::WrappingWidth"
+                          },
+                          "parameters": [
+                            "DroneInfoDisease",
+                            "=",
+                            "200"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::SetWrapping"
+                          },
+                          "parameters": [
+                            "CropInfoDisease",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::WrappingWidth"
+                          },
+                          "parameters": [
+                            "CropInfoDisease",
+                            "=",
+                            "200"
                           ]
                         }
                       ]
@@ -4951,7 +5093,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -4961,7 +5102,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -4980,7 +5120,6 @@
                   "comment2": ""
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5185,7 +5324,7 @@
                               "parameters": [
                                 "DroneInfoStatus",
                                 "=",
-                                "\"Status:\" + NewLine() + \"Ill\""
+                                "\"Status:\" + NewLine() + \"Sick\""
                               ]
                             },
                             {
@@ -5195,7 +5334,7 @@
                               "parameters": [
                                 "DroneInfoDisease",
                                 "=",
-                                "\"Disease:\" + NewLine() + Wheat.VariableString(_classificationResult.model_prediction)"
+                                "\"Disease:\" + NewLine() + GlobalVariableString(StringFormat[Wheat.VariableString(_classificationResult.model_prediction)])"
                               ]
                             }
                           ],
@@ -5355,7 +5494,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "ClickInfo Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -5384,18 +5522,7 @@
                   ]
                 }
               ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "TextObject::String"
-                  },
-                  "parameters": [
-                    "CropInfoStatus",
-                    "=",
-                    "\"Status:\" + NewLine() +  Wheat.VariableString(status)"
-                  ]
-                }
-              ],
+              "actions": [],
               "events": [
                 {
                   "type": "BuiltinCommonInstructions::Standard",
@@ -5450,6 +5577,16 @@
                         "=",
                         "\"Disease:\" + NewLine() +  \"None\""
                       ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "CropInfoStatus",
+                        "=",
+                        "\"Status:\" + NewLine() +  \"Healthy\""
+                      ]
                     }
                   ]
                 },
@@ -5468,7 +5605,28 @@
                       ]
                     }
                   ],
-                  "actions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "CropInfoStatus",
+                        "=",
+                        "\"Status:\" + NewLine() +  \"Sick\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "TextObject::String"
+                      },
+                      "parameters": [
+                        "CropInfoDisease",
+                        "=",
+                        "\"Disease:\" + NewLine() + GlobalVariableString(StringFormat[Wheat.VariableString(disease)])"
+                      ]
+                    }
+                  ],
                   "events": [
                     {
                       "type": "BuiltinCommonInstructions::Standard",
@@ -5512,16 +5670,6 @@
                           },
                           "parameters": [
                             "CropPicture"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "TextObject::String"
-                          },
-                          "parameters": [
-                            "CropInfoDisease",
-                            "=",
-                            "\"Disease:\" + NewLine() +  \"wheat_brown_rust\""
                           ]
                         }
                       ]
@@ -5568,16 +5716,6 @@
                           },
                           "parameters": [
                             "CropPicture"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "TextObject::String"
-                          },
-                          "parameters": [
-                            "CropInfoDisease",
-                            "=",
-                            "\"Disease:\" + NewLine() +  \"wheat_yellow_rust\""
                           ]
                         }
                       ]
