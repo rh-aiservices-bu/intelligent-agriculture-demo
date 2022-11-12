@@ -58,14 +58,6 @@
   "resources": {
     "resources": [
       {
-        "disablePreload": false,
-        "file": "config.json",
-        "kind": "json",
-        "metadata": "",
-        "name": "config",
-        "userAdded": true
-      },
-      {
         "alwaysLoaded": false,
         "file": "assets/wheat-healthy.png",
         "kind": "image",
@@ -667,6 +659,15 @@
         "name": "assets/mec.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/toggle_button.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/toggle_button.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -783,7 +784,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.9046000000000016,
+        "zoomFactor": 0.5124000000000004,
         "windowMask": false
       },
       "objectsGroups": [
@@ -803,6 +804,7 @@
           "value": "\"\""
         },
         {
+          "folded": true,
           "name": "_configuration",
           "type": "structure",
           "children": [
@@ -918,6 +920,7 @@
           ]
         },
         {
+          "folded": true,
           "name": "_routingResultWheat",
           "type": "structure",
           "children": [
@@ -949,6 +952,12 @@
           ]
         },
         {
+          "folded": true,
+          "name": "_idCounter",
+          "type": "number",
+          "value": 0
+        },
+        {
           "name": "_pathResult",
           "type": "array",
           "children": []
@@ -964,6 +973,12 @@
           "name": "_pathDashIterator",
           "type": "number",
           "value": 0
+        },
+        {
+          "folded": true,
+          "name": "_breakToggle",
+          "type": "boolean",
+          "value": false
         }
       ],
       "instances": [
@@ -1141,7 +1156,7 @@
           "persistentUuid": "12879811-2996-4a5d-9d2b-8dfaa9435d98",
           "width": 0,
           "x": 1680,
-          "y": 785,
+          "y": 833,
           "zOrder": 19,
           "numberProperties": [],
           "stringProperties": [],
@@ -1156,7 +1171,7 @@
           "persistentUuid": "032c537c-991d-41b9-9482-deca655691ce",
           "width": 0,
           "x": 1680,
-          "y": 860,
+          "y": 908,
           "zOrder": 20,
           "numberProperties": [],
           "stringProperties": [],
@@ -1171,7 +1186,7 @@
           "persistentUuid": "5832587b-7d06-4d01-9f98-4b15b65fd0c7",
           "width": 0,
           "x": 1680,
-          "y": 585,
+          "y": 633,
           "zOrder": 21,
           "numberProperties": [],
           "stringProperties": [],
@@ -1511,8 +1526,23 @@
           "persistentUuid": "c453c8db-454d-4efc-891f-819cdf23634d",
           "width": 0,
           "x": 1665,
-          "y": 539,
+          "y": 587,
           "zOrder": 28,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "ToggleButton",
+          "persistentUuid": "30e0267c-8bd8-40f0-ab59-c4db4db55356",
+          "width": 0,
+          "x": 1709,
+          "y": 1019,
+          "zOrder": 42,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -1572,6 +1602,12 @@
               "name": "surveyed",
               "type": "boolean",
               "value": false
+            },
+            {
+              "folded": true,
+              "name": "id",
+              "type": "number",
+              "value": 0
             }
           ],
           "effects": [],
@@ -4448,6 +4484,54 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "ToggleButton",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "folded": true,
+              "name": "selectedId",
+              "type": "number",
+              "value": 0
+            }
+          ],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "toggle_button",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.07999999821186066,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/toggle_button.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -4472,7 +4556,18 @@
                   ]
                 }
               ],
-              "actions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_idCounter",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
               "events": [
                 {
                   "type": "BuiltinCommonInstructions::Comment",
@@ -4488,7 +4583,6 @@
                   "comment2": ""
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
                   "actions": [
@@ -4555,6 +4649,27 @@
                       "object": "Wheat",
                       "conditions": [],
                       "actions": [
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "id",
+                            "=",
+                            "Variable(_idCounter)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarScene"
+                          },
+                          "parameters": [
+                            "_idCounter",
+                            "=",
+                            "Variable(_idCounter) + 1"
+                          ]
+                        },
                         {
                           "type": {
                             "value": "ModVarScene"
@@ -4869,6 +4984,33 @@
                           ]
                         }
                       ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Buttons init",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "Cache"
+                          },
+                          "parameters": [
+                            "ToggleButton"
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -5102,6 +5244,7 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
+              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -5120,6 +5263,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5522,8 +5666,70 @@
                   ]
                 }
               ],
-              "actions": [],
+              "actions": [
+                {
+                  "type": {
+                    "value": "ModVarObjet"
+                  },
+                  "parameters": [
+                    "ToggleButton",
+                    "selectedId",
+                    "=",
+                    "Wheat.Variable(id)"
+                  ]
+                }
+              ],
               "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "AnimationName"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "\"IllMarked\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Cache"
+                      },
+                      "parameters": [
+                        "ToggleButton"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "inverted": true,
+                        "value": "AnimationName"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "\"IllMarked\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Montre"
+                      },
+                      "parameters": [
+                        "ToggleButton",
+                        ""
+                      ]
+                    }
+                  ]
+                },
                 {
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
@@ -5716,6 +5922,399 @@
                           },
                           "parameters": [
                             "CropPicture"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SourisSurObjet"
+                  },
+                  "parameters": [
+                    "ToggleButton",
+                    "",
+                    "",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MouseButtonReleased"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Visible"
+                  },
+                  "parameters": [
+                    "ToggleButton"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "_breakToggle",
+                    "False"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::ForEach",
+                  "object": "Wheat",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarObjet"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "id",
+                        "=",
+                        "ToggleButton.Variable(selectedId)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "_breakToggle",
+                        "False"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "status",
+                            "=",
+                            "\"ill\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SceneVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "_breakToggle",
+                            "False"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetAnimationName"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "\"Healthy\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "status",
+                            "=",
+                            "\"healthy\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "frame",
+                            "=",
+                            "RandomInRange(0,24)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "disease",
+                            "=",
+                            "\"Wheat___Healthy\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "CropInfoStatus",
+                            "=",
+                            "\"Status:\" + NewLine() +  \"Healthy\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ChangeAnimation"
+                          },
+                          "parameters": [
+                            "CropPicture",
+                            "=",
+                            "1"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ChangeSprite"
+                          },
+                          "parameters": [
+                            "CropPicture",
+                            "=",
+                            "Wheat.Variable(frame)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "PauseAnimation"
+                          },
+                          "parameters": [
+                            "CropPicture"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "CropInfoDisease",
+                            "=",
+                            "\"Disease:\" + NewLine() +  \"None\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetSceneVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "_breakToggle",
+                            "True"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "VarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "status",
+                            "=",
+                            "\"healthy\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SceneVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "_breakToggle",
+                            "False"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "SetAnimationName"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "\"Ill\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "status",
+                            "=",
+                            "\"ill\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjet"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "frame",
+                            "=",
+                            "RandomInRange(0,8)"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ModVarObjetTxt"
+                          },
+                          "parameters": [
+                            "Wheat",
+                            "disease",
+                            "=",
+                            "Choose::RandomString(\"Wheat___Brown_Rust,Wheat___Yellow_Rust\")"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "CropInfoStatus",
+                            "=",
+                            "\"Status:\" + NewLine() +  \"Sick\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "CropInfoDisease",
+                            "=",
+                            "\"Disease:\" + NewLine() + GlobalVariableString(StringFormat[Wheat.VariableString(disease)])"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "SetSceneVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "_breakToggle",
+                            "True"
+                          ]
+                        }
+                      ],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "\"wheat_brown_rust\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "CropPicture",
+                                "=",
+                                "2"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "CropPicture",
+                                "=",
+                                "Wheat.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "CropPicture"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Wheat",
+                                "disease",
+                                "=",
+                                "\"wheat_yellow_rust\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "CropPicture",
+                                "=",
+                                "3"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "CropPicture",
+                                "=",
+                                "Wheat.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "CropPicture"
+                              ]
+                            }
                           ]
                         }
                       ]
@@ -6649,7 +7248,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6769,6 +7367,16 @@
                         "frame",
                         "=",
                         "RandomInRange(0,24)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Wheat",
+                        "surveyed",
+                        "False"
                       ]
                     }
                   ]
