@@ -58,6 +58,14 @@
   "resources": {
     "resources": [
       {
+        "disablePreload": false,
+        "file": "config.json",
+        "kind": "json",
+        "metadata": "",
+        "name": "config",
+        "userAdded": true
+      },
+      {
         "alwaysLoaded": false,
         "file": "assets/wheat-healthy.png",
         "kind": "image",
@@ -5244,7 +5252,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
@@ -5263,7 +5270,6 @@
                   "comment2": ""
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -5638,6 +5644,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "ClickInfo Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6331,7 +6338,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Wheat Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -6350,7 +6356,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6726,7 +6731,6 @@
               ]
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -6856,7 +6860,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -7229,7 +7232,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Wheat Tractor Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -7305,6 +7307,14 @@
                     "TractorWheat",
                     "\"Treatment\""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "PauseAnimation"
+                  },
+                  "parameters": [
+                    "TractorWheat"
+                  ]
                 }
               ],
               "events": [
@@ -7355,7 +7365,7 @@
                         "Wheat",
                         "disease",
                         "=",
-                        "\"wheat_healthy\""
+                        "\"Wheat___Healthy\""
                       ]
                     },
                     {
@@ -7416,6 +7426,14 @@
                   "parameters": [
                     "TractorWheat",
                     "\"Treatment\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PlayAnimation"
+                  },
+                  "parameters": [
+                    "TractorWheat"
                   ]
                 }
               ]
