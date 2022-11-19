@@ -676,6 +676,726 @@
         "name": "assets/toggle_button.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (2).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (2).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (77).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (77).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (74).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (74).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (70).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (70).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (67).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (67).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (63).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (63).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (60).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (60).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (56).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (56).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (52).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (52).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (48).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (48).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (46).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (46).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (38).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (38).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (34).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (34).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (31).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (31).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (27).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (27).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (23).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (23).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (19).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (19).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (16).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (16).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (11).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (11).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_healthy/image (6).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_healthy/image (6).jpg",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (39).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (39).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (36).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (36).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (33).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (33).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (30).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (30).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (27).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (27).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (23).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (23).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (17).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (17).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (14).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (14).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (11).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (11).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (7).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (7).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (36).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (36).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (33).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (33).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (29).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (29).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (25).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (25).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (22).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (22).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (20).jpg",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (20).jpg",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (16).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (16).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (11).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (11).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (7).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (7).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (3).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (3).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/61b8a692-91d8-40f5-a4a4-4d910875a638___RS_HL 1966.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/61b8a692-91d8-40f5-a4a4-4d910875a638___RS_HL 1966.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/58a98860-86d8-41e7-9f8c-cc2ca5e90012___RS_HL 1758.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/58a98860-86d8-41e7-9f8c-cc2ca5e90012___RS_HL 1758.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/56ae1281-5ee5-4f2a-8678-c2e4491878c6___RS_HL 1869.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/56ae1281-5ee5-4f2a-8678-c2e4491878c6___RS_HL 1869.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/51a03694-82cd-43a5-9877-ddce42c1a5ad___RS_HL 1779.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/51a03694-82cd-43a5-9877-ddce42c1a5ad___RS_HL 1779.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/43fd6ace-3712-494a-9aba-de5482d22561___RS_HL 1968.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/43fd6ace-3712-494a-9aba-de5482d22561___RS_HL 1968.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/36bdc44c-96a4-40bb-86f7-63a91d706e96___RS_HL 4203.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/36bdc44c-96a4-40bb-86f7-63a91d706e96___RS_HL 4203.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/23f1ab77-d664-49c4-92eb-41eb66c6d101___RS_HL 4169.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/23f1ab77-d664-49c4-92eb-41eb66c6d101___RS_HL 4169.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/9c620128-2872-4bbb-bc14-d5b785242cf6___RS_HL 1751.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/9c620128-2872-4bbb-bc14-d5b785242cf6___RS_HL 1751.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/8c1e1281-5937-4559-a02f-02817de6e122___RS_HL 4173.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/8c1e1281-5937-4559-a02f-02817de6e122___RS_HL 4173.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/07dfb451-4378-49d1-b699-33a5fc49ff07___RS_HL 5399.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/07dfb451-4378-49d1-b699-33a5fc49ff07___RS_HL 5399.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/6f4b9acd-f34d-4771-a6bc-2001de2dd1d3___RS_HL 1898.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/6f4b9acd-f34d-4771-a6bc-2001de2dd1d3___RS_HL 1898.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/5e19b1f4-fd65-4c4d-bcd2-18c8c519eddb___RS_HL 1965.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/5e19b1f4-fd65-4c4d-bcd2-18c8c519eddb___RS_HL 1965.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/5cb360dd-5c17-4c57-b31d-97cd8dd8d0bd___RS_HL 1797.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/5cb360dd-5c17-4c57-b31d-97cd8dd8d0bd___RS_HL 1797.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/4a08efaa-28cc-4356-8769-4002f4b299ef___RS_HL 1850.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/4a08efaa-28cc-4356-8769-4002f4b299ef___RS_HL 1850.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/3c0d6888-c7e1-4cf8-9c25-9a0b8c62ba72___RS_HL 1780.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/3c0d6888-c7e1-4cf8-9c25-9a0b8c62ba72___RS_HL 1780.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/2dee1571-ef6b-40ef-8c46-334e89aad3f1___RS_HL 1950.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/2dee1571-ef6b-40ef-8c46-334e89aad3f1___RS_HL 1950.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/1f9870b3-899e-46fb-98c9-cfc2ce92895b___RS_HL 1816.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/1f9870b3-899e-46fb-98c9-cfc2ce92895b___RS_HL 1816.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/1ae826e2-5148-47bd-a44c-711ec9cc9c75___RS_HL 1954.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/1ae826e2-5148-47bd-a44c-711ec9cc9c75___RS_HL 1954.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_healthy/0be9d721-82f5-42c3-b535-7494afe01dbe___RS_HL 1814.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_healthy/0be9d721-82f5-42c3-b535-7494afe01dbe___RS_HL 1814.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/1cb05d87-027d-4bf0-b5c4-4c1a57896ac6___RS_Early.B 7936.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/1cb05d87-027d-4bf0-b5c4-4c1a57896ac6___RS_Early.B 7936.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/1c4e0445-375a-4c5d-b6fd-6123d22f009f___RS_Early.B 7972.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/1c4e0445-375a-4c5d-b6fd-6123d22f009f___RS_Early.B 7972.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/1a77c047-7ed8-4f02-bfaf-a19e7a67c3dd___RS_Early.B 7076.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/1a77c047-7ed8-4f02-bfaf-a19e7a67c3dd___RS_Early.B 7076.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0faca7fe-7254-4dfa-8388-bbc776338c9c___RS_Early.B 7929.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0faca7fe-7254-4dfa-8388-bbc776338c9c___RS_Early.B 7929.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0e0a1b51-f61c-4934-bc57-a820af1faacb___RS_Early.B 7147.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0e0a1b51-f61c-4934-bc57-a820af1faacb___RS_Early.B 7147.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0d9dbf50-53a9-42b2-8b29-0360fb7dbd98___RS_Early.B 6692.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0d9dbf50-53a9-42b2-8b29-0360fb7dbd98___RS_Early.B 6692.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0d2e2971-f1c9-4278-b35c-91dd8a22a64d___RS_Early.B 7581.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0d2e2971-f1c9-4278-b35c-91dd8a22a64d___RS_Early.B 7581.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0c4f6f72-c7a2-42e1-9671-41ab3bf37fe7___RS_Early.B 6752.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0c4f6f72-c7a2-42e1-9671-41ab3bf37fe7___RS_Early.B 6752.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0a79700b-f834-41f5-ae51-6ceda6f67a48___RS_Early.B 8951.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0a79700b-f834-41f5-ae51-6ceda6f67a48___RS_Early.B 8951.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_early_blight/0a47f32c-1724-4c8d-bfe4-986cedd3587b___RS_Early.B 8001.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_early_blight/0a47f32c-1724-4c8d-bfe4-986cedd3587b___RS_Early.B 8001.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/1d389389-0585-433a-83c7-30b42db2ca3f___RS_LB 3322.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/1d389389-0585-433a-83c7-30b42db2ca3f___RS_LB 3322.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/1cd0b065-e637-4307-9e0a-9c20dc44cc59___RS_LB 4784.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/1cd0b065-e637-4307-9e0a-9c20dc44cc59___RS_LB 4784.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/1b7342d7-5d89-4ee3-8b4f-587d79187511___RS_LB 4416.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/1b7342d7-5d89-4ee3-8b4f-587d79187511___RS_LB 4416.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/01ad74ce-eb28-42c7-9204-778d17cfd45c___RS_LB 2669.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/01ad74ce-eb28-42c7-9204-778d17cfd45c___RS_LB 2669.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/0fe7786d-0e2f-4705-839d-898f1d9214b0___RS_LB 2836.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/0fe7786d-0e2f-4705-839d-898f1d9214b0___RS_LB 2836.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/0f824e18-3821-486c-81a1-f1f64cf6e767___RS_LB 4894.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/0f824e18-3821-486c-81a1-f1f64cf6e767___RS_LB 4894.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/0f1fb568-1b12-45ef-ad99-c59fa9075693___RS_LB 3242.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/0f1fb568-1b12-45ef-ad99-c59fa9075693___RS_LB 3242.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/0e7f0484-16eb-4183-b702-0a5b4f94d015___RS_LB 4000.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/0e7f0484-16eb-4183-b702-0a5b4f94d015___RS_LB 4000.JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/0c2628d4-8d64-48a9-a157-19a9c902e304___RS_LB 4590.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/0c2628d4-8d64-48a9-a157-19a9c902e304___RS_LB 4590.JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/potato_late_blight/00b1f292-23dd-44d4-aad3-c1ffb6a6ad5a___RS_LB 4479.JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/potato_late_blight/00b1f292-23dd-44d4-aad3-c1ffb6a6ad5a___RS_LB 4479.JPG",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -3320,6 +4040,1438 @@
                     {
                       "hasCustomCollisionMask": false,
                       "image": "assets/pictures/wheat_yellow_rust/Yellow_rust001.jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "corn_healthy",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (2).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (77).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (74).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (70).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (67).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (63).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (60).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (56).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (52).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (48).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (46).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (38).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (34).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (31).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (27).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (23).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (19).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (16).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (11).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_healthy/image (6).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "corn_gray_leaf_spot",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (39).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (36).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (33).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (30).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (27).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (23).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (17).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (14).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (11).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_gray_leaf_spot/image (7).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "corn_northern_leaf_blight",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (36).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (33).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (29).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (25).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (22).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (20).jpg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (16).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (11).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (7).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "../../classification/container/assets/pictures/corn_northern_leaf_blight/image (3).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "potato_healthy",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/77c75478-e1f0-4aaa-9cbc-af1fed928a74___RS_HL 1748.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/61b8a692-91d8-40f5-a4a4-4d910875a638___RS_HL 1966.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/58a98860-86d8-41e7-9f8c-cc2ca5e90012___RS_HL 1758.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/56ae1281-5ee5-4f2a-8678-c2e4491878c6___RS_HL 1869.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/51a03694-82cd-43a5-9877-ddce42c1a5ad___RS_HL 1779.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/43fd6ace-3712-494a-9aba-de5482d22561___RS_HL 1968.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/36bdc44c-96a4-40bb-86f7-63a91d706e96___RS_HL 4203.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/23f1ab77-d664-49c4-92eb-41eb66c6d101___RS_HL 4169.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/9c620128-2872-4bbb-bc14-d5b785242cf6___RS_HL 1751.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/8c1e1281-5937-4559-a02f-02817de6e122___RS_HL 4173.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/07dfb451-4378-49d1-b699-33a5fc49ff07___RS_HL 5399.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/6f4b9acd-f34d-4771-a6bc-2001de2dd1d3___RS_HL 1898.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/5e19b1f4-fd65-4c4d-bcd2-18c8c519eddb___RS_HL 1965.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/5cb360dd-5c17-4c57-b31d-97cd8dd8d0bd___RS_HL 1797.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/4a08efaa-28cc-4356-8769-4002f4b299ef___RS_HL 1850.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/3c0d6888-c7e1-4cf8-9c25-9a0b8c62ba72___RS_HL 1780.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/2dee1571-ef6b-40ef-8c46-334e89aad3f1___RS_HL 1950.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/1f9870b3-899e-46fb-98c9-cfc2ce92895b___RS_HL 1816.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/1ae826e2-5148-47bd-a44c-711ec9cc9c75___RS_HL 1954.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_healthy/0be9d721-82f5-42c3-b535-7494afe01dbe___RS_HL 1814.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "potato_early_blight",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/1cb05d87-027d-4bf0-b5c4-4c1a57896ac6___RS_Early.B 7936.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/1c4e0445-375a-4c5d-b6fd-6123d22f009f___RS_Early.B 7972.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/1a77c047-7ed8-4f02-bfaf-a19e7a67c3dd___RS_Early.B 7076.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0faca7fe-7254-4dfa-8388-bbc776338c9c___RS_Early.B 7929.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0e0a1b51-f61c-4934-bc57-a820af1faacb___RS_Early.B 7147.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0d9dbf50-53a9-42b2-8b29-0360fb7dbd98___RS_Early.B 6692.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0d2e2971-f1c9-4278-b35c-91dd8a22a64d___RS_Early.B 7581.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0c4f6f72-c7a2-42e1-9671-41ab3bf37fe7___RS_Early.B 6752.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0a79700b-f834-41f5-ae51-6ceda6f67a48___RS_Early.B 8951.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_early_blight/0a47f32c-1724-4c8d-bfe4-986cedd3587b___RS_Early.B 8001.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "potato_late_blight",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/1d389389-0585-433a-83c7-30b42db2ca3f___RS_LB 3322.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/1cd0b065-e637-4307-9e0a-9c20dc44cc59___RS_LB 4784.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/1b7342d7-5d89-4ee3-8b4f-587d79187511___RS_LB 4416.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/01ad74ce-eb28-42c7-9204-778d17cfd45c___RS_LB 2669.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/0fe7786d-0e2f-4705-839d-898f1d9214b0___RS_LB 2836.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/0f824e18-3821-486c-81a1-f1f64cf6e767___RS_LB 4894.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/0f1fb568-1b12-45ef-ad99-c59fa9075693___RS_LB 3242.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/0e7f0484-16eb-4183-b702-0a5b4f94d015___RS_LB 4000.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/0c2628d4-8d64-48a9-a157-19a9c902e304___RS_LB 4590.JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/potato_late_blight/00b1f292-23dd-44d4-aad3-c1ffb6a6ad5a___RS_LB 4479.JPG",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
