@@ -50,11 +50,18 @@ class TileStatus(BaseModel):
 wheat_healthy = sorted(glob(os.path.join('./assets/pictures/wheat_healthy/','*')))
 wheat_brown_rust = sorted(glob(os.path.join('./assets/pictures/wheat_brown_rust/','*')))
 wheat_yellow_rust = sorted(glob(os.path.join('./assets/pictures/wheat_yellow_rust/','*')))
+corn_common_rust = sorted(glob(os.path.join('./assets/pictures/corn_common_rust/','*')))
+corn_gray_leaf_spot = sorted(glob(os.path.join('./assets/pictures/corn_gray_leaf_spot/','*')))
+corn_healthy = sorted(glob(os.path.join('./assets/pictures/corn_healthy/','*')))
+corn_northern_leaf_blight = sorted(glob(os.path.join('./assets/pictures/corn_northern_leaf_blight/','*')))
+potato_early_blight = sorted(glob(os.path.join('./assets/pictures/potato_early_blight/','*')))
+potato_healthy = sorted(glob(os.path.join('./assets/pictures/potato_healthy/','*')))
+potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_blight/','*')))
 
 def add_path_entry(kind,coordinates):
     """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates}
-    resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json)
+    resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json, timeout=2)
     print(resp.json())
 
 # Base API
@@ -76,12 +83,30 @@ async def classify(entry: TileEntry):
         if entry.disease == "Wheat___Yellow_Rust":
             picture_path = wheat_yellow_rust[entry.frame]
 
+    if entry.kind == "corn":
+        if entry.disease == "Corn___Common_Rust":
+            picture_path = corn_common_rust[entry.frame]
+        if entry.disease == "Corn___Gray_Leaf_Spot":
+            picture_path = corn_gray_leaf_spot[entry.frame]
+        if entry.disease == "Corn___Healthy":
+            picture_path = corn_healthy[entry.frame]
+        if entry.disease == "Corn___Northern_Leaf_Blight":
+            picture_path = corn_northern_leaf_blight[entry.frame]
+
+    if entry.kind == "potato":
+        if entry.disease == "Potato___Early_Blight":
+            picture_path = potato_early_blight[entry.frame]
+        if entry.disease == "Potato___Healthy":
+            picture_path = potato_healthy[entry.frame]
+        if entry.disease == "Potato___Late_Blight":
+            picture_path = potato_late_blight[entry.frame]
+
     file =  {'file': open(picture_path, 'rb')}
-    resp = requests.post(url = PREDICTION_ENDPOINT, files = file)
+    resp = requests.post(url = PREDICTION_ENDPOINT, files = file, timeout=2)
 
     result = resp.json()
 
-    if entry.disease in {"Wheat___Healthy"}:
+    if entry.disease in {"Wheat___Healthy","Corn___Healthy","Potato___Healthy"}:
         result['status'] = 'healthy'
     else:
         result['status'] = 'ill'
