@@ -53,7 +53,7 @@ wheat_yellow_rust = sorted(glob(os.path.join('./assets/pictures/wheat_yellow_rus
 corn_common_rust = sorted(glob(os.path.join('./assets/pictures/corn_common_rust/','*')))
 corn_gray_leaf_spot = sorted(glob(os.path.join('./assets/pictures/corn_gray_leaf_spot/','*')))
 corn_healthy = sorted(glob(os.path.join('./assets/pictures/corn_healthy/','*')))
-corn_northern_leaf_blight = sorted(glob(os.path.join('./assets/pictures/corn_northern_leaf_blight/','*')))
+corn_northern_leaf_blight = sorted(glob(os.path.join('./assets/pictures/corn_northern_leaf_blight/','*'))) # pylint: disable=line-too-long
 potato_early_blight = sorted(glob(os.path.join('./assets/pictures/potato_early_blight/','*')))
 potato_healthy = sorted(glob(os.path.join('./assets/pictures/potato_healthy/','*')))
 potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_blight/','*')))

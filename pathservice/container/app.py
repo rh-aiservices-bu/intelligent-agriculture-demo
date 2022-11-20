@@ -2,7 +2,7 @@
 import os
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from uvicorn import run
@@ -191,29 +191,32 @@ async def delete_destinations(entry: DestinationsQuery):
 @app.put("/destination")
 async def add_destination_entry(entry: DestinationEntry):
     """ Adds a destination in the array """
-    if entry.kind == "wheat":
-        destinations['wheat'].append(entry.coordinates)
-        print(destinations['wheat'])
+    # TODO Cleanup
+    #if entry.kind == "wheat":
+    #    destinations['wheat'].append(entry.coordinates)
+    #    print(destinations['wheat'])
+    destinations[entry.kind].append(entry.coordinates)
+    print(destinations[entry.kind])
     return True
 
 @app.delete("/destination")
 async def delete_destination_entry(entry: DestinationEntry):
-    """ Removes a destination from an array
-    """
-    if entry.kind == "wheat":
-        try:
-            destinations['wheat'] = \
-                list(filter(lambda a: a != entry.coordinates, destinations['wheat']))
-        except ValueError():
-            print("Destination is not in list")
-    print(destinations['wheat'])
-    return True
+    """ Removes a destination from an array """
+    # TODO Cleanup
+    #if entry.kind == "wheat":
+    #    try:
+    #        destinations['wheat'] = \
+    #            list(filter(lambda a: a != entry.coordinates, destinations['wheat']))
+    #    except ValueError():
+    #        print("Destination is not in list")
+    #print(destinations['wheat'])
+    try:
+        destinations[entry.kind] = \
+            list(filter(lambda a: a != entry.coordinates, destinations[entry.kind]))
+    except ValueError():
+        print("Destination is not in list")
 
-@app.delete("/destination2")
-async def delete_destination_entry2(request:Request):
-    """ Removes a destination from an array
-    """
-    return await request.body()
+    return True
 
 # Initialize PathFinder
 pathfinder_environment = PolygonEnvironment()

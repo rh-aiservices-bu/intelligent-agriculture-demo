@@ -5,3 +5,7 @@ good-names=f,i,j,k,ex,Run,_,pk,x,y,X,Y
 [TYPECHECK]
 ignored-modules=LazyLoader,optapy
 generated-members=map_definition,pathfinder,route_solver
+
+[MISCELLANEOUS]
+# List of note tags to take in consideration, separated by a comma.
+notes=FIXME,XXX
