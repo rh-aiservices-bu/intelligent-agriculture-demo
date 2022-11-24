@@ -2493,7 +2493,62 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "folded": true,
+              "name": "status",
+              "type": "string",
+              "value": "healthy"
+            },
+            {
+              "folded": true,
+              "name": "frame",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "disease",
+              "type": "string",
+              "value": "corn_healthy"
+            },
+            {
+              "name": "_classificationResult",
+              "type": "structure",
+              "children": [
+                {
+                  "folded": true,
+                  "name": "model_prediction",
+                  "type": "string",
+                  "value": "\"\""
+                },
+                {
+                  "folded": true,
+                  "name": "model_prediction_confidence",
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "folded": true,
+                  "name": "status",
+                  "type": "string",
+                  "value": "\"\""
+                }
+              ]
+            },
+            {
+              "folded": true,
+              "name": "surveyed",
+              "type": "boolean",
+              "value": false
+            },
+            {
+              "folded": true,
+              "name": "id",
+              "type": "number",
+              "value": 0
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -2592,7 +2647,59 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "folded": true,
+              "name": "status",
+              "type": "string",
+              "value": "healthy"
+            },
+            {
+              "folded": true,
+              "name": "frame",
+              "type": "number",
+              "value": 0
+            },
+            {
+              "folded": true,
+              "name": "disease",
+              "type": "string",
+              "value": "potato_healthy"
+            },
+            {
+              "name": "_classificationResult",
+              "type": "structure",
+              "children": [
+                {
+                  "name": "model_prediction",
+                  "type": "string",
+                  "value": "\"\""
+                },
+                {
+                  "name": "model_prediction_confidence",
+                  "type": "number",
+                  "value": 0
+                },
+                {
+                  "name": "status",
+                  "type": "string",
+                  "value": "\"\""
+                }
+              ]
+            },
+            {
+              "folded": true,
+              "name": "surveyed",
+              "type": "boolean",
+              "value": false
+            },
+            {
+              "folded": true,
+              "name": "id",
+              "type": "number",
+              "value": 0
+            }
+          ],
           "effects": [],
           "behaviors": [],
           "animations": [
@@ -11118,7 +11225,6 @@
     {
       "author": "Ulises Freitas <ulises.freitas@gmail.com>",
       "category": "",
-      "description": "In an expression, use `Choose::RandomString` or `Choose::RandomNumber` and set the values you want to randomize separated by commas.",
       "extensionNamespace": "",
       "fullName": "Choose a random value",
       "helpPath": "",
@@ -11127,6 +11233,7 @@
       "previewIconUrl": "https://resources.gdevelop-app.com/assets/Icons/dice-multiple.svg",
       "shortDescription": "Choose a random value in a list of strings or numbers.",
       "version": "1.0.0",
+      "description": "In an expression, use `Choose::RandomString` or `Choose::RandomNumber` and set the values you want to randomize separated by commas.",
       "origin": {
         "identifier": "Choose",
         "name": "gdevelop-extension-store"
@@ -11144,9 +11251,7 @@
           "description": "Choose randomly between comma-separated strings.",
           "fullName": "Choose randomly between comma-separated strings",
           "functionType": "StringExpression",
-          "group": "",
           "name": "RandomString",
-          "private": false,
           "sentence": "Choose between these values: _PARAM1_",
           "events": [
             {
@@ -11157,15 +11262,14 @@
               "eventsSheetExpanded": true
             }
           ],
+          "expressionType": {
+            "type": "string"
+          },
           "parameters": [
             {
-              "codeOnly": false,
-              "defaultValue": "",
               "description": "The string containing all options to choose randomly from, separated by commas",
               "longDescription": "Example: \"option1,option2,option3\"",
               "name": "ChoicesString",
-              "optional": false,
-              "supplementaryInformation": "",
               "type": "string"
             }
           ],
@@ -11175,9 +11279,7 @@
           "description": "Choose a number randomly between comma-separated numbers.",
           "fullName": "Choose a number randomly between comma-separated numbers",
           "functionType": "Expression",
-          "group": "",
           "name": "RandomNumber",
-          "private": false,
           "sentence": "Choose between these values: _PARAM1_",
           "events": [
             {
@@ -11188,15 +11290,14 @@
               "eventsSheetExpanded": true
             }
           ],
+          "expressionType": {
+            "type": "expression"
+          },
           "parameters": [
             {
-              "codeOnly": false,
-              "defaultValue": "",
               "description": "The string containing all numbers to choose randomly from, separated by commas",
               "longDescription": "Example: \"10,20,30\"",
               "name": "NumbersChoiceString",
-              "optional": false,
-              "supplementaryInformation": "",
               "type": "string"
             }
           ],
