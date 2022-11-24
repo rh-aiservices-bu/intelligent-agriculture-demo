@@ -1396,6 +1396,96 @@
         "name": "assets/pictures/potato_late_blight/00b1f292-23dd-44d4-aad3-c1ffb6a6ad5a___RS_LB 4479.JPG",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (41).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (41).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (39).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (39).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (36).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (36).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (32).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (32).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (27).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (27).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (22).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (22).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (17).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (17).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (11).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (11).JPG",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (4).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (4).JPG",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/pictures/corn_common_rust/image (1).JPG",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/pictures/corn_common_rust/image (1).JPG",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -6758,6 +6848,188 @@
               ]
             },
             {
+              "name": "corn_common_rust",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (41).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (39).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (36).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (32).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (27).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (22).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (17).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (11).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (4).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    },
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/pictures/corn_common_rust/image (1).JPG",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "name": "corn_gray_leaf_spot",
               "useMultipleDirections": false,
               "directions": [
@@ -8239,11 +8511,13 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -8372,6 +8646,7 @@
                       ]
                     },
                     {
+                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Wheat",
                       "conditions": [],
@@ -8530,6 +8805,7 @@
                       ]
                     },
                     {
+                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Corn",
                       "conditions": [],
@@ -8669,7 +8945,7 @@
                                 "Corn",
                                 "disease",
                                 "=",
-                                "Choose::RandomString(\"Wheat___Brown_Rust,Wheat___Yellow_Rust\")"
+                                "Choose::RandomString(\"Corn___Gray_Leaf_Spot,Corn___Common_Rust,Corn___Northern_Leaf_Blight\")"
                               ]
                             },
                             {
@@ -8680,7 +8956,7 @@
                                 "Corn",
                                 "frame",
                                 "=",
-                                "RandomInRange(0,8)"
+                                "RandomInRange(0,9)"
                               ]
                             }
                           ]
@@ -8688,6 +8964,7 @@
                       ]
                     },
                     {
+                      "folded": true,
                       "type": "BuiltinCommonInstructions::ForEach",
                       "object": "Potato",
                       "conditions": [],
@@ -8697,7 +8974,7 @@
                             "value": "ModVarObjet"
                           },
                           "parameters": [
-                            "Wheat",
+                            "Potato",
                             "id",
                             "=",
                             "Variable(_idCounter)"
@@ -8745,7 +9022,7 @@
                                 "value": "SetAnimationName"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "\"Healthy\""
                               ]
                             },
@@ -8754,7 +9031,7 @@
                                 "value": "ModVarObjetTxt"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "status",
                                 "=",
                                 "\"healthy\""
@@ -8765,10 +9042,10 @@
                                 "value": "ModVarObjetTxt"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "disease",
                                 "=",
-                                "\"Wheat___Healthy\""
+                                "\"Potato___Healthy\""
                               ]
                             },
                             {
@@ -8776,10 +9053,10 @@
                                 "value": "ModVarObjet"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "frame",
                                 "=",
-                                "RandomInRange(0,24)"
+                                "RandomInRange(0,19)"
                               ]
                             }
                           ]
@@ -8804,7 +9081,7 @@
                                 "value": "SetAnimationName"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "\"Ill\""
                               ]
                             },
@@ -8813,7 +9090,7 @@
                                 "value": "ModVarObjetTxt"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "status",
                                 "=",
                                 "\"ill\""
@@ -8824,10 +9101,10 @@
                                 "value": "ModVarObjetTxt"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "disease",
                                 "=",
-                                "Choose::RandomString(\"Wheat___Brown_Rust,Wheat___Yellow_Rust\")"
+                                "Choose::RandomString(\"Potato___Early_Blight,Potato___Late_Blight\")"
                               ]
                             },
                             {
@@ -8835,10 +9112,10 @@
                                 "value": "ModVarObjet"
                               },
                               "parameters": [
-                                "Wheat",
+                                "Potato",
                                 "frame",
                                 "=",
-                                "RandomInRange(0,8)"
+                                "RandomInRange(0,9)"
                               ]
                             }
                           ]
@@ -8892,6 +9169,24 @@
                           },
                           "parameters": [
                             "TractorWheat",
+                            "\"RouteTimer\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ResetObjectTimer"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "\"RouteTimer\""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ResetObjectTimer"
+                          },
+                          "parameters": [
+                            "TractorPotato",
                             "\"RouteTimer\""
                           ]
                         }
@@ -9278,7 +9573,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Drone Events",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -9663,6 +9957,822 @@
                       },
                       "parameters": [
                         "Wheat",
+                        "surveyed",
+                        "False"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Corn Collision",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Collision with Corn that is not already marked",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "value": "CollisionNP"
+                          },
+                          "parameters": [
+                            "Drone",
+                            "Corn",
+                            "",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ObjectVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "Corn",
+                            "surveyed",
+                            "False"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Tween::PauseTween"
+                      },
+                      "parameters": [
+                        "Drone",
+                        "Tween",
+                        "\"FixedPathLeg\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Corn",
+                        "surveyed",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Corn",
+                        "\"surveyed\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "await": true,
+                            "value": "SendAsyncRequest"
+                          },
+                          "parameters": [
+                            "VariableString(_configuration.classificationEndpoint) + \"/classify\"",
+                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Corn.X()) + \",\n  \" + ToString(Corn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\",\n  \\\"status\\\": \\\"\" + Corn.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Corn.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" +Corn.VariableString(frame) + \"\\\"\n}\"",
+                            "\"POST\"",
+                            "\"application/json\"",
+                            "_classificationResultJSon",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "JSONToObjectVariableStructure"
+                          },
+                          "parameters": [
+                            "VariableString(_classificationResultJSon)",
+                            "Corn",
+                            "_classificationResult"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "DroneInfoScore",
+                            "=",
+                            "\"Confidence:\" + NewLine() + Corn.VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
+                          ]
+                        }
+                      ],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Corn",
+                                "_classificationResult.model_prediction",
+                                "=",
+                                "\"Corn___Healthy\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetAnimationName"
+                              },
+                              "parameters": [
+                                "Corn",
+                                "\"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "4"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "Corn.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoDisease",
+                                "=",
+                                "\"Disease:\" + NewLine() + \"None\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Corn",
+                                "_classificationResult.status",
+                                "=",
+                                "\"ill\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetAnimationName"
+                              },
+                              "parameters": [
+                                "Corn",
+                                "\"IllMarked\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Sick\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoDisease",
+                                "=",
+                                "\"Disease:\" + NewLine() + GlobalVariableString(StringFormat[Corn.VariableString(_classificationResult.model_prediction)])"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Corn",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Corn___Common_Rust\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "5"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Corn.Variable(frame)"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Corn",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Corn___Gray_Leaf_Spot\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "6"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Corn.Variable(frame)"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Corn",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Corn___Northern_Leaf_Blight\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "7"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Corn.Variable(frame)"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "DroneView"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::ResumeTween"
+                              },
+                              "parameters": [
+                                "Drone",
+                                "Tween",
+                                "\"FixedPathLeg\""
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::ForEach",
+                  "object": "Corn",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CompareObjectTimer"
+                      },
+                      "parameters": [
+                        "Corn",
+                        "\"surveyed\"",
+                        ">",
+                        "10"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "RemoveObjectTimer"
+                      },
+                      "parameters": [
+                        "Corn",
+                        "\"surveyed\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Corn",
+                        "surveyed",
+                        "False"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "parameters": []
+            },
+            {
+              "colorB": 228,
+              "colorG": 176,
+              "colorR": 74,
+              "creationTime": 0,
+              "name": "Potato Collision",
+              "source": "",
+              "type": "BuiltinCommonInstructions::Group",
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Comment",
+                  "color": {
+                    "b": 109,
+                    "g": 230,
+                    "r": 255,
+                    "textB": 0,
+                    "textG": 0,
+                    "textR": 0
+                  },
+                  "comment": "Collision with Potato that is not already marked",
+                  "comment2": ""
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::And"
+                      },
+                      "parameters": [],
+                      "subInstructions": [
+                        {
+                          "type": {
+                            "value": "CollisionNP"
+                          },
+                          "parameters": [
+                            "Drone",
+                            "Potato",
+                            "",
+                            "",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "ObjectVariableAsBoolean"
+                          },
+                          "parameters": [
+                            "Potato",
+                            "surveyed",
+                            "False"
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Tween::PauseTween"
+                      },
+                      "parameters": [
+                        "Drone",
+                        "Tween",
+                        "\"FixedPathLeg\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Potato",
+                        "surveyed",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "Potato",
+                        "\"surveyed\""
+                      ]
+                    }
+                  ],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "await": true,
+                            "value": "SendAsyncRequest"
+                          },
+                          "parameters": [
+                            "VariableString(_configuration.classificationEndpoint) + \"/classify\"",
+                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Potato.X()) + \",\n  \" + ToString(Potato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\",\n  \\\"status\\\": \\\"\" + Potato.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Potato.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Potato.VariableString(frame) + \"\\\"\n}\"",
+                            "\"POST\"",
+                            "\"application/json\"",
+                            "_classificationResultJSon",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "JSONToObjectVariableStructure"
+                          },
+                          "parameters": [
+                            "VariableString(_classificationResultJSon)",
+                            "Potato",
+                            "_classificationResult"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "TextObject::String"
+                          },
+                          "parameters": [
+                            "DroneInfoScore",
+                            "=",
+                            "\"Confidence:\" + NewLine() + Corn.VariableString(_classificationResult.model_prediction_confidence_score) + \"%\""
+                          ]
+                        }
+                      ],
+                      "events": [
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Potato",
+                                "_classificationResult.model_prediction",
+                                "=",
+                                "\"Potato___Healthy\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetAnimationName"
+                              },
+                              "parameters": [
+                                "Potato",
+                                "\"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeAnimation"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "8"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "ChangeSprite"
+                              },
+                              "parameters": [
+                                "DroneView",
+                                "=",
+                                "Potato.Variable(frame)"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Healthy\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoDisease",
+                                "=",
+                                "\"Disease:\" + NewLine() + \"None\""
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [
+                            {
+                              "type": {
+                                "value": "VarObjetTxt"
+                              },
+                              "parameters": [
+                                "Potato",
+                                "_classificationResult.status",
+                                "=",
+                                "\"ill\""
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "SetAnimationName"
+                              },
+                              "parameters": [
+                                "Potato",
+                                "\"IllMarked\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoStatus",
+                                "=",
+                                "\"Status:\" + NewLine() + \"Sick\""
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "TextObject::String"
+                              },
+                              "parameters": [
+                                "DroneInfoDisease",
+                                "=",
+                                "\"Disease:\" + NewLine() + GlobalVariableString(StringFormat[Potato.VariableString(_classificationResult.model_prediction)])"
+                              ]
+                            }
+                          ],
+                          "events": [
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Potato",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Potato___Early_Blight\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "9"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Potato.Variable(frame)"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "BuiltinCommonInstructions::Standard",
+                              "conditions": [
+                                {
+                                  "type": {
+                                    "value": "VarObjetTxt"
+                                  },
+                                  "parameters": [
+                                    "Potato",
+                                    "_classificationResult.model_prediction",
+                                    "=",
+                                    "\"Potato___Late_Blight\""
+                                  ]
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "type": {
+                                    "value": "ChangeAnimation"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "10"
+                                  ]
+                                },
+                                {
+                                  "type": {
+                                    "value": "ChangeSprite"
+                                  },
+                                  "parameters": [
+                                    "DroneView",
+                                    "=",
+                                    "Potato.Variable(frame)"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "BuiltinCommonInstructions::Standard",
+                          "conditions": [],
+                          "actions": [
+                            {
+                              "type": {
+                                "value": "PauseAnimation"
+                              },
+                              "parameters": [
+                                "DroneView"
+                              ]
+                            },
+                            {
+                              "type": {
+                                "value": "Tween::ResumeTween"
+                              },
+                              "parameters": [
+                                "Drone",
+                                "Tween",
+                                "\"FixedPathLeg\""
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::ForEach",
+                  "object": "Corn",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CompareObjectTimer"
+                      },
+                      "parameters": [
+                        "Potato",
+                        "\"surveyed\"",
+                        ">",
+                        "10"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "RemoveObjectTimer"
+                      },
+                      "parameters": [
+                        "Potato",
+                        "\"surveyed\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "Potato",
                         "surveyed",
                         "False"
                       ]
