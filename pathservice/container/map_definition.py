@@ -156,14 +156,14 @@ tractors = [
         'name': 'potato-0',
         'kind': 'potato',
         'capacity': 5,
-        'barn': 'corn',
+        'barn': 'potato',
         'virtual': False
     },
     {
         'name': 'potato-virtual',
         'kind': 'potato',
         'capacity': 1000,
-        'barn': 2,
+        'barn': 'potato',
         'virtual': True
     }
 ]
