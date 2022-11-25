@@ -12067,6 +12067,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -13208,6 +13209,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Wheat Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -13851,7 +13853,6 @@
               "comment2": ""
             },
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -14305,6 +14306,898 @@
                   },
                   "parameters": [
                     "TractorWheat"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
+          "name": "Corn Tractor Movement",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Initiate tractor movement by querying API everything 5s when not moving",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "_routingResultCorn.routeLength",
+                    "=",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetObjectVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "moving",
+                    "False"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "PauseAnimation"
+                  },
+                  "parameters": [
+                    "TractorCorn"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "RotateTowardAngle"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "0",
+                    "0",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "FlipY"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "no"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "FlipX"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "no"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "_routingResultCorn.routeLength",
+                        "=",
+                        "0"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinCommonInstructions::Once"
+                      },
+                      "parameters": []
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "\"RouteTimer\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "CompareObjectTimer"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "\"RouteTimer\"",
+                        ">",
+                        "5"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Create"
+                      },
+                      "parameters": [
+                        "",
+                        "CommCorn",
+                        "TractorCorn.PointX(\"Comm\")",
+                        "TractorCorn.PointY(\"Comm\")",
+                        "\"Tractors\""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "RotateTowardPosition"
+                      },
+                      "parameters": [
+                        "CommCorn",
+                        "Tower.PointX(\"Comm\")",
+                        "Tower.PointY(\"Comm\")",
+                        "0",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "CommCorn",
+                        "Tween",
+                        "\"CornTractorToTower\"",
+                        "Tower.PointX(\"Comm\")",
+                        "Tower.PointY(\"Comm\")",
+                        "\"linear\"",
+                        "DistanceBetweenPositions(CommCorn.PointX(\"Comm\"), CommCorn.PointY(\"Comm\"), Tower.PointX(\"Comm\"), Tower.PointY(\"Comm\")) / Variable(_configuration.commSpeed)",
+                        "no"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "RemoveObjectTimer"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "\"RouteTimer\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTractorToTower\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTractorToTower\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "RotateTowardPosition"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "MEC.X()",
+                    "MEC.Y()",
+                    "0",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Tween::AddObjectPositionTween"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTowerToMEC\"",
+                    "MEC.X()",
+                    "MEC.Y()",
+                    "\"linear\"",
+                    "DistanceBetweenPositions(CommCorn.PointX(\"Comm\"), CommCorn.PointY(\"Comm\"), MEC.X(), MEC.Y()) / Variable(_configuration.commSpeed)",
+                    "no"
+                  ]
+                }
+              ]
+            },
+            {
+              "folded": true,
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTowerToMEC\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTowerToMEC\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "CommCorn"
+                  ]
+                },
+                {
+                  "type": {
+                    "await": true,
+                    "value": "SendAsyncRequest"
+                  },
+                  "parameters": [
+                    "VariableString(_configuration.pathserviceEndpoint) + \"/routefinder\"",
+                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorCorn.X()) + \",\n  \" + ToString(TractorCorn.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
+                    "\"POST\"",
+                    "\"application/json\"",
+                    "_routingResultCornJSon",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "JSONToVariableStructure"
+                      },
+                      "parameters": [
+                        "VariableString(_routingResultCornJSon)",
+                        "_routingResultCorn"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Montre"
+                      },
+                      "parameters": [
+                        "CommCorn",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "RotateTowardPosition"
+                      },
+                      "parameters": [
+                        "CommCorn",
+                        "Tower.PointX(\"Comm\")",
+                        "Tower.PointY(\"Comm\")",
+                        "0",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "CommCorn",
+                        "Tween",
+                        "\"CornMECToTower\"",
+                        "Tower.PointX(\"Comm\")",
+                        "Tower.PointY(\"Comm\")",
+                        "\"linear\"",
+                        "DistanceBetweenPositions(CommCorn.PointX(\"Comm\"), CommCorn.PointY(\"Comm\"), Tower.PointX(\"Comm\"), Tower.PointY(\"Comm\")) / Variable(_configuration.commSpeed)",
+                        "no"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornMECToTower\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornMECToTower\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "RotateTowardPosition"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "TractorCorn.PointX(\"Comm\")",
+                    "TractorCorn.PointX(\"Comm\")",
+                    "0",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Tween::AddObjectPositionTween"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTowerToTractor\"",
+                    "TractorCorn.PointX(\"Comm\")",
+                    "TractorCorn.PointY(\"Comm\")",
+                    "\"linear\"",
+                    "DistanceBetweenPositions(MEC.X(),MEC.Y(),TractorCorn.PointX(\"Comm\"),TractorCorn.PointY(\"Comm\"))/Variable(_configuration.commSpeed)",
+                    "no"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTowerToTractor\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    "Tween",
+                    "\"CornTowerToTractor\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "CommCorn",
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "_routingResultCorn.route[0][0]",
+                        "!=",
+                        "-1.0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "moving",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "_routingResultCorn.routeLength",
+                        "=",
+                        "VariableChildCount(_routingResultCorn.route)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "Tween",
+                        "\"TractorCornMove\"",
+                        "Variable(_routingResultCorn.route[0][0])",
+                        "Variable(_routingResultCorn.route[0][1])",
+                        "\"linear\"",
+                        "DistanceBetweenPositions(TractorCorn.X(),TractorCorn.Y(),Variable(_routingResultCorn.route[0][0]),Variable(_routingResultCorn.route[0][1]))/Variable(_configuration.tractorSpeed)",
+                        ""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "_routingResultCorn.route[0][0]",
+                        "=",
+                        "-1.0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ResetObjectTimer"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "\"RouteTimer\""
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Chained tweening over path",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "Tween",
+                    "\"TractorCornMove\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "Tween",
+                    "\"TractorCornMove\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SceneVariableRemoveAt"
+                  },
+                  "parameters": [
+                    "_routingResultCorn.route",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_routingResultCorn.routeLength",
+                    "=",
+                    "Variable(_routingResultCorn.routeLength)-1"
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VarScene"
+                      },
+                      "parameters": [
+                        "_routingResultCorn.routeLength",
+                        ">",
+                        "0"
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "Tween::AddObjectPositionTween"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "Tween",
+                        "\"TractorCornMove\"",
+                        "Variable(_routingResultCorn.route[0][0])",
+                        "Variable(_routingResultCorn.route[0][1])",
+                        "\"linear\"",
+                        "DistanceBetweenPositions(TractorCorn.X(),TractorCorn.Y(),Variable(_routingResultCorn.route[0][0]),Variable(_routingResultCorn.route[0][1]))/Variable(_configuration.tractorSpeed)",
+                        ""
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "SetObjectVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "moving",
+                        "True"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "PlayAnimation"
+                      },
+                      "parameters": [
+                        "TractorCorn"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "ModVarScene"
+                      },
+                      "parameters": [
+                        "_pathDashIterator",
+                        "=",
+                        "0"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Tractor orientation depending on direction",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "ObjectVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "TractorCorn",
+                    "moving",
+                    "True"
+                  ]
+                }
+              ],
+              "actions": [],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        ">",
+                        "Variable(_routingResultCorn.route[0][0])"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "<=",
+                            "Variable(_routingResultCorn.route[0][1])"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "Variable(_routingResultCorn.route[0][0])",
+                            "Variable(_routingResultCorn.route[0][1])",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            ">",
+                            "Variable(_routingResultCorn.route[0][1])"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "Variable(_routingResultCorn.route[0][0])",
+                            "Variable(_routingResultCorn.route[0][1])",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "PosX"
+                      },
+                      "parameters": [
+                        "TractorCorn",
+                        "<",
+                        "Variable(_routingResultCorn.route[0][0])"
+                      ]
+                    }
+                  ],
+                  "actions": [],
+                  "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "<=",
+                            "Variable(_routingResultCorn.route[0][1])"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "Variable(_routingResultCorn.route[0][0])",
+                            "Variable(_routingResultCorn.route[0][1])",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "yes"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "no"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [
+                        {
+                          "type": {
+                            "value": "PosY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            ">",
+                            "Variable(_routingResultCorn.route[0][1])"
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "type": {
+                            "value": "RotateTowardPosition"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "Variable(_routingResultCorn.route[0][0])",
+                            "Variable(_routingResultCorn.route[0][1])",
+                            "0",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipY"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "no"
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "FlipX"
+                          },
+                          "parameters": [
+                            "TractorCorn",
+                            "yes"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 }
               ]
