@@ -1,0 +1,5 @@
+License: https://creativecommons.org/licenses/by/4.0/deed.en
+Ref: https://commons.wikimedia.org/wiki/File:201912_Rack-optimised_servers.svg
+Source:	https://doi.org/10.7875/togopic.2019.35
+Author:	DataBase Center for Life Science (DBCLS)
+Original file modified to add OpenShift logo

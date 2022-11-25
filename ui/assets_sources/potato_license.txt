@@ -1,0 +1,5 @@
+License: https://creativecommons.org/licenses/by/4.0/deed.en
+Ref: https://commons.wikimedia.org/wiki/File:202206_Vegetable_potato.svg
+Source:	https://doi.org/10.7875/togopic.2022.251
+Author:	DataBase Center for Life Science (DBCLS)
+Original file modified to add potatoes

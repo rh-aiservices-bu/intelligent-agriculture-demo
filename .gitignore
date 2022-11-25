@@ -1,3 +1,9 @@
 *.h5
 __pycache__/
 *.py[cod]
+*.autosave
+*.env
+build/
+*.code-workspace
+.venv/
+venv/

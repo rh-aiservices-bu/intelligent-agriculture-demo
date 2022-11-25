@@ -1,0 +1,5 @@
+License: https://www.apache.org/licenses/LICENSE-2.0
+Ref: https://commons.wikimedia.org/wiki/File:Noto_Emoji_Oreo_1f69c.svg
+Source:	https://github.com/googlei18n/noto-emoji/blob/f931bea/svg/emoji_u1f69c.svg
+Author:	Google
+Original file modified to change colors
