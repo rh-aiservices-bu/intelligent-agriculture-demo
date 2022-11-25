@@ -276,7 +276,7 @@ def routefinder(environment,kind,destinations):
     tractor_list = []
     for tractor in (tractor for tractor in map_definition.tractors if tractor['kind'] == kind):
         tractor_list.append(Tractor(tractor['name'],tractor['kind'],tractor['capacity'], \
-            barn_list[tractor['barn']],tractor['virtual']))
+            next(barn for barn in barn_list if barn.name == tractor['barn']),tractor['virtual']))
 
     field_list = []
     for i, destination in enumerate(destinations):

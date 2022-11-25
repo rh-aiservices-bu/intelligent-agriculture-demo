@@ -61,7 +61,7 @@ potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_bli
 def add_path_entry(kind,coordinates):
     """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates}
-    resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json, timeout=2)
+    resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json, timeout=5)
     print(resp.json())
 
 # Base API
@@ -102,11 +102,11 @@ async def classify(entry: TileEntry):
             picture_path = potato_late_blight[entry.frame]
 
     file =  {'file': open(picture_path, 'rb')}
-    resp = requests.post(url = PREDICTION_ENDPOINT, files = file, timeout=2)
+    resp = requests.post(url = PREDICTION_ENDPOINT, files = file, timeout=5)
 
     result = resp.json()
 
-    if entry.disease in {"Wheat___Healthy","Corn___Healthy","Potato___Healthy"}:
+    if entry.disease in ["Wheat___Healthy","Corn___Healthy","Potato___Healthy"]:
         result['status'] = 'healthy'
     else:
         result['status'] = 'ill'

@@ -126,7 +126,7 @@ class DestinationEntry(BaseModel):
 destinations = dict()
 destinations['wheat'] = []
 destinations['corn'] = []
-destinations['potatoes'] = []
+destinations['potato'] = []
 
 # Base API
 @app.get("/")
@@ -191,10 +191,6 @@ async def delete_destinations(entry: DestinationsQuery):
 @app.put("/destination")
 async def add_destination_entry(entry: DestinationEntry):
     """ Adds a destination in the array """
-    # TODO Cleanup
-    #if entry.kind == "wheat":
-    #    destinations['wheat'].append(entry.coordinates)
-    #    print(destinations['wheat'])
     destinations[entry.kind].append(entry.coordinates)
     print(destinations[entry.kind])
     return True
@@ -202,14 +198,6 @@ async def add_destination_entry(entry: DestinationEntry):
 @app.delete("/destination")
 async def delete_destination_entry(entry: DestinationEntry):
     """ Removes a destination from an array """
-    # TODO Cleanup
-    #if entry.kind == "wheat":
-    #    try:
-    #        destinations['wheat'] = \
-    #            list(filter(lambda a: a != entry.coordinates, destinations['wheat']))
-    #    except ValueError():
-    #        print("Destination is not in list")
-    #print(destinations['wheat'])
     try:
         destinations[entry.kind] = \
             list(filter(lambda a: a != entry.coordinates, destinations[entry.kind]))

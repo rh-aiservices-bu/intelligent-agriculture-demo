@@ -128,35 +128,35 @@ tractors = [
         'name': 'wheat-0',
         'kind': 'wheat',
         'capacity': 5,
-        'barn': 0,
+        'barn': 'wheat',
         'virtual': False
     },
     {
         'name': 'wheat-virtual',
         'kind': 'wheat',
         'capacity': 1000,
-        'barn': 0,
+        'barn': 'wheat',
         'virtual': True
     },
     {
         'name': 'corn-0',
         'kind': 'corn',
         'capacity': 5,
-        'barn': 1,
+        'barn': 'corn',
         'virtual': False
     },
     {
         'name': 'corn-virtual',
         'kind': 'corn',
         'capacity': 1000,
-        'barn': 1,
+        'barn': 'corn',
         'virtual': True
     },
     {
         'name': 'potato-0',
         'kind': 'potato',
         'capacity': 5,
-        'barn': 2,
+        'barn': 'corn',
         'virtual': False
     },
     {
