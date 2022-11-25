@@ -2818,7 +2818,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/corn-healthy.png",
                       "points": [],
                       "originPoint": {
@@ -2832,7 +2832,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 33,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 67
+                          },
+                          {
+                            "x": 33,
+                            "y": 67
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -2847,7 +2866,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/corn-ill.png",
                       "points": [],
                       "originPoint": {
@@ -2861,7 +2880,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 33,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 67
+                          },
+                          {
+                            "x": 33,
+                            "y": 67
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -2876,7 +2914,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/corn-ill-marked.png",
                       "points": [],
                       "originPoint": {
@@ -2890,7 +2928,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 33,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 67
+                          },
+                          {
+                            "x": 33,
+                            "y": 67
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -2969,7 +3026,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/potato-healthy.png",
                       "points": [],
                       "originPoint": {
@@ -2983,7 +3040,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 33,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 67
+                          },
+                          {
+                            "x": 33,
+                            "y": 67
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -2998,7 +3074,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/potato-ill.png",
                       "points": [],
                       "originPoint": {
@@ -3012,7 +3088,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 33,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 67
+                          },
+                          {
+                            "x": 33,
+                            "y": 67
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -3027,7 +3122,7 @@
                   "timeBetweenFrames": 0.08,
                   "sprites": [
                     {
-                      "hasCustomCollisionMask": false,
+                      "hasCustomCollisionMask": true,
                       "image": "assets/potato-ill-marked.png",
                       "points": [],
                       "originPoint": {
@@ -3041,7 +3136,26 @@
                         "x": 49,
                         "y": 49
                       },
-                      "customCollisionMask": []
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 33,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 33
+                          },
+                          {
+                            "x": 67,
+                            "y": 67
+                          },
+                          {
+                            "x": 33,
+                            "y": 67
+                          }
+                        ]
+                      ]
                     }
                   ]
                 }
@@ -3202,7 +3316,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets/tractor_green_1.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 69,
+                          "y": 14
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 46.5,
@@ -3217,24 +3337,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 0,
-                            "y": 30
+                            "x": 45.71099090576172,
+                            "y": 38.79060363769531
                           },
                           {
-                            "x": 29,
-                            "y": 0
+                            "x": 46.1060905456543,
+                            "y": 29.50579833984375
                           },
                           {
-                            "x": 93,
-                            "y": 0
+                            "x": 56.97128677368164,
+                            "y": 29.110700607299805
                           },
                           {
-                            "x": 93,
-                            "y": 76
-                          },
-                          {
-                            "x": 0,
-                            "y": 76
+                            "x": 56.378639221191406,
+                            "y": 39.185699462890625
                           }
                         ]
                       ]
@@ -3242,7 +3358,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets/tractor_green_2.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 69,
+                          "y": 14
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 46.5,
@@ -3257,24 +3379,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 0,
-                            "y": 30
+                            "x": 45.71099090576172,
+                            "y": 38.79060363769531
                           },
                           {
-                            "x": 29,
-                            "y": 0
+                            "x": 46.1060905456543,
+                            "y": 29.50579833984375
                           },
                           {
-                            "x": 93,
-                            "y": 0
+                            "x": 56.97128677368164,
+                            "y": 29.110700607299805
                           },
                           {
-                            "x": 93,
-                            "y": 76
-                          },
-                          {
-                            "x": 0,
-                            "y": 76
+                            "x": 56.378639221191406,
+                            "y": 39.185699462890625
                           }
                         ]
                       ]
@@ -3318,7 +3436,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets/tractor_orange_1.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 69,
+                          "y": 14
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 46.5,
@@ -3333,24 +3457,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 0,
-                            "y": 30
+                            "x": 45.51344299316406,
+                            "y": 41.75383758544922
                           },
                           {
-                            "x": 29,
-                            "y": 0
+                            "x": 45.118343353271484,
+                            "y": 30.098445892333984
                           },
                           {
-                            "x": 93,
-                            "y": 0
+                            "x": 58.74922561645508,
+                            "y": 29.703346252441406
                           },
                           {
-                            "x": 93,
-                            "y": 76
-                          },
-                          {
-                            "x": 0,
-                            "y": 76
+                            "x": 59.34187316894531,
+                            "y": 41.951385498046875
                           }
                         ]
                       ]
@@ -3358,7 +3478,13 @@
                     {
                       "hasCustomCollisionMask": true,
                       "image": "assets/tractor_orange_2.png",
-                      "points": [],
+                      "points": [
+                        {
+                          "name": "Comm",
+                          "x": 69,
+                          "y": 14
+                        }
+                      ],
                       "originPoint": {
                         "name": "origine",
                         "x": 46.5,
@@ -3373,24 +3499,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 0,
-                            "y": 30
+                            "x": 45.51344299316406,
+                            "y": 41.75383758544922
                           },
                           {
-                            "x": 29,
-                            "y": 0
+                            "x": 45.118343353271484,
+                            "y": 30.098445892333984
                           },
                           {
-                            "x": 93,
-                            "y": 0
+                            "x": 58.74922561645508,
+                            "y": 29.703346252441406
                           },
                           {
-                            "x": 93,
-                            "y": 76
-                          },
-                          {
-                            "x": 0,
-                            "y": 76
+                            "x": 59.34187316894531,
+                            "y": 41.951385498046875
                           }
                         ]
                       ]
@@ -14767,7 +14889,7 @@
                   },
                   "parameters": [
                     "VariableString(_configuration.pathserviceEndpoint) + \"/routefinder\"",
-                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorCorn.X()) + \",\n  \" + ToString(TractorCorn.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
+                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorCorn.X()) + \",\n  \" + ToString(TractorCorn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\"\n}\"",
                     "\"POST\"",
                     "\"application/json\"",
                     "_routingResultCornJSon",
