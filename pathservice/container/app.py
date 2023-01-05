@@ -167,6 +167,15 @@ async def generate_uuid():
 
     return response
 
+@app.get("/alluuids", response_model = list[Uuid])
+async def get_uuids():
+    """ Get all uuids """
+    response = []
+    for key in destinations:
+        response.append(Uuid(uuid=key))
+    return response
+
+
 # Pathfinder API
 @app.post("/pathfinder", response_model = PathFinderResult)
 async def pathfinder_api(entry: PathFinderEntry):
@@ -210,27 +219,27 @@ async def routefinder(entry: RouteFinderEntry):
 # Destination arrays API
 @app.post("/alldestinations", response_model = DestinationsResult)
 async def get_destinations(entry: DestinationsQuery):
-    """ Returns destinations array for a kind of crop """
+    """ Returns destinations array for a kind of crop and uuid"""
     response = DestinationsResult()
     response.destinations = destinations[entry.uuid][entry.kind]
     return response
 
 @app.delete("/alldestinations")
 async def delete_destinations(entry: DestinationsQuery):
-    """ Reset destinations array for a kind of crop """
+    """ Reset destinations array for a kind of crop and uuid"""
     destinations[entry.uuid][entry.kind] = []
     return destinations
 
 @app.put("/destination")
 async def add_destination_entry(entry: DestinationEntry):
-    """ Adds a destination in the array """
+    """ Adds a destination in the array for a kind of crop and uuid"""
     destinations[entry.uuid][entry.kind].append(entry.coordinates)
     print(destinations[entry.uuid][entry.kind])
     return True
 
 @app.delete("/destination")
 async def delete_destination_entry(entry: DestinationEntry):
-    """ Removes a destination from an array """
+    """ Removes a destination from an array for a kind of crop and uuid"""
     try:
         destinations[entry.uuid][entry.kind] = \
             list(filter(lambda a: a != entry.coordinates, destinations[entry.uuid][entry.kind]))
