@@ -1676,7 +1676,6 @@
           "value": "\"\""
         },
         {
-          "folded": true,
           "name": "_configuration",
           "type": "structure",
           "children": [
@@ -1706,6 +1705,12 @@
               "name": "tractorSpeed",
               "type": "number",
               "value": 0
+            },
+            {
+              "folded": true,
+              "name": "uuid",
+              "type": "string",
+              "value": "\"\""
             },
             {
               "name": "wealthyCropInitialPercentage",
@@ -1927,6 +1932,23 @@
           "name": "_routingResultPotatoJSon",
           "type": "string",
           "value": "\"\""
+        },
+        {
+          "folded": true,
+          "name": "_uuidJSON",
+          "type": "string",
+          "value": "\"\""
+        },
+        {
+          "name": "_uuid",
+          "type": "structure",
+          "children": [
+            {
+              "name": "uuid",
+              "type": "string",
+              "value": "\"\""
+            }
+          ]
         }
       ],
       "instances": [
@@ -3811,6 +3833,7 @@
           "behaviors": [],
           "string": "",
           "font": "",
+          "textAlignment": "",
           "characterSize": 40,
           "color": {
             "b": 255,
@@ -3832,6 +3855,7 @@
           "behaviors": [],
           "string": "Status: ",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -3853,6 +3877,7 @@
           "behaviors": [],
           "string": "Disease: ",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -8718,6 +8743,7 @@
           "behaviors": [],
           "string": "Crop Info (click)",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -8739,6 +8765,7 @@
           "behaviors": [],
           "string": "Drone Survey",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -8760,6 +8787,7 @@
           "behaviors": [],
           "string": "Status:\nN/A",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -8781,6 +8809,7 @@
           "behaviors": [],
           "string": "Disease:\nN/A",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -8802,6 +8831,7 @@
           "behaviors": [],
           "string": "Score:\nN/A",
           "font": "",
+          "textAlignment": "",
           "characterSize": 30,
           "color": {
             "b": 255,
@@ -9256,13 +9286,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -9301,7 +9329,6 @@
                   "comment2": ""
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
                   "actions": [
@@ -9330,6 +9357,48 @@
                     }
                   ],
                   "events": [
+                    {
+                      "type": "BuiltinCommonInstructions::Comment",
+                      "color": {
+                        "b": 109,
+                        "g": 230,
+                        "r": 255,
+                        "textB": 0,
+                        "textG": 0,
+                        "textR": 0
+                      },
+                      "comment": "Initialize uuid",
+                      "comment2": ""
+                    },
+                    {
+                      "type": "BuiltinCommonInstructions::Standard",
+                      "conditions": [],
+                      "actions": [
+                        {
+                          "type": {
+                            "await": true,
+                            "value": "SendAsyncRequest"
+                          },
+                          "parameters": [
+                            "VariableString(_configuration.pathserviceEndpoint) + \"/uuid\"",
+                            "\"\"",
+                            "\"GET\"",
+                            "\"application/json\"",
+                            "_uuidJSON",
+                            ""
+                          ]
+                        },
+                        {
+                          "type": {
+                            "value": "JSONToVariableStructure"
+                          },
+                          "parameters": [
+                            "VariableString(_uuidJSON)",
+                            "_uuid"
+                          ]
+                        }
+                      ]
+                    },
                     {
                       "type": "BuiltinCommonInstructions::Comment",
                       "color": {
@@ -14710,6 +14779,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Corn Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -15821,6 +15891,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Potato Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -17050,7 +17121,12 @@
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": "/** @type {string[]} */\nconst choices = eventsFunctionContext.getArgument(\"ChoicesString\").split(',');\neventsFunctionContext.returnValue = choices[Math.floor(Math.random() * choices.length)];\n",
+              "inlineCode": [
+                "/** @type {string[]} */",
+                "const choices = eventsFunctionContext.getArgument(\"ChoicesString\").split(',');",
+                "eventsFunctionContext.returnValue = choices[Math.floor(Math.random() * choices.length)];",
+                ""
+              ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": true
@@ -17078,7 +17154,12 @@
           "events": [
             {
               "type": "BuiltinCommonInstructions::JsCode",
-              "inlineCode": "/** @type {string[]} */\nconst choices = eventsFunctionContext.getArgument(\"NumbersChoiceString\").split(',');\neventsFunctionContext.returnValue = parseFloat(choices[Math.floor(Math.random() * choices.length)]);\n",
+              "inlineCode": [
+                "/** @type {string[]} */",
+                "const choices = eventsFunctionContext.getArgument(\"NumbersChoiceString\").split(',');",
+                "eventsFunctionContext.returnValue = parseFloat(choices[Math.floor(Math.random() * choices.length)]);",
+                ""
+              ],
               "parameterObjects": "",
               "useStrict": true,
               "eventsSheetExpanded": true

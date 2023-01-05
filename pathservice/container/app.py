@@ -1,5 +1,6 @@
 """ Path and Route services API """
 import os
+import uuid
 
 from dotenv import load_dotenv
 from fastapi import FastAPI
@@ -30,6 +31,18 @@ app.add_middleware(
 )
 
 # Input/Output data classes
+class Uuid(BaseModel):
+    """ uuid """
+    uuid: str = ""
+
+    class Config:
+        """ Example """
+        schema_extra = {
+            "example": {
+                "uuid": "c303282d-f2e6-46ca-a04a-35d3d873712d"
+            }
+        }
+
 class PathFinderEntry(BaseModel):
     """ Path query data """
     start_coordinates: tuple[float,float] = None
@@ -133,6 +146,14 @@ destinations['potato'] = []
 async def root():
     """ Basic status """
     return {"message": "Status:OK"}
+
+# UUID generation
+@app.get("/uuid", response_model = Uuid)
+async def generate_uuid():
+    """ UUID number """
+    response = Uuid()
+    response.uuid = str(uuid.uuid4())
+    return response
 
 # Pathfinder API
 @app.post("/pathfinder", response_model = PathFinderResult)
