@@ -9329,6 +9329,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
                   "actions": [
@@ -9413,6 +9414,7 @@
                       "comment2": ""
                     },
                     {
+                      "disabled": true,
                       "type": "BuiltinCommonInstructions::Standard",
                       "conditions": [],
                       "actions": [
@@ -10493,7 +10495,7 @@
                           },
                           "parameters": [
                             "VariableString(_configuration.classificationEndpoint) + \"/classify\"",
-                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"status\\\": \\\"\" + Wheat.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Wheat.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Wheat.VariableString(frame) + \"\\\"\n}\"",
+                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"status\\\": \\\"\" + Wheat.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Wheat.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Wheat.VariableString(frame) + \"\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid) + \"\\\"\n}\"",
                             "\"POST\"",
                             "\"application/json\"",
                             "_classificationResultJSon",
@@ -10807,6 +10809,7 @@
                   "comment2": ""
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [
                     {
@@ -10883,7 +10886,7 @@
                           },
                           "parameters": [
                             "VariableString(_configuration.classificationEndpoint) + \"/classify\"",
-                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Corn.X()) + \",\n  \" + ToString(Corn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\",\n  \\\"status\\\": \\\"\" + Corn.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Corn.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" +Corn.VariableString(frame) + \"\\\"\n}\"",
+                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Corn.X()) + \",\n  \" + ToString(Corn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\",\n  \\\"status\\\": \\\"\" + Corn.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Corn.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" +Corn.VariableString(frame) + \"\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid) + \"\\\"\n}\"",
                             "\"POST\"",
                             "\"application/json\"",
                             "_classificationResultJSon",
@@ -11311,7 +11314,7 @@
                           },
                           "parameters": [
                             "VariableString(_configuration.classificationEndpoint) + \"/classify\"",
-                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Potato.X()) + \",\n  \" + ToString(Potato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\",\n  \\\"status\\\": \\\"\" + Potato.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Potato.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Potato.VariableString(frame) + \"\\\"\n}\"",
+                            "\"{\n  \\\"coordinates\\\": [\" + ToString(Potato.X()) + \",\n  \" + ToString(Potato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\",\n  \\\"status\\\": \\\"\" + Potato.VariableString(status) + \"\\\",\n  \\\"disease\\\": \\\"\" + Potato.VariableString(disease) + \"\\\",\n  \\\"frame\\\": \\\"\" + Potato.VariableString(frame) + \"\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid) + \"\\\"\n}\"",
                             "\"POST\"",
                             "\"application/json\"",
                             "_classificationResultJSon",
@@ -12922,6 +12925,7 @@
                   ]
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::ForEach",
                   "object": "Corn",
                   "conditions": [
@@ -13315,6 +13319,7 @@
                   ]
                 },
                 {
+                  "folded": true,
                   "type": "BuiltinCommonInstructions::ForEach",
                   "object": "Potato",
                   "conditions": [
@@ -13671,6 +13676,7 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
+          "folded": true,
           "name": "Wheat Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -13689,6 +13695,7 @@
               "comment2": ""
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -13947,7 +13954,7 @@
                   },
                   "parameters": [
                     "VariableString(_configuration.pathserviceEndpoint) + \"/routefinder\"",
-                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorWheat.X()) + \",\n  \" + ToString(TractorWheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
+                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorWheat.X()) + \",\n  \" + ToString(TractorWheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid)+ \"\\\"\n}\"",
                     "\"POST\"",
                     "\"application/json\"",
                     "_routingResultWheatJSon",
@@ -14064,6 +14071,7 @@
               ]
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -14662,7 +14670,7 @@
                       },
                       "parameters": [
                         "VariableString(_configuration.pathserviceEndpoint) + \"/destination\"",
-                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\"\n}\"",
+                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Wheat.X()) + \",\n  \" + ToString(Wheat.Y()) + \"],\n  \\\"kind\\\": \\\"wheat\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid) + \"\\\"\n}\"",
                         "\"DELETE\"",
                         "\"application/json\"",
                         "_errorMessage",
@@ -15057,7 +15065,7 @@
                   },
                   "parameters": [
                     "VariableString(_configuration.pathserviceEndpoint) + \"/routefinder\"",
-                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorCorn.X()) + \",\n  \" + ToString(TractorCorn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\"\n}\"",
+                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorCorn.X()) + \",\n  \" + ToString(TractorCorn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid)+ \"\\\"\n}\"",
                     "\"POST\"",
                     "\"application/json\"",
                     "_routingResultCornJSon",
@@ -15695,6 +15703,7 @@
               "comment2": ""
             },
             {
+              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -15774,7 +15783,7 @@
                       },
                       "parameters": [
                         "VariableString(_configuration.pathserviceEndpoint) + \"/destination\"",
-                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Corn.X()) + \",\n  \" + ToString(Corn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\"\n}\"",
+                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Corn.X()) + \",\n  \" + ToString(Corn.Y()) + \"],\n  \\\"kind\\\": \\\"corn\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid) + \"\\\"\n}\"",
                         "\"DELETE\"",
                         "\"application/json\"",
                         "_errorMessage",
@@ -15891,7 +15900,6 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Potato Tractor Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -16168,7 +16176,7 @@
                   },
                   "parameters": [
                     "VariableString(_configuration.pathserviceEndpoint) + \"/routefinder\"",
-                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorPotato.X()) + \",\n  \" + ToString(TractorPotato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\"\n}\"",
+                    "\"{\n  \\\"start_coordinates\\\": [\" + ToString(TractorPotato.X()) + \",\n  \" + ToString(TractorPotato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid)+ \"\\\"\n}\"",
                     "\"POST\"",
                     "\"application/json\"",
                     "_routingResultPotatoJSon",
@@ -16885,7 +16893,7 @@
                       },
                       "parameters": [
                         "VariableString(_configuration.pathserviceEndpoint) + \"/destination\"",
-                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Potato.X()) + \",\n  \" + ToString(Potato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\"\n}\"",
+                        "\"{\n  \\\"coordinates\\\": [\" + ToString(Potato.X()) + \",\n  \" + ToString(Potato.Y()) + \"],\n  \\\"kind\\\": \\\"potato\\\",\n  \\\"uuid\\\": \\\"\" + VariableString(_uuid.uuid) + \"\\\"\n}\"",
                         "\"DELETE\"",
                         "\"application/json\"",
                         "_errorMessage",

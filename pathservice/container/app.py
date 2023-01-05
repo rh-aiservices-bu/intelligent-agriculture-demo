@@ -75,13 +75,15 @@ class RouteFinderEntry(BaseModel): # Tractor asks for full Route
     """ Route query data """
     kind: str = ""
     start_coordinates: tuple[float,float] = None
+    uuid: str = ""
 
     class Config:
         """ Example """
         schema_extra = {
             "example": {
                 "kind": "wheat",
-                "start_coordinates": (715,822)
+                "start_coordinates": (715,822),
+                "uuid": "c303282d-f2e6-46ca-a04a-35d3d873712d"
             }
         }
 
@@ -100,12 +102,14 @@ class RouteFinderResult(BaseModel):
 class DestinationsQuery(BaseModel):
     """ Destinations table query """
     kind: str = ""
+    uuid: str = ""
 
     class Config:
         """ Example """
         schema_extra = {
             "example": {
                 "kind": "wheat",
+                "uuid": "c303282d-f2e6-46ca-a04a-35d3d873712d"
             }
         }
 
@@ -125,21 +129,20 @@ class DestinationEntry(BaseModel):
     """ Additional destination entry """
     kind: str = ""
     coordinates: tuple[float,float] = None
+    uuid: str = ""
 
     class Config:
         """ Example """
         schema_extra = {
             "example": {
                 "kind": "wheat",
-                "coordinates": (10.0,22.1)
+                "coordinates": (10.0,22.1),
+                "uuid": "c303282d-f2e6-46ca-a04a-35d3d873712d"
             }
         }
 
-# Destination arrays
+# Initialize destinations dict
 destinations = dict()
-destinations['wheat'] = []
-destinations['corn'] = []
-destinations['potato'] = []
 
 # Base API
 @app.get("/")
@@ -147,12 +150,21 @@ async def root():
     """ Basic status """
     return {"message": "Status:OK"}
 
-# UUID generation
+# UUID generation and arrays initialization
 @app.get("/uuid", response_model = Uuid)
 async def generate_uuid():
     """ UUID number """
+    new_uuid = str(uuid.uuid4())
+
+    # Initialize destination for uuid per crop type
+    destinations[new_uuid] = dict()
+    destinations[new_uuid]['wheat'] = []
+    destinations[new_uuid]['corn'] = []
+    destinations[new_uuid]['potato'] = []
+
     response = Uuid()
-    response.uuid = str(uuid.uuid4())
+    response.uuid = new_uuid
+
     return response
 
 # Pathfinder API
@@ -183,10 +195,10 @@ async def pathfinder_api(entry: PathFinderEntry):
 async def routefinder(entry: RouteFinderEntry):
     """ Finds route going through all destinations """
     result = RouteFinderResult()
-    if(destinations[entry.kind]) != []:
+    if(destinations[entry.uuid][entry.kind]) != []:
         # destinations entries will be translated in the router module
         route = route_solver.routefinder(pathfinder_environment, \
-            entry.kind,destinations[entry.kind])
+            entry.kind,destinations[entry.uuid][entry.kind])
 
         # Path has already been translated back in the router module
         result.route = route
@@ -200,28 +212,28 @@ async def routefinder(entry: RouteFinderEntry):
 async def get_destinations(entry: DestinationsQuery):
     """ Returns destinations array for a kind of crop """
     response = DestinationsResult()
-    response.destinations = destinations[entry.kind]
+    response.destinations = destinations[entry.uuid][entry.kind]
     return response
 
 @app.delete("/alldestinations")
 async def delete_destinations(entry: DestinationsQuery):
     """ Reset destinations array for a kind of crop """
-    destinations[entry.kind] = []
+    destinations[entry.uuid][entry.kind] = []
     return destinations
 
 @app.put("/destination")
 async def add_destination_entry(entry: DestinationEntry):
     """ Adds a destination in the array """
-    destinations[entry.kind].append(entry.coordinates)
-    print(destinations[entry.kind])
+    destinations[entry.uuid][entry.kind].append(entry.coordinates)
+    print(destinations[entry.uuid][entry.kind])
     return True
 
 @app.delete("/destination")
 async def delete_destination_entry(entry: DestinationEntry):
     """ Removes a destination from an array """
     try:
-        destinations[entry.kind] = \
-            list(filter(lambda a: a != entry.coordinates, destinations[entry.kind]))
+        destinations[entry.uuid][entry.kind] = \
+            list(filter(lambda a: a != entry.coordinates, destinations[entry.uuid][entry.kind]))
     except ValueError():
         print("Destination is not in list")
 
