@@ -1540,6 +1540,15 @@
         "name": "assets/toggle_button.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/play.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets/play.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -1656,7 +1665,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.8819605743550692,
+        "zoomFactor": 0.5972000000000005,
         "windowMask": false
       },
       "objectsGroups": [
@@ -2928,6 +2937,21 @@
           "x": 499,
           "y": 884,
           "zOrder": 23,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "name": "PlayButton",
+          "persistentUuid": "4cb2b722-4a1f-4708-9a6d-158892c53a0e",
+          "width": 0,
+          "x": 51,
+          "y": 970,
+          "zOrder": 51,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -9563,6 +9587,53 @@
                     {
                       "hasCustomCollisionMask": false,
                       "image": "assets/toggle_button.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "PlayButton",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "CursorHover",
+              "type": "CursorType::CursorHover",
+              "cursor_type": "pointer"
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets/play.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
