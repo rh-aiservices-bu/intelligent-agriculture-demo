@@ -5,8 +5,40 @@ This demo aims at showcasing different technologies in an intelligent agricultur
 * AI model training and serving for disease recognition in crops
 * 5G slices for two way communications between IoT/Field "devices"
 * Edge computing at Telco location (MEC)
-* Path optimization
+* Path optimization using Optapy and a PathFinding algorithm
 * Automated model updates
+
+## Screenshots
+
+### Training the model
+
+![Model training](docs/img/training-1.png)
+
+![Model training](docs/img/training-2.png)
+
+### Path finding
+
+![Obstacles](docs/img/pathfinder_base.png)
+*Defining the obstacles*
+
+![Options](docs/img/pathfinder_options.png)
+*Finding options*
+
+![Obstacles](docs/img/pathfinder_optimal.png)
+*Optimal path*
+
+### Path optimization
+
+![Path optimization](docs/img/optapy.png)
+*Optimization with OptaPy*
+
+### Application
+
+![Path optimization](docs/img/crops_ill.png)
+*Some crops are ill*
+
+![Path optimization](docs/img/crops_healthy.png)
+*Everything healthy again*
 
 ## Architecture
 
