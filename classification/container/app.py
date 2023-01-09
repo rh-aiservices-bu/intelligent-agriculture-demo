@@ -38,6 +38,7 @@ class TileEntry(BaseModel):
     status: str = ""
     disease: str = ""
     frame: int = None
+    uuid: str = ""
 
 # Output data classes
 class TileStatus(BaseModel):
@@ -58,9 +59,9 @@ potato_early_blight = sorted(glob(os.path.join('./assets/pictures/potato_early_b
 potato_healthy = sorted(glob(os.path.join('./assets/pictures/potato_healthy/','*')))
 potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_blight/','*')))
 
-def add_path_entry(kind,coordinates):
+def add_path_entry(kind,coordinates,uuid):
     """ Calls the API to add a field to the array of places to visit """
-    data_json = {"kind": kind, "coordinates": coordinates}
+    data_json = {"kind": kind, "coordinates": coordinates, "uuid": uuid}
     resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json, timeout=5)
     print(resp.json())
 
@@ -110,7 +111,7 @@ async def classify(entry: TileEntry):
         result['status'] = 'healthy'
     else:
         result['status'] = 'ill'
-        add_path_entry(entry.kind, entry.coordinates)
+        add_path_entry(entry.kind, entry.coordinates,entry.uuid)
 
     response = TileStatus()
     response.status = result['status']

@@ -7,11 +7,11 @@
    viewBox="0 0 200 50"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="toggle_button.svg"
    inkscape:export-filename="../src/assets/toggle_button.png"
-   inkscape:export-xdpi="75.8402"
-   inkscape:export-ydpi="75.8402"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +29,8 @@
      showgrid="false"
      showguides="true"
      inkscape:zoom="4.2280779"
-     inkscape:cx="122.75081"
-     inkscape:cy="34.531057"
+     inkscape:cx="117.31099"
+     inkscape:cy="34.767571"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="0"
@@ -55,11 +55,11 @@
        id="path-effect3983"
        is_visible="true"
        lpeversion="1"
-       nodesatellites_param="F,0,0,1,0,15,0,1 @ F,0,0,1,0,15,0,1 @ F,0,0,1,0,15,0,1 @ F,0,0,1,0,15,0,1"
+       nodesatellites_param="F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1 @ F,0,0,1,0,8,0,1"
        unit="px"
        method="auto"
        mode="F"
-       radius="15"
+       radius="8"
        chamfer_steps="1"
        flexible="false"
        use_knot_distance="true"
@@ -71,27 +71,32 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Layer 2">
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:#828282;stroke-width:3.60808;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+     inkscape:label="Layer 2"
+     style="display:inline">
+    <path
+       style="fill:#429e6d;fill-opacity:1;stroke:#005910;stroke-width:2;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
        id="rect453"
-       width="196.39192"
-       height="46.391922"
-       x="1.80404"
-       y="1.80404"
+       width="197.99911"
+       height="47.999313"
+       x="1.0004466"
+       y="1.0004466"
        inkscape:path-effect="#path-effect3983"
-       d="m 16.80404,1.80404 h 166.39192 a 15,15 45 0 1 15,15 v 16.391922 a 15,15 135 0 1 -15,15 H 16.80404 a 15,15 45 0 1 -15,-15 V 16.80404 a 15,15 135 0 1 15,-15 z" />
+       d="M 9.0004466,1.0004466 H 190.99956 a 8,8 45 0 1 8,8 V 40.99976 a 8,8 135 0 1 -8,8 l -181.9991134,0 a 8,8 45 0 1 -8,-8 V 9.0004466 a 8,8 135 0 1 8,-8 z"
+       sodipodi:type="rect" />
   </g>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline"
+     sodipodi:insensitive="true">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
        x="26.113186"
        y="31.901051"
        id="text236"
+       inkscape:label="text236"
        sodipodi:insensitive="true"><tspan
          sodipodi:role="line"
          id="tspan234"
