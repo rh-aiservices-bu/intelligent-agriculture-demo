@@ -1,4 +1,5 @@
 *.h5
+*.onnx
 __pycache__/
 *.py[cod]
 *.autosave

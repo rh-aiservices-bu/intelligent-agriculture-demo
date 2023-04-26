@@ -5,6 +5,6 @@ file = {'file': open('healthy.jpg', 'rb')}
 resp = requests.post(url=url, files=file) 
 print(resp.json())
 
-file = {'file': open('unhealthy.jpeg', 'rb')}
+file = {'file': open('unhealthy.jpg', 'rb')}
 resp = requests.post(url=url, files=file) 
 print(resp.json())
