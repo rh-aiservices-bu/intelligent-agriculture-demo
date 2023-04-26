@@ -1,20 +1,20 @@
 """ Model serving API. Receives picture and sends back prediction. """
+import io
 import os
 import uuid
 
-from PIL import Image
-import io
+import numpy as np
 import requests
-
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from numpy import argmax, array
+from numpy import max as max_
+from PIL import Image
 from pydantic import BaseModel
-from numpy import argmax, array, max as max_
 from tensorflow import expand_dims
 from tensorflow.keras.utils import img_to_array, load_img
 from uvicorn import run
-import numpy as np
 
 # Load local env vars if present
 load_dotenv()
@@ -82,9 +82,7 @@ async def get_net_image_prediction(file: UploadFile = File(...)):
     img = Image.open(io.BytesIO(contents))
     img = img.convert('RGB')
     img = img.resize((200, 200), Image.NEAREST)
-    img_array = img_to_array(img)
-
-    #img_array = img_to_array(img) # Transform image to array
+    img_array = img_to_array(img) # Transform image to array
     img_array = expand_dims(img_array, 0) # Expand dimension as expected by inference point
 
     # json payload
