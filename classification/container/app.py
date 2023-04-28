@@ -90,7 +90,7 @@ def add_path_entry(kind,coordinates,uuid):
     """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates, "uuid": uuid}
     resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json, timeout=5)
-    print(resp.json())
+    print('Path entry added')
 
 # Base API
 @app.get("/")
