@@ -129,9 +129,9 @@ async def classify(entry: TileEntry):
         if entry.disease == "Potato___Late_Blight":
             picture_path = potato_late_blight[entry.frame]
 
-    file =  {'file': open(picture_path, 'rb')}
+    #file =  {'file': open(picture_path, 'rb')}
 
-    img = load_img(file, target_size=(200, 200))
+    img = load_img(picture_path, target_size=(200, 200))
     img_array = img_to_array(img) # Transform image to array
     img_array = expand_dims(img_array, 0) # Expand dimension as expected by inference point
 
@@ -160,8 +160,7 @@ async def classify(entry: TileEntry):
     class_prediction = class_predictions[argmax(arr)]
     score = max_(arr)
     model_score = round(score * 100, 2)
-
-    result = []
+    result = {}
     if entry.disease in ["Wheat___Healthy","Corn___Healthy","Potato___Healthy"]:
         result['status'] = 'healthy'
     else:

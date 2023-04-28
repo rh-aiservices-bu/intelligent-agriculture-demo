@@ -5,14 +5,13 @@ name = "pypi"
 
 [packages]
 extremitypathfinder = "~=2.4.1"
-fastapi = "~=0.80.0"
+fastapi = "~=0.95.1"
 optapy = "==8.23.0a0"
-pydantic = "~=1.9.2"
-python-dotenv = "~=0.21.0"
-uvicorn = "~=0.18.3"
+python-dotenv = "~=1.0.0"
+uvicorn = "~=0.20.0"
 
 [dev-packages]
-"watchdog[watchmedo]" = "~=2.1.9"
+"watchdog[watchmedo]" = "~=3.0.0"
 
 [requires]
 python_version = "3.9"
