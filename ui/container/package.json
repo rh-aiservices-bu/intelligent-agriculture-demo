@@ -1,0 +1,23 @@
+{
+  "name": "intelligent-agriculture-ui",
+  "version": "1.0.0",
+  "description": "Frontend for the Intelligent Agriculture demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rh-aiservices-bu/intelligent-agriculture-demo.git"
+  },
+  "author": "Guillaume Moutier",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/rh-aiservices-bu/intelligent-agriculture-demo/issues"
+  },
+  "homepage": "https://github.com/rh-aiservices-bu/intelligent-agriculture-demo#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}

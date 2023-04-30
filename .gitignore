@@ -8,3 +8,5 @@ build/
 *.code-workspace
 .venv/
 venv/
+node_modules/
+public/
