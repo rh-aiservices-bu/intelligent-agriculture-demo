@@ -10,6 +10,7 @@ import requests
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from numpy import argmax, array
 from numpy import max as max_
 from PIL import Image
@@ -20,8 +21,15 @@ from uvicorn import run
 
 # Load local env vars if present
 load_dotenv()
+# External services
 INFERENCE_ENDPOINT = os.getenv('INFERENCE_ENDPOINT', '')
-PATH_ENDPOINT = os.getenv('PATH_ENDPOINT')
+PATHSERVICE_ENDPOINT = os.getenv('PATHSERVICE_ENDPOINT', '')
+# Frontend configuration - (PATHSERVICE_ENDPOINT already initialized)
+CLASSIFICATION_ENDPOINT = os.environ.get('CLASSIFICATION_ENDPOINT', 'http://localhost:5002')
+DRONE_SPEED = float(os.environ.get('DRONE_SPEED', '0.5'))
+TRACTOR_SPEED = float(os.environ.get('TRACTOR_SPEED', '0.1'))
+COMM_SPEED = float(os.environ.get('COMM_SPEED', '1'))
+WEALTHY_CROP_INITIAL_PERCENTAGE = int(os.environ.get('WEALTHY_CROP_INITIAL_PERCENTAGE', '50'))
 
 # App creation
 app = FastAPI()
@@ -89,12 +97,12 @@ potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_bli
 def add_path_entry(kind,coordinates,uuid):
     """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates, "uuid": uuid}
-    resp = requests.put(url = PATH_ENDPOINT + 'destination', json=data_json, timeout=5)
+    resp = requests.put(url = PATHSERVICE_ENDPOINT + '/destination', json=data_json, timeout=5)
     print('Path entry added')
 
-# Base API
-@app.get("/")
-async def root():
+# Status API
+@app.get("/status")
+async def status():
     """ Simple status check """
     return {"message": "Status:OK"}
 
@@ -173,6 +181,25 @@ async def classify(entry: TileEntry):
     response.model_prediction_confidence_score = model_score
 
     return response
+
+# Frontend configuration
+@app.get("/config.json")
+async def status():
+    """ Returns the configuration to the frontend """
+    # Build the JSON object based on environment variables
+    config = {
+    'classificationEndpoint': CLASSIFICATION_ENDPOINT,
+    'pathserviceEndpoint': PATHSERVICE_ENDPOINT,
+    'droneSpeed': DRONE_SPEED,
+    'tractorSpeed': TRACTOR_SPEED,
+    'commSpeed': COMM_SPEED,
+    'wealthyCropInitialPercentage': WEALTHY_CROP_INITIAL_PERCENTAGE
+    }
+
+    return config
+
+# Frontend serving
+app.mount("/", StaticFiles(directory="public", html=True), name="public")
 
 # Launch the FastAPI server
 if __name__ == "__main__":

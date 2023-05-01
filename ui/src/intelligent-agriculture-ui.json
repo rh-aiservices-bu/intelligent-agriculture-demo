@@ -23,7 +23,7 @@
     "author": "",
     "windowWidth": 1920,
     "windowHeight": 1080,
-    "latestCompilationDirectory": "/home/gmoutier/Dev/repos/rh-aiservices-bu/intelligent-agriculture-demo/ui/container/public",
+    "latestCompilationDirectory": "/home/gmoutier/Dev/repos/rh-aiservices-bu/intelligent-agriculture-demo/classification/container/public",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -10411,6 +10411,14 @@
                     "\"linear\"",
                     "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
                     ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PlayButton"
                   ]
                 }
               ]
