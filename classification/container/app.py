@@ -75,12 +75,35 @@ class TileEntry(BaseModel):
     frame: int = None
     uuid: str = ""
 
+    class Config:
+        """ Example """
+        schema_extra = {
+            "example": {
+                "coordinates": (715,822),
+                "kind": "corn",
+                "status": "ill",
+                "disease": "Corn___Common_Rust",
+                "frame": 3,
+                "uuid": "c303282d-f2e6-46ca-a04a-35d3d873712d"
+            }
+        }
+
 # Output
 class TileStatus(BaseModel):
     """ Data sent back to the drone after model prediction """
     status: str = ""
     model_prediction: str = ""
     model_prediction_confidence_score: float = None
+
+    class Config:
+        """ Example """
+        schema_extra = {
+            "example": {
+                "status": "ill",
+                "model_prediction": "Corn___Common_Rust",
+                "model_prediction_confidence_score": 0.95
+            }
+        }
 
 # Initialize picture banks arrays with full relative path
 wheat_healthy = sorted(glob(os.path.join('./assets/pictures/wheat_healthy/','*')))
@@ -97,7 +120,7 @@ potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_bli
 def add_path_entry(kind,coordinates,uuid):
     """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates, "uuid": uuid}
-    resp = requests.put(url = PATHSERVICE_ENDPOINT + '/destination', json=data_json, timeout=5)
+    resp = requests.put(url = PATHSERVICE_ENDPOINT + '/destination', json=data_json, timeout=10)
     print('Path entry added')
 
 # Status API
@@ -185,7 +208,7 @@ async def classify(entry: TileEntry):
 # Frontend configuration
 @app.get("/config.json")
 async def status():
-    """ Returns the configuration to the frontend """
+    """ Returns the configuration needed by the frontend """
     # Build the JSON object based on environment variables
     config = {
     'classificationEndpoint': CLASSIFICATION_ENDPOINT,
