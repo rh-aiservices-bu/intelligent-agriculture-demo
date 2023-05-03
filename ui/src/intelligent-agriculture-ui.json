@@ -23,7 +23,7 @@
     "author": "",
     "windowWidth": 1920,
     "windowHeight": 1080,
-    "latestCompilationDirectory": "/home/gmoutier/Dev/repos/intelligent-agriculture-demo/build",
+    "latestCompilationDirectory": "/home/gmoutier/Dev/repos/rh-aiservices-bu/intelligent-agriculture-demo/classification/container/public",
     "maxFPS": 60,
     "minFPS": 20,
     "verticalSync": false,
@@ -32,7 +32,7 @@
       "backgroundColor": 0,
       "backgroundFadeInDuration": 0.2,
       "backgroundImageResourceName": "",
-      "gdevelopLogoStyle": "light",
+      "gdevelopLogoStyle": "light-colored",
       "logoAndProgressFadeInDuration": 0.2,
       "logoAndProgressLogoFadeInDelay": 0.2,
       "minDuration": 1.5,
@@ -44,7 +44,12 @@
       "showGDevelopSplash": true,
       "showProgressBar": true
     },
+    "watermark": {
+      "placement": "bottom-left",
+      "showWatermark": false
+    },
     "authorIds": [],
+    "authorUsernames": [],
     "categories": [],
     "playableDevices": [],
     "extensionProperties": [],
@@ -1665,7 +1670,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.5972000000000005,
+        "zoomFactor": 0.4734764644147673,
         "windowMask": false
       },
       "objectsGroups": [
@@ -2244,8 +2249,8 @@
           "name": "Wheat",
           "persistentUuid": "c8310fa8-9f07-427d-8fb0-192001946380",
           "width": 0,
-          "x": 91,
-          "y": 79,
+          "x": 218,
+          "y": 100,
           "zOrder": 4,
           "numberProperties": [
             {
@@ -2309,8 +2314,8 @@
           "name": "Wheat",
           "persistentUuid": "77a80e5c-1174-4997-9525-b0c8ad743174",
           "width": 0,
-          "x": 309,
-          "y": 105,
+          "x": 391,
+          "y": 88,
           "zOrder": 38,
           "numberProperties": [],
           "stringProperties": [],
@@ -9461,13 +9466,11 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
           "name": "Initialization",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
             {
-              "folded": true,
               "type": "BuiltinCommonInstructions::Standard",
               "conditions": [
                 {
@@ -9516,7 +9519,6 @@
                   "comment2": ""
                 },
                 {
-                  "folded": true,
                   "type": "BuiltinCommonInstructions::Standard",
                   "conditions": [],
                   "actions": [
@@ -10206,80 +10208,6 @@
                         "textG": 0,
                         "textR": 0
                       },
-                      "comment": "Drone movement start",
-                      "comment2": ""
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Standard",
-                      "conditions": [],
-                      "actions": [
-                        {
-                          "type": {
-                            "value": "ModVarScene"
-                          },
-                          "parameters": [
-                            "_dronePositionNumber",
-                            "=",
-                            "0"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ModVarScene"
-                          },
-                          "parameters": [
-                            "_dronePositionLegs",
-                            "=",
-                            "Drone.VariableChildCount(FixedPathPoints)"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ModVarScene"
-                          },
-                          "parameters": [
-                            "_droneDestinationX",
-                            "=",
-                            "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "ModVarScene"
-                          },
-                          "parameters": [
-                            "_droneDestinationY",
-                            "=",
-                            "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
-                          ]
-                        },
-                        {
-                          "type": {
-                            "value": "Tween::AddObjectPositionTween"
-                          },
-                          "parameters": [
-                            "Drone",
-                            "Tween",
-                            "\"FixedPathLeg\"",
-                            "Variable(_droneDestinationX)",
-                            "Variable(_droneDestinationY)",
-                            "\"linear\"",
-                            "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
-                            ""
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "BuiltinCommonInstructions::Comment",
-                      "color": {
-                        "b": 109,
-                        "g": 230,
-                        "r": 255,
-                        "textB": 0,
-                        "textG": 0,
-                        "textR": 0
-                      },
                       "comment": "Texts init",
                       "comment2": ""
                     },
@@ -10366,7 +10294,143 @@
           "colorG": 176,
           "colorR": 74,
           "creationTime": 0,
-          "folded": true,
+          "name": "Start",
+          "source": "",
+          "type": "BuiltinCommonInstructions::Group",
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Comment",
+              "color": {
+                "b": 109,
+                "g": 230,
+                "r": 255,
+                "textB": 0,
+                "textG": 0,
+                "textR": 0
+              },
+              "comment": "Drone movement start",
+              "comment2": ""
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "SourisSurObjet"
+                  },
+                  "parameters": [
+                    "PlayButton",
+                    "",
+                    "yes",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MouseButtonReleased"
+                  },
+                  "parameters": [
+                    "",
+                    "Left"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "=",
+                    "49",
+                    "=",
+                    "49"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_dronePositionNumber",
+                    "=",
+                    "-1"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_dronePositionLegs",
+                    "=",
+                    "Drone.VariableChildCount(FixedPathPoints)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_droneDestinationX",
+                    "=",
+                    "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_droneDestinationY",
+                    "=",
+                    "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Tween::AddObjectPositionTween"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\"",
+                    "Variable(_droneDestinationX)",
+                    "Variable(_droneDestinationY)",
+                    "\"linear\"",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Cache"
+                  },
+                  "parameters": [
+                    "PlayButton"
+                  ]
+                }
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "colorB": 228,
+          "colorG": 176,
+          "colorR": 74,
+          "creationTime": 0,
           "name": "Drone Movement",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
@@ -10587,7 +10651,6 @@
               "colorG": 176,
               "colorR": 74,
               "creationTime": 0,
-              "folded": true,
               "name": "Wheat Collision",
               "source": "",
               "type": "BuiltinCommonInstructions::Group",
