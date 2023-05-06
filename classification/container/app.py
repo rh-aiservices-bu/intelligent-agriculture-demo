@@ -20,7 +20,7 @@ from tensorflow.keras.utils import img_to_array, load_img
 from uvicorn import run
 
 # Load local env vars if present
-load_dotenv()
+load_dotenv(override=True)
 # External services
 INFERENCE_ENDPOINT = os.getenv('INFERENCE_ENDPOINT', '')
 PATHSERVICE_ENDPOINT = os.getenv('PATHSERVICE_ENDPOINT', '')
@@ -120,6 +120,7 @@ potato_late_blight = sorted(glob(os.path.join('./assets/pictures/potato_late_bli
 def add_path_entry(kind,coordinates,uuid):
     """ Calls the API to add a field to the array of places to visit """
     data_json = {"kind": kind, "coordinates": coordinates, "uuid": uuid}
+    print(PATHSERVICE_ENDPOINT + '/destination')
     resp = requests.put(url = PATHSERVICE_ENDPOINT + '/destination', json=data_json, timeout=10)
     print('Path entry added')
 
