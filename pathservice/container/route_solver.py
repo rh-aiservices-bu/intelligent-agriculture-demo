@@ -1,17 +1,20 @@
 """ Route solving module, using OptaPlanner """
 from itertools import groupby
 
+import optapy
+optapy.init('-Xms256m','-Xmx512m')
+
+import map_definition
 import optapy.config
+import pathfinder
+from java.lang import System
 from optapy import (constraint_provider, planning_entity,
                     planning_entity_collection_property,
                     planning_list_variable, planning_score, planning_solution,
                     problem_fact, problem_fact_collection_property,
-                    solver_manager_create, value_range_provider)
+                    solver_factory_create, value_range_provider)
 from optapy.score import HardMediumSoftScore
 from optapy.types import Duration
-
-import map_definition
-import pathfinder
 from pathfinder import calculate_path as pf_cp
 from pathfinder import translate_coordinates as pf_tc
 
@@ -21,6 +24,7 @@ from pathfinder import translate_coordinates as pf_tc
 # the problem facts are the locations a tractor can visit, the barns,
 # and the fields to visit.
 
+@problem_fact
 class Location:
     """ Location coordinates, as well as the distances from every other locations """
     def __init__(self, x, y, distance_map=None):
@@ -46,7 +50,7 @@ class Location:
     def __str__(self):
         return f'[{self.x}, {self.y}]'
 
-
+@problem_fact
 class DistanceCalculator:
     """ Compute and initialize distance maps """
     def __init__(self):
@@ -68,6 +72,7 @@ class DistanceCalculator:
                     self.calculate_distance(environment,location, other_location)
             location.set_distance_map(distance_map)
 
+@problem_fact
 class Barn:
     """ Start/stop locations of the tractors """
     def __init__(self, name, location, kind):
@@ -239,6 +244,14 @@ class TractorRoutingSolution:
         """ Self explanatory """
         return self.field_list
 
+    @problem_fact_collection_property(Location)
+    def get_location_list(self):
+        return self.location_list
+    
+    @problem_fact_collection_property(Barn)
+    def get_barn_list(self):
+        return self.barn_list
+
     @planning_score(HardMediumSoftScore)
     def get_score(self):
         """ Self explanatory """
@@ -295,7 +308,6 @@ def routefinder(environment,kind,destinations):
          field_list, south_west_corner, north_east_corner)
 
     # Solve the problem
-
     singleton_id = 1
     termination_config = optapy.config.solver.termination.TerminationConfig()
     # Stop after 4 seconds with no score improvement
@@ -310,15 +322,12 @@ def routefinder(environment,kind,destinations):
         .withConstraintProviderClass(tractor_routing_constraints) \
         .withTerminationConfig(termination_config)
 
-    solver_manager = solver_manager_create(solver_config)
-
-    best_solution = solver_manager.solve(singleton_id, lambda _: problem)
-
-    final_solution = best_solution.getFinalBestSolution()
+    solver = solver_factory_create(solver_config).buildSolver()
+    solution = solver.solve(problem)
 
     verts=dict()
 
-    for tractor in final_solution.tractor_list:
+    for tractor in solution.tractor_list:
         verts[tractor.name] = []
         # We start from the barn
         verts[tractor.name].append((tractor.barn.location.x,tractor.barn.location.y))

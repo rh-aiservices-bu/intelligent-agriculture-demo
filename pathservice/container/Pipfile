@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 extremitypathfinder = "~=2.4.1"
 fastapi = "~=0.95.1"
-optapy = "==8.23.0a0"
+optapy = "==8.31.1b0"
 python-dotenv = "~=1.0.0"
 uvicorn = "~=0.20.0"
 

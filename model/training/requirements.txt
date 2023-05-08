@@ -4,3 +4,4 @@ pandas~=1.5.3
 scikit-learn~=1.2.2
 matplotlib~=3.6.3
 seaborn~=0.12.2
+extremitypathfinder==2.4.1

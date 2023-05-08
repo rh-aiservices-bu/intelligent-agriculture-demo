@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "46574c8179e56d7c2ba9131d29e152b30454e21d39b91161e52c022d57e7028a"
+            "sha256": "acd3e1653f105bc0057504a51121c7f5e0a77e54548863244b05e304a3a52ed2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -135,11 +135,11 @@
         },
         "optapy": {
             "hashes": [
-                "sha256:426745106fcb6c3e43c05c203e881ba9a5c73160dd6ab9accab856a3388b054c",
-                "sha256:e54fcbb8e0aea1c067e2bff43c77f7a1a82d637a57506f7ffd320b4e187e10ee"
+                "sha256:41dd437db2a050a35c9b633e6e08845039799c16ffe35eddb9af3db72c483681",
+                "sha256:6b0f57e51bc9a96e273b45b1304fc37c67acdebbcfd4ba0f55eacf6499dce9cf"
             ],
             "index": "pypi",
-            "version": "==8.23.0a0"
+            "version": "==8.31.1b0"
         },
         "packaging": {
             "hashes": [

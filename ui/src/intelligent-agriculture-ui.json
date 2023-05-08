@@ -1670,7 +1670,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.4734764644147673,
+        "zoomFactor": 0.4734764644147674,
         "windowMask": false
       },
       "objectsGroups": [
@@ -10365,7 +10365,7 @@
                   "parameters": [
                     "_dronePositionNumber",
                     "=",
-                    "-1"
+                    "0"
                   ]
                 },
                 {
@@ -10415,10 +10415,11 @@
                 },
                 {
                   "type": {
-                    "value": "Cache"
+                    "value": "Delete"
                   },
                   "parameters": [
-                    "PlayButton"
+                    "PlayButton",
+                    ""
                   ]
                 }
               ]
@@ -10453,30 +10454,12 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "BuiltinCommonInstructions::Or"
+                    "value": "Tween::HasFinished"
                   },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "Tween::HasFinished"
-                      },
-                      "parameters": [
-                        "Drone",
-                        "Tween",
-                        "\"FixedPathLeg\""
-                      ]
-                    },
-                    {
-                      "type": {
-                        "value": "Tween::HasFinished"
-                      },
-                      "parameters": [
-                        "Drone",
-                        "Tween",
-                        "\"BackToStart\""
-                      ]
-                    }
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\""
                   ]
                 }
               ],
@@ -10489,16 +10472,6 @@
                     "Drone",
                     "Tween",
                     "\"FixedPathLeg\""
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "Tween::RemoveTween"
-                  },
-                  "parameters": [
-                    "Drone",
-                    "Tween",
-                    "\"BackToStart\""
                   ]
                 },
                 {
@@ -10591,16 +10564,6 @@
                     "value": "ModVarScene"
                   },
                   "parameters": [
-                    "_dronePositionNumber",
-                    "=",
-                    "-1"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "ModVarScene"
-                  },
-                  "parameters": [
                     "_droneDestinationY",
                     "=",
                     "49"
@@ -10624,6 +10587,100 @@
                     "Drone",
                     "Tween",
                     "\"BackToStart\"",
+                    "Variable(_droneDestinationX)",
+                    "Variable(_droneDestinationY)",
+                    "\"linear\"",
+                    "DistanceBetweenPositions(Variable(_droneDestinationX),Variable(_droneDestinationY),Drone.X(),Drone.Y()) / Variable(_configuration.droneSpeed)",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "Tween::HasFinished"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"BackToStart\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Tween::RemoveTween"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"BackToStart\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "MettreXY"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "=",
+                    "49",
+                    "=",
+                    "49"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_dronePositionNumber",
+                    "=",
+                    "0"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_dronePositionLegs",
+                    "=",
+                    "Drone.VariableChildCount(FixedPathPoints)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_droneDestinationX",
+                    "=",
+                    "Drone.X() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].X)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "ModVarScene"
+                  },
+                  "parameters": [
+                    "_droneDestinationY",
+                    "=",
+                    "Drone.Y() + Drone.Variable(FixedPathPoints[Variable(_dronePositionNumber)].Y)"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Tween::AddObjectPositionTween"
+                  },
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\"",
                     "Variable(_droneDestinationX)",
                     "Variable(_droneDestinationY)",
                     "\"linear\"",
