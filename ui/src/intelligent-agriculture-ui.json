@@ -10454,20 +10454,12 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "BuiltinCommonInstructions::Or"
+                    "value": "Tween::HasFinished"
                   },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "Tween::HasFinished"
-                      },
-                      "parameters": [
-                        "Drone",
-                        "Tween",
-                        "\"FixedPathLeg\""
-                      ]
-                    }
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"FixedPathLeg\""
                   ]
                 }
               ],
@@ -10609,20 +10601,12 @@
               "conditions": [
                 {
                   "type": {
-                    "value": "BuiltinCommonInstructions::Or"
+                    "value": "Tween::HasFinished"
                   },
-                  "parameters": [],
-                  "subInstructions": [
-                    {
-                      "type": {
-                        "value": "Tween::HasFinished"
-                      },
-                      "parameters": [
-                        "Drone",
-                        "Tween",
-                        "\"BackToStart\""
-                      ]
-                    }
+                  "parameters": [
+                    "Drone",
+                    "Tween",
+                    "\"BackToStart\""
                   ]
                 }
               ],
