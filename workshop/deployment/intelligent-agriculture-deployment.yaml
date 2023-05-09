@@ -30,9 +30,9 @@ spec:
             - name: INFERENCE_ENDPOINT
               value: 'http://modelmesh-serving:8008/v2/models/crops/infer'
             - name: PATHSERVICE_ENDPOINT
-              value: 'http://ia-pathservice:5000'
+              value: 'http://replace_me'
             - name: CLASSIFICATION_ENDPOINT
-              value: 'http://ia-classification:5000'
+              value: 'http://replace_me'
             - name: DRONE_SPEED
               value: '0.35'
             - name: TRACTOR_SPEED
